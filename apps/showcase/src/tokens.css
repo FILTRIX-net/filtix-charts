@@ -1,0 +1,31 @@
+:root {
+  color-scheme: dark;
+  --page: #101316;
+  --surface: #14181c;
+  --selected: #1a2023;
+  --text: #e5e9e7;
+  --muted: #929c9d;
+  --faint: #727d80;
+  --border: #2a3135;
+  --accent: #c7ee92;
+  --accent-soft: #c7ee9211;
+  --up: #6ad5a0;
+  --down: #ed858c;
+  --watermark: #e5e9e710;
+  --mono: 'Cascadia Code', 'Cascadia Mono', 'Consolas', monospace;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --page: #eef1ed;
+  --surface: #fbfcf9;
+  --selected: #e9efe5;
+  --text: #26302c;
+  --muted: #596760;
+  --faint: #738077;
+  --border: #d7dfd6;
+  --accent: #52742d;
+  --accent-soft: #52742d11;
+  --up: #207b51;
+  --down: #ba4f5b;
+  --watermark: #26302c12;
+}

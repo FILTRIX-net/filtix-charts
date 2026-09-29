@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101316" />
+    <title>FILTIX Charts — Live market | FILTIX.net</title>
+    <meta
+      name="description"
+      content="FILTIX Charts by FILTIX.net. Customizable financial charts, studies, drawings and market workspaces."
+    />
+    <link rel="icon" type="image/svg+xml" href="/brand/filtix-mark.svg" />
+  </head>
+  <body>
+    <div class="market-shell">
+      <header class="market-masthead">
+        <a class="filtix-brand" href="/" aria-label="FILTIX Charts by FILTIX.net — home">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
+          </svg>
+          <span class="filtix-brand-copy"
+            ><span class="filtix-brand-title"><strong>FILTIX</strong><small>CHARTS</small></span
+            ><span class="filtix-brand-by">by FILTIX.net</span></span
+          >
+        </a>
+        <nav aria-label="Chart workspace">
+          <a href="/">Studio</a><a class="selected" href="/market.html" aria-current="page">Live market</a
+          ><a href="/drawings.html">Study</a><a href="/analysis.html">Analysis</a
+          ><a href="/benchmark.html">Benchmarks ↗</a>
+        </nav>
+        <div class="market-heading-actions">
+          <span class="release-chip">v__FILTIX_VERSION__</span
+          ><button id="market-theme" aria-label="Switch to light theme" title="Switch theme">☼</button>
+        </div>
+      </header>
+      <main>
+        <div class="market-intro">
+          <div>
+            <p class="market-eyebrow">CONNECTED TO THE MARKET</p>
+            <h1>Price in motion<span>.</span></h1>
+          </div>
+          <p class="market-intro-note">
+            Real candles. Your perspective.<br /><span>Public spot market data · UTC · 24/7</span>
+          </p>
+        </div>
+        <section class="market-workspace" aria-label="Live market workspace">
+          <div class="market-toolbar">
+            <div class="market-select">
+              <label for="market-symbol">Instrument</label
+              ><select id="market-symbol">
+                <option value="BTCUSDT">BTC / USDT</option>
+                <option value="ETHUSDT">ETH / USDT</option>
+                <option value="SOLUSDT">SOL / USDT</option>
+              </select>
+            </div>
+            <div class="market-select">
+              <label for="market-interval">Interval</label
+              ><select id="market-interval">
+                <option value="1m">1 minute</option>
+                <option value="5m">5 minutes</option>
+                <option value="15m">15 minutes</option>
+                <option value="1h">1 hour</option>
+                <option value="4h">4 hours</option>
+                <option value="1d">1 day</option>
+              </select>
+            </div>
+            <span class="market-toolbar-rule"></span><button id="market-latest">Latest ↗</button
+            ><button id="market-fit">Fit history</button><button id="market-history">Load older</button
+            ><button id="market-export" class="market-export">Export PNG ↓</button>
+          </div>
+          <div class="market-body">
+            <section class="market-terminal" aria-label="Price and volume chart">
+              <header class="market-instrument">
+                <div>
+                  <div class="market-instrument-name">
+                    <span id="market-symbol-mark" class="market-symbol-mark">₿</span>
+                    <h2 id="market-title">Bitcoin</h2>
+                    <span class="market-asset">SPOT</span>
+                  </div>
+                  <p id="market-source">Binance Spot · BTCUSDT</p>
+                </div>
+                <div class="market-price-block"><strong id="market-price">—</strong><span>USDT</span></div>
+              </header>
+              <div class="market-legend" aria-label="Candle values">
+                <span id="market-candle-time">Waiting for history</span
+                ><span>O <b id="market-open">—</b></span
+                ><span>H <b id="market-high">—</b></span
+                ><span>L <b id="market-low">—</b></span
+                ><span>C <b id="market-close">—</b></span
+                ><span>VOL <b id="market-volume">—</b></span>
+              </div>
+              <div class="market-chart-stage">
+                <div id="market-chart"></div>
+                <div id="market-empty" class="market-empty">
+                  <span class="market-loader"></span><strong>Connecting to the market</strong>
+                  <p>Loading public Binance Spot candles</p>
+                </div>
+              </div>
+              <footer class="market-chart-footer">
+                <span>Drag to explore · Scroll to zoom</span><span id="market-bars">0 candles</span
+                ><span>UTC</span>
+              </footer>
+            </section>
+            <aside class="market-sidebar" aria-label="Market connection">
+              <div class="market-sidebar-title">
+                <span>CONNECTION</span><span class="market-sidebar-icon">↗</span>
+              </div>
+              <div id="market-connection" class="market-connection" data-status="loading">
+                <i></i><strong id="market-status" role="status" aria-live="polite">Loading</strong>
+              </div>
+              <p id="market-status-detail" class="market-status-detail">
+                History and stream are synchronizing.
+              </p>
+              <dl class="market-facts">
+                <div>
+                  <dt>Source</dt>
+                  <dd>Binance Spot</dd>
+                </div>
+                <div>
+                  <dt>Session</dt>
+                  <dd>24 / 7</dd>
+                </div>
+                <div>
+                  <dt>Time zone</dt>
+                  <dd>UTC</dd>
+                </div>
+                <div>
+                  <dt>Last data receipt</dt>
+                  <dd id="market-received">—</dd>
+                </div>
+                <div>
+                  <dt>Oldest loaded</dt>
+                  <dd id="market-oldest">—</dd>
+                </div>
+              </dl>
+              <button id="market-retry" class="market-retry">Reload & reconnect ↻</button>
+              <p id="market-error" class="market-error" role="alert" hidden></p>
+              <div class="market-note">
+                <span>HISTORY THAT FOLLOWS YOU</span>
+                <p>
+                  Explore earlier candles. More history loads near the left edge while your view stays in
+                  place.
+                </p>
+              </div>
+              <a class="market-studio-link" href="/">Customize in the studio <span>↗</span></a>
+              <p class="market-fineprint">
+                The studio uses synthetic fixtures. This screen displays public market data from Binance Spot.
+              </p>
+            </aside>
+          </div>
+        </section>
+        <footer class="market-page-footer">
+          <span
+            >FILTIX Charts
+            <a
+              class="filtix-attribution"
+              href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=market"
+              target="_blank"
+              rel="noopener noreferrer"
+              >by FILTIX.net · Explore ↗</a
+            ></span
+          ><span>Original engine. Independent data layer.</span>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/market.ts"></script>
+  </body>
+</html>

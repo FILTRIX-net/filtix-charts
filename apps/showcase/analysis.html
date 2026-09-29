@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101316" />
+    <title>FILTIX Charts — Analysis | FILTIX.net</title>
+    <meta
+      name="description"
+      content="FILTIX Charts by FILTIX.net. Customizable financial charts, studies, drawings and market workspaces."
+    />
+    <link rel="icon" type="image/svg+xml" href="/brand/filtix-mark.svg" />
+  </head>
+  <body>
+    <div class="market-shell analysis-shell">
+      <header class="market-masthead">
+        <a class="filtix-brand" href="/" aria-label="FILTIX Charts by FILTIX.net — home">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
+          </svg>
+          <span class="filtix-brand-copy"
+            ><span class="filtix-brand-title"><strong>FILTIX</strong><small>CHARTS</small></span
+            ><span class="filtix-brand-by">by FILTIX.net</span></span
+          >
+        </a>
+        <nav aria-label="Chart workspace">
+          <a href="/">Studio</a><a href="/market.html">Live market</a><a href="/drawings.html">Study</a
+          ><a class="selected" aria-current="page" href="/analysis.html">Analysis</a
+          ><a href="/benchmark.html">Benchmarks ↗</a>
+        </nav>
+        <div class="market-heading-actions">
+          <span class="release-chip">v__FILTIX_VERSION__</span
+          ><button id="analysis-theme" aria-label="Switch to light theme" title="Switch theme">☼</button>
+        </div>
+      </header>
+      <main>
+        <div class="market-intro">
+          <div>
+            <p class="market-eyebrow">SEE THE RELATIONSHIP. REPLAY THE MOMENT.</p>
+            <h1 id="analysis-title">History. On your terms.</h1>
+          </div>
+          <p class="market-intro-note">
+            Three assets. One timeline.<br /><span>Historical replay · Synthetic sample · UTC</span>
+          </p>
+        </div>
+        <section class="analysis-workspace" aria-label="Synchronized historical analysis">
+          <div class="analysis-controls">
+            <div class="analysis-player">
+              <button id="analysis-play" class="analysis-primary">▶ Play</button
+              ><button id="analysis-step" title="Reveal the next complete bar">Next bar →</button
+              ><button id="analysis-reset" title="Return to the beginning">↶ Reset</button
+              ><label class="analysis-speed"
+                >Speed<select id="analysis-speed" aria-label="Replay speed">
+                  <option value="0.25">0.25 bars/s</option>
+                  <option value="1">1 bar/s</option>
+                  <option value="4" selected>4 bars/s</option>
+                  <option value="16">16 bars/s</option>
+                  <option value="64">64 bars/s</option>
+                </select></label
+              >
+            </div>
+            <div class="analysis-settings">
+              <label><input type="checkbox" id="analysis-sync" checked />Link views</label
+              ><label><input type="checkbox" id="analysis-follow" checked />Follow latest</label>
+            </div>
+            <div class="analysis-files">
+              <button id="analysis-save">Save workspace</button><button id="analysis-load">Load</button>
+            </div>
+          </div>
+          <div class="analysis-timeline">
+            <div class="analysis-clock">
+              <span class="analysis-status-dot"></span><strong id="analysis-status">Paused</strong
+              ><span id="analysis-time">—</span>
+            </div>
+            <label class="analysis-scrubber"
+              ><span class="sr-only">Revealed bars</span
+              ><input
+                id="analysis-seek"
+                type="range"
+                min="0"
+                max="720"
+                value="120"
+                step="1"
+                aria-label="Revealed bars"
+            /></label>
+            <div class="analysis-progress">
+              <b id="analysis-position">0</b><span>/ 720</span><small>REVEALED</small>
+            </div>
+          </div>
+          <div class="analysis-price-grid">
+            <section class="analysis-panel" aria-label="Bitcoin price history">
+              <div class="analysis-panel-heading">
+                <div>
+                  <p class="analysis-kicker">01 / MASTER TIMELINE</p>
+                  <h2><span class="analysis-asset btc">₿</span>Bitcoin<small>BTC / USD</small></h2>
+                </div>
+                <div class="analysis-quote">
+                  <strong id="analysis-btc-price">—</strong><span id="analysis-btc-time">—</span>
+                </div>
+              </div>
+              <div class="analysis-chart-key">
+                <span><i class="key-candle"></i>Hourly candles</span><span><i class="key-ema"></i>EMA 20</span
+                ><span>Volume below</span>
+              </div>
+              <div id="analysis-btc-chart" class="analysis-price-chart"></div>
+            </section>
+            <section class="analysis-panel" aria-label="Ethereum price history">
+              <div class="analysis-panel-heading">
+                <div>
+                  <p class="analysis-kicker">02 / LINKED VIEW</p>
+                  <h2><span class="analysis-asset eth">◇</span>Ethereum<small>ETH / USD</small></h2>
+                </div>
+                <div class="analysis-quote">
+                  <strong id="analysis-eth-price">—</strong><span id="analysis-eth-time">—</span>
+                </div>
+              </div>
+              <div class="analysis-chart-key">
+                <span><i class="key-eth"></i>Hourly candles</span><span>Sample includes missing hours</span>
+              </div>
+              <div id="analysis-eth-chart" class="analysis-price-chart"></div>
+            </section>
+          </div>
+          <section class="analysis-comparison" aria-label="Indexed asset comparison">
+            <div class="analysis-comparison-heading">
+              <div>
+                <p class="analysis-kicker">03 / A COMMON STARTING POINT</p>
+                <h2>Performance in perspective<span>.</span></h2>
+                <p id="analysis-base">Reveal history to establish a common baseline.</p>
+              </div>
+              <div class="analysis-comparison-legend">
+                <div><i class="key-btc"></i><span>BTC</span><b id="analysis-btc-index">—</b></div>
+                <div><i class="key-eth"></i><span>ETH</span><b id="analysis-eth-index">—</b></div>
+                <div><i class="key-sol"></i><span>SOL</span><b id="analysis-sol-index">—</b></div>
+              </div>
+            </div>
+            <div id="analysis-comparison-chart"></div>
+          </section>
+          <div class="analysis-notes">
+            <p>
+              <b>Read time together.</b> Pan or zoom either chart to link the visible dates. Hover to inspect
+              the same moment; missing bars stay missing.
+            </p>
+            <p>
+              <b>Reveal, then compare.</b> Replay opens complete hourly bars. Every chart and indicator uses
+              revealed history. No simulated trades.
+            </p>
+          </div>
+          <p id="analysis-error" class="analysis-error" role="alert" hidden></p>
+          <div class="analysis-bottom">
+            <span id="analysis-message" role="status" aria-live="polite"
+              >Ready to explore. Playback is paused.</span
+            ><span>LOCAL WORKSPACE · SYNTHETIC HISTORY</span>
+          </div>
+        </section>
+      </main>
+      <footer class="market-page-footer">
+        <span
+          >FILTIX Charts
+          <a
+            class="filtix-attribution"
+            href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=analysis"
+            target="_blank"
+            rel="noopener noreferrer"
+            >by FILTIX.net · Explore ↗</a
+          ></span
+        ><span>Your data. Your tools. Your perspective.</span>
+      </footer>
+    </div>
+    <script type="module" src="/src/analysis.ts"></script>
+  </body>
+</html>

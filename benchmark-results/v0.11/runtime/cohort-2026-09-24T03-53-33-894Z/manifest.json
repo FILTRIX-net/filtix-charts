@@ -1,0 +1,381 @@
+{
+  "recordedAt": "2026-09-24T03:53:33.895Z",
+  "result": "pass",
+  "stage": "v0.11",
+  "version": "0.11.0",
+  "sourceCommit": "e028bc8c121f76e249092e4500cb344c803cdd26",
+  "files": [
+    {
+      "original": "benchmark-results/v0.11/consumer-install.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/000-consumer-install.json",
+      "bytes": 41462,
+      "sha256": "14d48d81d3f2a8fdb860dde2fa2e846c2c32ddb5bda7f0579aeac935680716e8"
+    },
+    {
+      "original": "benchmark-results/v0.11/consumer-install-2026-09-24T03-53-13-896Z.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/001-consumer-install-2026-09-24T03-53-13-896Z.json",
+      "bytes": 41462,
+      "sha256": "14d48d81d3f2a8fdb860dde2fa2e846c2c32ddb5bda7f0579aeac935680716e8"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/alerts-test-DFsx9Ppt.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/002-alerts-test-DFsx9Ppt.js",
+      "bytes": 5524,
+      "sha256": "bfd182f511f3c58fc59763463629abb20e670c71038ceaa78be7fb177cd3b91c"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/drawing-tools-test-C4o9q8vF.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/003-drawing-tools-test-C4o9q8vF.js",
+      "bytes": 20407,
+      "sha256": "b0d72da6c423edd893bb1c2c2faaf6a52b92f7e7a40d128d6558c95d3159e908"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/grid-test-q1y0Uz36.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/004-grid-test-q1y0Uz36.js",
+      "bytes": 30093,
+      "sha256": "3b9ac582607821960056432b285a1ab678d3355aad05075b12a7e010cac605db"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/index-CH2pueGd.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/005-index-CH2pueGd.js",
+      "bytes": 294238,
+      "sha256": "eed86ff84ec5b44963339ba99490b6f4814cd4564038518e2e12c67b9fe9986c"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/main-DVqzLsIs.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/006-main-DVqzLsIs.js",
+      "bytes": 205057,
+      "sha256": "6989feaedb7c3e670dbbf2a5c3858ba3eb05dd09ca16b69d4ea52b544da285d4"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/main-DdcHeRWf.css",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/007-main-DdcHeRWf.css",
+      "bytes": 3485,
+      "sha256": "2727b81f078f01fe07e99591c20541d661652da7894edaa441f8be244e48b634"
+    },
+    {
+      "original": "examples/react-terminal/dist/assets/studiesTest-CH-5r6Qi.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/008-studiesTest-CH-5r6Qi.js",
+      "bytes": 4256,
+      "sha256": "04c5cdfe96112d895553e5ed93b5375977b665b4a7beab454bc15171a98ce717"
+    },
+    {
+      "original": "examples/react-terminal/dist/index.html",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/009-index.html",
+      "bytes": 572,
+      "sha256": "6b784b114aa89bbd12bce912c4b9e573819dbec8ed78f31160e763fc933a0ab7"
+    },
+    {
+      "original": "examples/react-terminal/dist/studies-test.html",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/010-studies-test.html",
+      "bytes": 503,
+      "sha256": "2aec9a4d15a79b378edd30ce7061ab5893bad004856ea46407d78f9c6711c656"
+    },
+    {
+      "original": "dist/packages/filtix-alerts-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/011-filtix-alerts-0.11.0.tgz",
+      "bytes": 28643,
+      "sha256": "e694a585d88845c28c76bae42e94667a25eb59841408c0f25b5e744e419a2f40"
+    },
+    {
+      "original": "packages/alerts/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/012-index.js",
+      "bytes": 18646,
+      "sha256": "87c39ef03191c497b2eb4fa9a699eb8823259e59958ebdbc4a24315839b78011"
+    },
+    {
+      "original": "packages/alerts/dist/internal.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/013-internal.js",
+      "bytes": 206,
+      "sha256": "711fb9f03bc85a620ad1af8c2418b75980b6d1a8367418c09397c22e05b590a9"
+    },
+    {
+      "original": "packages/alerts/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/014-package.json",
+      "bytes": 520,
+      "sha256": "bc8efc8d0d63128117ccd7f4483320306f9ecc8a2d69e1fdd03aecca423e981d"
+    },
+    {
+      "original": "packages/alerts/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/015-index.js.map",
+      "bytes": 81610,
+      "sha256": "9438ec0093e791505cedfd74796f446e1743cf33282a3c045cb10cd5302c8eae"
+    },
+    {
+      "original": "packages/alerts/dist/internal.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/016-internal.js.map",
+      "bytes": 288,
+      "sha256": "0bd267427b36bcd3203a5d5d6e0e10349052dde903f6a20e1f5ed16facb77586"
+    },
+    {
+      "original": "packages/alerts/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/017-index.d.ts",
+      "bytes": 5492,
+      "sha256": "772daec054fa60b6f6ef76ad896bb662810a7fb7fbbe9f536197d24e7700dd69"
+    },
+    {
+      "original": "packages/alerts/dist/internal.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/018-internal.d.ts",
+      "bytes": 328,
+      "sha256": "2ec5ec94c900047c86830fe4d4c9ecc3f7aa22e6c8e1b76ed0c05ee03fc899e3"
+    },
+    {
+      "original": "dist/packages/filtix-analysis-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/019-filtix-analysis-0.11.0.tgz",
+      "bytes": 36313,
+      "sha256": "1935a0412003cd09d0c295538403135637ad45f048cb27e89ea03f9024012d55"
+    },
+    {
+      "original": "packages/analysis/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/020-index.js",
+      "bytes": 25443,
+      "sha256": "f00bb2caff38b77a09936d1f08004579450fce6a4bc2df436102ec5e95b55fa3"
+    },
+    {
+      "original": "packages/analysis/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/021-package.json",
+      "bytes": 417,
+      "sha256": "fb8152d87e17ae992b1871d17e61820d66044edec158932d32cf82b5307deca7"
+    },
+    {
+      "original": "packages/analysis/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/022-index.js.map",
+      "bytes": 107694,
+      "sha256": "7bc53c6ae3a5dc52972bf646844c3ab9a9be4e161c2ff21b6ee8297e4f900a65"
+    },
+    {
+      "original": "packages/analysis/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/023-index.d.ts",
+      "bytes": 2170,
+      "sha256": "8cf609b2dc9c868c7154061ae1f141aa59c3d757d086be0720ad3ff645cc1a42"
+    },
+    {
+      "original": "dist/packages/filtix-charts-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/024-filtix-charts-0.11.0.tgz",
+      "bytes": 96172,
+      "sha256": "eb4ca10d733f42dea46788a99ff6c6a8ced4c2e614cb6f87f5d09e4788d61166"
+    },
+    {
+      "original": "packages/charts/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/025-index.js",
+      "bytes": 70677,
+      "sha256": "e177ad6505487cd44908bac3e7b289c849b7af41a402a5e7b5994ac244756a1d"
+    },
+    {
+      "original": "packages/charts/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/026-package.json",
+      "bytes": 345,
+      "sha256": "26c0e8f0f68e8c192acd056162322b5638228f2e407176fb22a98c4b73b168c8"
+    },
+    {
+      "original": "packages/charts/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/027-index.js.map",
+      "bytes": 278825,
+      "sha256": "aa34af701065a22eb085e1638650bc6838adcbda1e234c8d20a85391079781bd"
+    },
+    {
+      "original": "packages/charts/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/028-index.d.ts",
+      "bytes": 10558,
+      "sha256": "40f03379d1af7542c7b3daed22e791b86b96f4818beefbc2abef9ac44054054f"
+    },
+    {
+      "original": "dist/packages/filtix-core-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/029-filtix-core-0.11.0.tgz",
+      "bytes": 29083,
+      "sha256": "0714a513b34b57fa54e4e7c6ce3238055e6648a989574acadfb2feb9813cb22a"
+    },
+    {
+      "original": "packages/core/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/030-index.js",
+      "bytes": 20949,
+      "sha256": "ed6f2b5c05bce5a4e84d0896f5d7f548676205d87efff9d82d64391c3631f364"
+    },
+    {
+      "original": "packages/core/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/031-package.json",
+      "bytes": 343,
+      "sha256": "82cd0892eb745e95f1603fb6bb3cb5e16eded1d02d6334e069dfeb6ae9583626"
+    },
+    {
+      "original": "packages/core/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/032-index.js.map",
+      "bytes": 87003,
+      "sha256": "67c4086868bd6317c7bb2122172a2267341f04ec75339c2b41908bbff721e34f"
+    },
+    {
+      "original": "packages/core/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/033-index.d.ts",
+      "bytes": 3662,
+      "sha256": "ecba5da195d6e6d093be3ba64c60d0feb087e1f730665616d2f3c7e587ac9488"
+    },
+    {
+      "original": "dist/packages/filtix-datafeed-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/034-filtix-datafeed-0.11.0.tgz",
+      "bytes": 33619,
+      "sha256": "60f4e327aa9a5c7e9aa33951499abad9f26ddcc1e02a6ac21e98ba3d0c2b1a4a"
+    },
+    {
+      "original": "packages/datafeed/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/035-index.js",
+      "bytes": 24201,
+      "sha256": "567ba1b662993cacdfd14f80dca84aa6ef01954aab776602be3c59b7c937b230"
+    },
+    {
+      "original": "packages/datafeed/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/036-package.json",
+      "bytes": 347,
+      "sha256": "20f9ddc8f70ec235b64358521c9eb823a4149cfef37573f03166e04ab804b4fd"
+    },
+    {
+      "original": "packages/datafeed/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/037-index.js.map",
+      "bytes": 94674,
+      "sha256": "050ddd470ec504c15d3902577369845923ee3d025358bd987f55ae7475cc032c"
+    },
+    {
+      "original": "packages/datafeed/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/038-index.d.ts",
+      "bytes": 4198,
+      "sha256": "73a71d39a0d9cdc0d428c93b6ee43b16284922157a80dafca38fbdded3b8b540"
+    },
+    {
+      "original": "dist/packages/filtix-drawings-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/039-filtix-drawings-0.11.0.tgz",
+      "bytes": 39602,
+      "sha256": "daeff2ded9cb355f72425ba825ffb167c507b0b91c8371a39cd6cf54e5e8b76f"
+    },
+    {
+      "original": "packages/drawings/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/040-index.js",
+      "bytes": 26727,
+      "sha256": "5d7d1e69d6ec09593c03842bc392835e7fa3f92ce2a354d2b9dabf3fcda8ab66"
+    },
+    {
+      "original": "packages/drawings/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/041-package.json",
+      "bytes": 417,
+      "sha256": "a883cc421b2e4bdaffab8752e02c9cff8cd5e8306262e90a1386a54fad4d9f4f"
+    },
+    {
+      "original": "packages/drawings/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/042-index.js.map",
+      "bytes": 104233,
+      "sha256": "496c6ed1fdecc9fda5fdb4331da524529673be951fcbbb984704709a81e03fbf"
+    },
+    {
+      "original": "packages/drawings/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/043-index.d.ts",
+      "bytes": 5521,
+      "sha256": "529cc9d3389204e41481abe0d716b9ee4e7e3bb795c077b8a389b52a4440122d"
+    },
+    {
+      "original": "dist/packages/filtix-indicators-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/044-filtix-indicators-0.11.0.tgz",
+      "bytes": 40718,
+      "sha256": "6522588b3b3cd110f3d0b73c1ef5514380508f927c0762c31099eb2f9ec9d4eb"
+    },
+    {
+      "original": "packages/indicators/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/045-index.js",
+      "bytes": 17611,
+      "sha256": "824245ff17ad560fc930c9223fecdb353e561bd2cea2dd1b207829d54714c1fa"
+    },
+    {
+      "original": "packages/indicators/dist/internal.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/046-internal.js",
+      "bytes": 17130,
+      "sha256": "ad3b7191f0aeed1f99dd7868e14ab38c481fe0e67059dbf40e79dd4fdcf0f9ac"
+    },
+    {
+      "original": "packages/indicators/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/047-package.json",
+      "bytes": 452,
+      "sha256": "388ca3e04ba619700156518f14b4e6d9315eccea1ffcd5df2484f625f26fec02"
+    },
+    {
+      "original": "packages/indicators/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/048-index.js.map",
+      "bytes": 72573,
+      "sha256": "504eb2e4cc3a9e1f8b1a993e85375c5f0ed647fe787459f09fb96b90a3380759"
+    },
+    {
+      "original": "packages/indicators/dist/internal.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/049-internal.js.map",
+      "bytes": 79360,
+      "sha256": "358500143fe18e12aa82f011e64a8f162d2a7ad979111a92495ce51d2b1e4299"
+    },
+    {
+      "original": "packages/indicators/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/050-index.d.ts",
+      "bytes": 2414,
+      "sha256": "0b48c20c3dd7874f8a3dacf613ba7212ff68ad5ce137b00e077fd086c46c68c5"
+    },
+    {
+      "original": "packages/indicators/dist/internal.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/051-internal.d.ts",
+      "bytes": 2496,
+      "sha256": "91a2107dfc51cf4e19153a8fd43c01842ab8a82c03be2574313973054d9bf56c"
+    },
+    {
+      "original": "dist/packages/filtix-react-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/052-filtix-react-0.11.0.tgz",
+      "bytes": 2154,
+      "sha256": "1bcacaf8f325edb7c6e81a2ff43139fd139b00feceae14270c9e33df3fda4e4f"
+    },
+    {
+      "original": "packages/react/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/053-index.js",
+      "bytes": 816,
+      "sha256": "a171a31e783a4119717c44dd77bf25271b61489c4594c7f51cbbf65bb742ec8e"
+    },
+    {
+      "original": "packages/react/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/054-package.json",
+      "bytes": 439,
+      "sha256": "6795b013c750bed413881e2d5f44ec224d9a371907565cf6391c81731ebdeb69"
+    },
+    {
+      "original": "packages/react/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/055-index.js.map",
+      "bytes": 3315,
+      "sha256": "e5498ab5c9c1c1cca2dcca31de372f6858d1ea7433d04952e4b9f089209a0886"
+    },
+    {
+      "original": "packages/react/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/056-index.d.ts",
+      "bytes": 620,
+      "sha256": "c2b4240ffae31a8c5a32b1d436cb7a5df683b48a4a24ce6e37db8ce02ec2b2ad"
+    },
+    {
+      "original": "dist/packages/filtix-terminal-0.11.0.tgz",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/057-filtix-terminal-0.11.0.tgz",
+      "bytes": 136125,
+      "sha256": "0c214b9ac8c669d8f86e7967255845307065f176cb22429c61aa02f09fe46570"
+    },
+    {
+      "original": "packages/terminal/dist/index.js",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/058-index.js",
+      "bytes": 117080,
+      "sha256": "ceb67dfb1fb7c4280c1c27497195ac60429a1376282a5cf7dfb693ea7589fe6d"
+    },
+    {
+      "original": "packages/terminal/package.json",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/059-package.json",
+      "bytes": 637,
+      "sha256": "b74a85b0358200a65f1177b13f0865abecec61b0807cf44ca5ba8799b0a28c69"
+    },
+    {
+      "original": "packages/terminal/dist/index.js.map",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/060-index.js.map",
+      "bytes": 405524,
+      "sha256": "bf048ab9aa1a41e62cb88f079fca3c1d523b87c639ec28090e9351ceb6caafa7"
+    },
+    {
+      "original": "packages/terminal/dist/index.d.ts",
+      "stored": "benchmark-results/v0.11/runtime/cohort-2026-09-24T03-53-33-894Z/files/061-index.d.ts",
+      "bytes": 9831,
+      "sha256": "6d1d58f443618b648337f1dc62c416e366848bbcf8932c2a9343666199760a47"
+    }
+  ]
+}

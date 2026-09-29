@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101316" />
+    <title>FILTIX Charts — Drawings | FILTIX.net</title>
+    <meta
+      name="description"
+      content="FILTIX Charts by FILTIX.net. Customizable financial charts, studies, drawings and market workspaces."
+    />
+    <link rel="icon" type="image/svg+xml" href="/brand/filtix-mark.svg" />
+  </head>
+  <body>
+    <div class="market-shell study-shell">
+      <header class="market-masthead">
+        <a class="filtix-brand" href="/" aria-label="FILTIX Charts by FILTIX.net — home">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
+          </svg>
+          <span class="filtix-brand-copy"
+            ><span class="filtix-brand-title"><strong>FILTIX</strong><small>CHARTS</small></span
+            ><span class="filtix-brand-by">by FILTIX.net</span></span
+          >
+        </a>
+        <nav aria-label="Chart workspace">
+          <a href="/">Studio</a><a href="/market.html">Live market</a
+          ><a class="selected" href="/drawings.html" aria-current="page">Study</a
+          ><a href="/analysis.html">Analysis</a><a href="/benchmark.html">Benchmarks ↗</a>
+        </nav>
+        <div class="market-heading-actions">
+          <span class="release-chip">v__FILTIX_VERSION__</span
+          ><button id="study-theme" aria-label="Switch to light theme" title="Switch theme">☼</button>
+        </div>
+      </header>
+      <main>
+        <div class="market-intro">
+          <div>
+            <p class="market-eyebrow">YOUR ANALYSIS, ON THE CHART</p>
+            <h1>Make your view visible<span>.</span></h1>
+          </div>
+          <p class="market-intro-note">
+            Mark a level. Map a possibility.<br /><span>A local study · Synthetic sample · UTC</span>
+          </p>
+        </div>
+        <section class="study-workspace" aria-label="Drawing study workspace">
+          <div class="study-toolbar" role="toolbar" aria-label="Drawing tools">
+            <div class="study-tools">
+              <button data-tool="select" aria-pressed="true"><b>↖</b>Select</button
+              ><button data-tool="trend-line" aria-pressed="false"><b>╱</b>Trend</button
+              ><button data-tool="horizontal-line" aria-pressed="false"><b>—</b>Level</button
+              ><button data-tool="rectangle" aria-pressed="false"><b>▱</b>Zone</button
+              ><button data-tool="measure" aria-pressed="false"><b>↔</b>Measure</button>
+            </div>
+            <span class="study-toolbar-divider"></span>
+            <button id="study-undo" title="Undo · Ctrl/Cmd+Z" aria-label="Undo"><span>↶</span></button
+            ><button id="study-redo" title="Redo · Ctrl/Cmd+Shift+Z" aria-label="Redo"><span>↷</span></button>
+            <div class="study-file-actions">
+              <button id="study-save">Save layout</button><button id="study-load">Load layout</button
+              ><button id="study-export">Export PNG ↓</button>
+            </div>
+          </div>
+          <div class="study-body">
+            <section class="study-canvas-panel" aria-label="Bitcoin sample analysis">
+              <div class="study-instrument">
+                <div>
+                  <div class="study-instrument-line">
+                    <span class="study-symbol">₿</span>
+                    <h2 id="study-title">Bitcoin study</h2>
+                    <span class="study-sample-tag">SAMPLE</span>
+                  </div>
+                  <p>BTC / USD · 1 hour · 600 synthetic candles</p>
+                </div>
+                <button id="study-fit">Fit history ↗</button>
+              </div>
+              <div class="study-price-legend">
+                <span id="study-candle-time"></span><span>O <b id="study-open"></b></span
+                ><span>H <b id="study-high"></b></span><span>L <b id="study-low"></b></span
+                ><span>C <b id="study-close"></b></span>
+              </div>
+              <div id="study-chart" class="study-chart"></div>
+              <div class="study-chart-footer">
+                <span id="study-hint">Select an annotation or choose a drawing tool.</span
+                ><span id="study-count">3 annotations</span>
+              </div>
+            </section>
+            <aside class="study-sidebar" aria-label="Study annotations">
+              <div class="study-sidebar-heading">
+                <span>YOUR ANNOTATIONS</span><button id="study-clear">Clear all</button>
+              </div>
+              <div id="study-list" class="study-list" aria-label="Annotation list"></div>
+              <p id="study-list-empty" class="study-empty" hidden>
+                Your next idea starts with a line.<br />Choose a tool above the chart.
+              </p>
+              <section id="study-inspector" class="study-inspector" aria-label="Selected annotation" hidden>
+                <div class="study-inspector-heading">
+                  <strong id="study-selection-title">Annotation</strong
+                  ><button id="study-delete" aria-label="Delete selected annotation" title="Delete selected">
+                    ×
+                  </button>
+                </div>
+                <label class="study-field"
+                  >Color <input id="study-color" type="color" value="#c7ee92"
+                /></label>
+                <label class="study-field"
+                  >Line width
+                  <select id="study-width">
+                    <option value="1">1 px</option>
+                    <option value="1.5">1.5 px</option>
+                    <option value="2">2 px</option>
+                    <option value="3">3 px</option>
+                    <option value="4">4 px</option>
+                  </select></label
+                >
+                <div class="study-anchor">
+                  <span>FIRST ANCHOR</span
+                  ><label>Price <input id="study-price-a" type="number" step="any" /></label
+                  ><label>Time · UTC <input id="study-time-a" type="datetime-local" step="3600" /></label>
+                </div>
+                <div id="study-second-anchor" class="study-anchor">
+                  <span>SECOND ANCHOR</span
+                  ><label>Price <input id="study-price-b" type="number" step="any" /></label
+                  ><label>Time · UTC <input id="study-time-b" type="datetime-local" step="3600" /></label>
+                </div>
+                <p id="study-measurement" class="study-measurement"></p>
+              </section>
+              <div class="study-guide">
+                <span>A FEW GOOD MOVES</span>
+                <p>Two clicks set a line, zone or measurement. One click sets a level.</p>
+                <p>Drag a point to refine it. Drag the shape to move it. Escape cancels a draft.</p>
+                <dl>
+                  <div>
+                    <dt>Undo</dt>
+                    <dd>Ctrl / ⌘ Z</dd>
+                  </div>
+                  <div>
+                    <dt>Redo</dt>
+                    <dd>Ctrl / ⌘ Shift Z</dd>
+                  </div>
+                  <div>
+                    <dt>Remove selection</dt>
+                    <dd>Delete</dd>
+                  </div>
+                </dl>
+              </div>
+              <p class="study-storage-note">
+                Layouts stay in this browser. This study uses reproducible sample data;
+                <a href="/market.html">open the real market ↗</a>.
+              </p>
+            </aside>
+          </div>
+          <div class="study-status-row">
+            <span id="study-message" role="status" aria-live="polite"
+              >Ready to explore. Your annotations are editable.</span
+            ><span>FILTIX DRAWINGS</span>
+          </div>
+          <p id="study-error" class="study-error" role="alert" hidden></p>
+        </section>
+        <footer class="market-page-footer">
+          <span
+            >FILTIX Charts
+            <a
+              class="filtix-attribution"
+              href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=drawings"
+              target="_blank"
+              rel="noopener noreferrer"
+              >by FILTIX.net · Explore ↗</a
+            ></span
+          ><span>Your data. Your tools. Your perspective.</span>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/src/study.ts"></script>
+  </body>
+</html>

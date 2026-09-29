@@ -1,0 +1,47 @@
+{
+  "name": "@filtix/alerts",
+  "version": "0.12.0-beta.1",
+  "private": false,
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "import": "./dist/internal.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@filtix/datafeed": "0.12.0-beta.1"
+  },
+  "description": "Price alert state and monitoring for FILTIX Charts.",
+  "homepage": "https://filtix.net",
+  "keywords": [
+    "filtix",
+    "charts",
+    "alerts"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FILTRIX-net/filtix-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FILTRIX-net/filtix-charts/issues"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "filtix-terminal-consumer",
+  "private": true,
+  "version": "0.12.0-beta.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5195",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5195 --strictPort"
+  },
+  "dependencies": {
+    "@filtix/alerts": "file:../../dist/packages/filtix-alerts-0.12.0-beta.1.tgz",
+    "@filtix/analysis": "file:../../dist/packages/filtix-analysis-0.12.0-beta.1.tgz",
+    "@filtix/charts": "file:../../dist/packages/filtix-charts-0.12.0-beta.1.tgz",
+    "@filtix/core": "file:../../dist/packages/filtix-core-0.12.0-beta.1.tgz",
+    "@filtix/datafeed": "file:../../dist/packages/filtix-datafeed-0.12.0-beta.1.tgz",
+    "@filtix/drawings": "file:../../dist/packages/filtix-drawings-0.12.0-beta.1.tgz",
+    "@filtix/indicators": "file:../../dist/packages/filtix-indicators-0.12.0-beta.1.tgz",
+    "@filtix/react": "file:../../dist/packages/filtix-react-0.12.0-beta.1.tgz",
+    "@filtix/terminal": "file:../../dist/packages/filtix-terminal-0.12.0-beta.1.tgz",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3",
+    "vite": "7.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FILTRIX-net/filtix-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FILTRIX-net/filtix-charts/issues"
+  }
+}

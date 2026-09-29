@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.superpowers/
+.playwright/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example
+.npm-cache/
+benchmark-results/**/*.partial.json

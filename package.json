@@ -1,0 +1,65 @@
+{
+  "name": "filtix-charts-workspace",
+  "version": "0.12.0-beta.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsup",
+    "build:demo": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "node scripts/test-browser.mjs",
+    "benchmark": "node scripts/benchmark.mjs",
+    "benchmark:drawings": "node scripts/drawings-benchmark.mjs",
+    "benchmark:analysis": "node scripts/analysis-benchmark.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "format": "prettier --write \"examples/react-terminal/src/**/*.{ts,tsx,js,css}\" \"examples/react-terminal/*.{ts,html}\" \"apps/**/*.{ts,tsx,css,html}\" \"packages/*/src/**/*.{ts,tsx}\" \"scripts/*.mjs\" \"tests/**/*.{ts,tsx,mjs,json}\" \"*.ts\" \"*.json\" \".github/**/*.yml\"",
+    "format:check": "prettier --check \"examples/react-terminal/src/**/*.{ts,tsx,js,css}\" \"examples/react-terminal/*.{ts,html}\" \"apps/**/*.{ts,tsx,css,html}\" \"packages/*/src/**/*.{ts,tsx}\" \"scripts/*.mjs\" \"tests/**/*.{ts,tsx,mjs,json}\" \"*.ts\" \"*.json\" \".github/**/*.yml\"",
+    "check": "npm run format:check && npm run build && npm run typecheck && npm test && npm run test:quality && npm run test:drawing-tools && npm run test:alerts && npm run test:grid && npm run test:release && npm run check:package",
+    "pack:local": "node scripts/pack-release.mjs",
+    "check:consumer": "node scripts/check-terminal-consumer.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "test:release": "node --test tests/node/consumer-inventory.test.mjs tests/node/release-guards.test.mjs",
+    "test:soak": "node scripts/terminal-soak.mjs",
+    "benchmark:studies": "node scripts/studies-benchmark.mjs",
+    "benchmark:multi-output": "node scripts/multi-output-benchmark.mjs",
+    "benchmark:layout": "node scripts/layout-benchmark.mjs",
+    "benchmark:quality": "node scripts/quality-benchmark.mjs",
+    "test:quality": "node --test tests/node/quality-evidence.test.mjs",
+    "benchmark:drawing-tools": "node scripts/drawing-tools-benchmark.mjs",
+    "test:drawing-tools": "node --test tests/node/drawing-tools-evidence.test.mjs tests/node/consumer-inventory.test.mjs",
+    "benchmark:alerts": "node scripts/alerts-benchmark.mjs",
+    "test:alerts": "node --test tests/node/alerts-evidence.test.mjs tests/node/consumer-inventory.test.mjs",
+    "benchmark:grid": "node scripts/grid-benchmark.mjs",
+    "test:grid": "node --test tests/node/grid-evidence.test.mjs tests/node/grid-capacity-contract.test.mjs tests/node/grid-provider-contract.test.mjs tests/node/grid-demo-fault-teardown.test.mjs tests/node/grid-hydration-count.test.mjs tests/node/grid-sync-observation-contract.test.mjs tests/node/grid-measurement-boundaries.test.mjs tests/node/grid-resource-readiness.test.mjs tests/node/consumer-inventory.test.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "prettier": "3.6.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.1",
+    "vitest": "4.1.0"
+  },
+  "packageManager": "npm@12.0.2",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FILTRIX-net/filtix-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FILTRIX-net/filtix-charts/issues"
+  }
+}

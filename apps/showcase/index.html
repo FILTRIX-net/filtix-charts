@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101316" />
+    <title>FILTIX Charts — Studio | FILTIX.net</title>
+    <meta
+      name="description"
+      content="FILTIX Charts by FILTIX.net. Customizable financial charts, studies, drawings and market workspaces."
+    />
+    <link rel="icon" type="image/svg+xml" href="/brand/filtix-mark.svg" />
+  </head>
+  <body>
+    <div class="workspace">
+      <header class="masthead">
+        <a class="filtix-brand" href="/" aria-label="FILTIX Charts by FILTIX.net — home">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
+          </svg>
+          <span class="filtix-brand-copy"
+            ><span class="filtix-brand-title"><strong>FILTIX</strong><small>CHARTS</small></span
+            ><span class="filtix-brand-by">by FILTIX.net</span></span
+          >
+        </a>
+        <nav class="top-nav" aria-label="Workspace navigation">
+          <button class="active" id="workspace-tab">Workspace</button><button id="api-tab">Integration</button
+          ><a href="/market.html">Live market ↗</a><a href="/drawings.html">Study ↗</a
+          ><a href="/analysis.html">Analysis ↗</a> <a href="/terminal.html">Terminal</a
+          ><a href="/benchmark.html">Benchmarks <span>↗</span></a>
+        </nav>
+        <div class="header-right">
+          <span class="version">v__FILTIX_VERSION__ <span>BETA</span></span
+          ><button
+            id="theme-toggle"
+            class="icon-button"
+            title="Switch to light theme"
+            aria-label="Switch to light theme"
+          >
+            ☼</button
+          ><a
+            class="brand-link"
+            href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=studio"
+            target="_blank"
+            rel="noreferrer"
+            >Explore FILTIX ↗</a
+          >
+        </div>
+      </header>
+      <main id="workspace-view">
+        <div class="workspace-title">
+          <div>
+            <span class="eyebrow"><i></i> YOUR MARKET. YOUR PERSPECTIVE.</span>
+            <h1>A clearer view of the market<span>.</span></h1>
+          </div>
+          <div class="demo-badge">
+            <span class="small-dot"></span> Synthetic market data
+            <span
+              class="badge-info"
+              title="Deterministic fixtures for exploring the chart library. These are not live market prices."
+              >i</span
+            >
+          </div>
+        </div>
+        <section class="market-strip" id="market-strip" aria-label="Demo instruments"></section>
+        <div class="terminal-layout">
+          <section class="terminal" aria-label="Interactive market chart">
+            <header class="instrument-header">
+              <div class="instrument-identity">
+                <span id="instrument-icon" class="coin-mark">₿</span>
+                <div>
+                  <div class="instrument-name">
+                    <h2 id="pair">BTC / USD</h2>
+                    <span class="asset-tag" id="asset-tag">CRYPTO</span>
+                  </div>
+                  <p>
+                    <span id="instrument-description">Bitcoin</span><span class="separator-dot">·</span
+                    ><span id="interval-description">1 hour</span><span class="separator-dot">·</span>Demo
+                    feed
+                  </p>
+                </div>
+              </div>
+              <div class="price-block">
+                <strong id="current-price">—</strong><span id="price-change">—</span>
+              </div>
+              <div class="instrument-stat"><span>Period high</span><strong id="period-high">—</strong></div>
+              <div class="instrument-stat"><span>Period low</span><strong id="period-low">—</strong></div>
+              <button id="stream-toggle" class="stream-button" aria-pressed="false">
+                <span class="small-dot"></span><span>Start stream</span>
+              </button>
+            </header>
+            <div class="chart-toolbar">
+              <div class="timeframes" role="group" aria-label="Chart timeframe">
+                <button data-interval="1" class="selected">1H</button><button data-interval="4">4H</button
+                ><button data-interval="24">1D</button>
+              </div>
+              <span class="toolbar-divider"></span>
+              <label class="select-control"
+                ><span class="sr-only">Chart type</span
+                ><select id="series-type" aria-label="Chart type">
+                  <option value="candlestick">Candles</option>
+                  <option value="ohlc">OHLC bars</option>
+                  <option value="line">Line</option>
+                  <option value="area">Area</option>
+                  <option value="histogram">Histogram</option>
+                </select></label
+              >
+              <span class="toolbar-divider"></span>
+              <div class="indicator-controls" role="group" aria-label="Technical indicators">
+                <button data-indicator="ema" aria-pressed="true" class="indicator selected">
+                  <span class="indicator-swatch"></span>EMA 20</button
+                ><button data-indicator="sma" aria-pressed="false" class="indicator">SMA 50</button
+                ><button data-indicator="rsi" aria-pressed="false" class="indicator">RSI 14</button>
+              </div>
+              <div class="toolbar-actions">
+                <button id="fit-chart" class="text-button" title="Fit all data (Home)">
+                  ↔ <span>Fit</span></button
+                ><button id="export-chart" class="text-button" title="Download chart as PNG">
+                  ↓ <span>Export</span>
+                </button>
+              </div>
+            </div>
+            <div class="chart-legend" aria-live="off">
+              <span class="legend-symbol" id="legend-symbol">BTCUSD</span
+              ><span>O <b id="legend-open">—</b></span
+              ><span>H <b id="legend-high">—</b></span
+              ><span>L <b id="legend-low">—</b></span
+              ><span>C <b id="legend-close">—</b></span
+              ><span class="legend-time" id="legend-time"></span>
+            </div>
+            <div class="chart-stage">
+              <div id="chart" aria-label="Price history chart"></div>
+              <span class="chart-watermark" aria-hidden="true">FILTIX<span>CHARTS</span></span>
+            </div>
+            <footer class="chart-footer">
+              <div class="range-buttons" role="group" aria-label="Visible history">
+                <button data-range="80">80 bars</button
+                ><button data-range="160" class="selected">160 bars</button
+                ><button data-range="all">All history</button>
+              </div>
+              <button id="latest-chart" class="text-button">To latest →</button
+              ><span class="timezone">UTC</span><span class="footer-divider"></span
+              ><span id="render-time" title="Library rendering work; not screen presentation latency"
+                >— ms render</span
+              ><span class="engine-indicator"><i></i>Canvas 2D</span>
+            </footer>
+          </section>
+          <aside class="inspector" aria-label="Chart customization">
+            <div class="inspector-heading">
+              <span class="eyebrow">MAKE IT YOURS</span>
+              <h2>Chart studio</h2>
+              <p>Built for your product.<br />Styled for your perspective.</p>
+            </div>
+            <fieldset class="studio-section">
+              <legend>Appearance</legend>
+              <div class="theme-choices">
+                <button data-theme="dark" class="theme-choice selected" aria-pressed="true">
+                  <span class="theme-preview dark-preview"><i></i><i></i><i></i><i></i></span
+                  ><span>Midnight</span><b>✓</b></button
+                ><button data-theme="light" class="theme-choice" aria-pressed="false">
+                  <span class="theme-preview light-preview"><i></i><i></i><i></i><i></i></span
+                  ><span>Daylight</span><b>✓</b>
+                </button>
+              </div>
+            </fieldset>
+            <fieldset class="studio-section">
+              <legend>Series colors</legend>
+              <label class="color-option"
+                ><span>Rising candle</span
+                ><span class="color-input-wrap"
+                  ><input type="color" id="up-color" value="#6ad5a0" aria-label="Rising candle color" /><code
+                    id="up-color-value"
+                    >#6AD5A0</code
+                  ></span
+                ></label
+              ><label class="color-option"
+                ><span>Falling candle</span
+                ><span class="color-input-wrap"
+                  ><input
+                    type="color"
+                    id="down-color"
+                    value="#ed858c"
+                    aria-label="Falling candle color"
+                  /><code id="down-color-value">#ED858C</code></span
+                ></label
+              >
+            </fieldset>
+            <fieldset class="studio-section">
+              <legend>Display</legend>
+              <label class="toggle-row"
+                ><span>Volume pane</span
+                ><input id="volume-toggle" type="checkbox" role="switch" checked /></label
+              ><label class="toggle-row"
+                ><span>Crosshair</span
+                ><input id="crosshair-toggle" type="checkbox" role="switch" checked /></label
+              ><label class="toggle-row"
+                ><span>Logarithmic price</span><input id="log-toggle" type="checkbox" role="switch" /></label
+              ><label class="toggle-row"
+                ><span>Follow newest bar</span
+                ><input id="follow-toggle" type="checkbox" role="switch" checked
+              /></label>
+            </fieldset>
+            <div class="studio-note">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  d="m7 6-4 4 4 4m6-8 4 4-4 4m-2-10-2 12"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p>
+                Every control is a public API.<br /><button id="open-code">See this chart's code ↗</button>
+              </p>
+            </div>
+            <div class="studio-bottom">
+              <span id="loaded-points">—</span><span>data points in memory</span>
+              <div class="data-progress"><i></i></div>
+              <span class="small-copy">Original engine · Zero runtime dependencies</span>
+            </div>
+          </aside>
+        </div>
+        <section class="under-chart">
+          <div class="interaction-hint">
+            <span class="keycap">↔</span><span>Drag to pan</span><span class="hint-dot">·</span
+            ><span class="keycap">⌘</span><span>Scroll to zoom</span><span class="hint-dot">·</span
+            ><span class="keycap">Home</span><span>Fit chart</span>
+          </div>
+          <button id="table-toggle" class="text-button" aria-expanded="false" aria-controls="data-panel">
+            View accessible data table ↓
+          </button>
+        </section>
+        <section id="data-panel" class="data-panel" hidden>
+          <h2>Latest 20 candles</h2>
+          <p>Source values for the selected synthetic instrument and timeframe.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time (UTC)</th>
+                  <th>Open</th>
+                  <th>High</th>
+                  <th>Low</th>
+                  <th>Close</th>
+                  <th>Volume</th>
+                </tr>
+              </thead>
+              <tbody id="data-rows"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+      <section id="integration-view" class="integration-view" hidden>
+        <span class="eyebrow">YOUR DATA. OUR PIXELS.</span>
+        <h1>From data to chart.</h1>
+        <p>
+          The same public API that powers this workspace. Framework-independent, typed, and ready to make your
+          own.
+        </p>
+        <div class="code-heading">
+          <span>Current chart configuration</span
+          ><button id="copy-code" class="text-button">Copy code</button>
+        </div>
+        <pre><code id="integration-code"></code></pre>
+        <div class="integration-notes">
+          <article>
+            <h3>Explicit time</h3>
+            <p>
+              Intraday timestamps use UTC milliseconds. Daily bars can use a separate business-date domain.
+            </p>
+          </article>
+          <article>
+            <h3>Live by design</h3>
+            <p>Update the newest candle or append a new one. Rendering is coalesced into animation frames.</p>
+          </article>
+          <article>
+            <h3>A clean lifecycle</h3>
+            <p>
+              Call chart.destroy() on unmount. The React adapter handles this for you, including StrictMode.
+            </p>
+          </article>
+        </div>
+        <button id="back-workspace" class="back-button">← Back to workspace</button>
+      </section>
+      <footer class="site-footer">
+        <span
+          >FILTIX Charts
+          <a
+            class="filtix-attribution"
+            href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            >by FILTIX.net · Explore ↗</a
+          ></span
+        ><span>Original chart engine <i>·</i> Beta candidate <i>·</i> v__FILTIX_VERSION__</span>
+      </footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

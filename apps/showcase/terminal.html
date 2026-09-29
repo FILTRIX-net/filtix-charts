@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/brand/filtix-mark.svg" />
+    <title>FILTIX Charts — Terminal | FILTIX.net</title>
+    <meta
+      name="description"
+      content="FILTIX Charts by FILTIX.net. Customizable financial charts, studies, drawings and market workspaces."
+    />
+  </head>
+  <body>
+    <header>
+      <a class="filtix-brand" href="/" aria-label="FILTIX Charts by FILTIX.net — home">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
+        </svg>
+        <span class="filtix-brand-copy"
+          ><span class="filtix-brand-title"><strong>FILTIX</strong><small>CHARTS</small></span
+          ><span class="filtix-brand-by">by FILTIX.net</span></span
+        > </a
+      ><span class="terminal-release">BETA · v__FILTIX_VERSION__</span>
+      <nav><button id="save">Save workspace</button><button id="restore">Restore</button></nav>
+    </header>
+    <main>
+      <div id="terminal"></div>
+      <p id="message" role="status">Public Binance Spot data · UTC</p>
+      <footer class="terminal-footer">
+        FILTIX Charts
+        <a
+          class="filtix-attribution"
+          href="https://filtix.net/?utm_source=filtix_charts&amp;utm_medium=demo&amp;utm_campaign=open_beta&amp;utm_content=terminal"
+          target="_blank"
+          rel="noopener noreferrer"
+          >by FILTIX.net · Explore ↗</a
+        >
+      </footer>
+    </main>
+    <script type="module" src="/src/terminal.ts"></script>
+  </body>
+</html>

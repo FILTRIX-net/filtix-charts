@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@filtix/core": ["packages/core/src/index.ts"],
+      "@filtix/charts/internal": ["packages/charts/src/index.ts"],
+      "@filtix/charts": ["packages/charts/src/index.ts"],
+      "@filtix/indicators/internal": ["packages/indicators/src/internal.ts"],
+      "@filtix/indicators": ["packages/indicators/src/index.ts"],
+      "@filtix/react": ["packages/react/src/index.tsx"],
+      "@filtix/datafeed": ["packages/datafeed/src/index.ts"],
+      "@filtix/drawings": ["packages/drawings/src/index.ts"],
+      "@filtix/analysis": ["packages/analysis/src/index.ts"],
+      "@filtix/terminal": ["packages/terminal/src/index.ts"],
+      "@filtix/alerts/internal": ["packages/alerts/src/index.ts"],
+      "@filtix/alerts": ["packages/alerts/src/index.ts"]
+    },
+    "types": ["node"]
+  },
+  "include": ["packages", "apps", "tests", "*.config.ts"]
+}
