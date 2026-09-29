@@ -9,3 +9,8 @@ playwright-report/
 !.env.example
 .npm-cache/
 benchmark-results/**/*.partial.json
+
+# Generated measurements and package records can contain machine-specific paths.
+# The checked-in browser parity fixtures remain tracked.
+/benchmark-results/
+/docs/releases/*-packages.json
