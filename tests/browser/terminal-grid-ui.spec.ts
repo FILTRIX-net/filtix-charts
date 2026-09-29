@@ -99,7 +99,8 @@ test('native layout and sync controls reflect canonical state without remounting
     terminal: true,
     node: true,
   });
-  await four.click();
+  // Begin the keyboard sequence from explicit focus. A pointer click changes
+  // Linux WebKit's native sequential-focus starting point, even for plain HTML buttons.
   await four.focus();
   await expect(four).toBeFocused();
   await page.keyboard.press('Shift+Tab');

@@ -944,9 +944,10 @@ test('capture unique source-fingerprinted dark/light review frames', async ({ pa
   );
 });
 
-test('narrow toolbar shows full native pane selector captions', async ({ page }) => {
+test('narrow toolbar shows full native pane selector captions after scrolling', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await ready(page);
+  await page.locator('[data-terminal-layout-controls]').scrollIntoViewIfNeeded();
   const result = await page.locator('[data-terminal-layout-controls] label > span').evaluateAll((nodes) => {
     const toolbar = document.querySelector<HTMLElement>('[data-terminal-toolbar]')!.getBoundingClientRect();
     return nodes.map((node) => {
