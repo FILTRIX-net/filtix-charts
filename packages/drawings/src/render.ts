@@ -1,4 +1,4 @@
-import type { PrimitiveProjection } from '@filtix/charts';
+import type { PrimitiveProjection } from '@filtrix.net/charts';
 import { measureDrawing } from './model';
 import { projectDrawing, type PixelPoint, type TextMeasurer } from './geometry';
 import type { Drawing } from './types';

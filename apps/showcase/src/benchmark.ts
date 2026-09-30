@@ -1,6 +1,6 @@
 // Benchmarks consume the built, self-contained chart package.
 import { createChart, type ChartApi, type SeriesHandle } from '../../../packages/charts/dist/index.js';
-import type { CandlePoint } from '@filtix/core';
+import type { CandlePoint } from '@filtrix.net/core';
 import { makeCandles, closeValues } from './fixtures';
 import { ema } from '../../../packages/indicators/dist/index.js';
 
@@ -13,7 +13,7 @@ let chart: ChartApi | undefined,
 const host = document.querySelector<HTMLElement>('#host')!;
 const benchmarkFont = {
   localFamily: 'Consolas',
-  chartFamily: '"FILTIX Benchmark Consolas"',
+  chartFamily: '"FILTRIX Benchmark Consolas"',
   sizePx: 11,
 } as const;
 let benchmarkFontLoaded = false;
@@ -54,7 +54,7 @@ function matrixFixture(kind: MatrixFixture, count = 1_000): CandlePoint[] {
 
 async function prepareEnvironment() {
   try {
-    const face = new FontFace('FILTIX Benchmark Consolas', 'local("Consolas")');
+    const face = new FontFace('FILTRIX Benchmark Consolas', 'local("Consolas")');
     await face.load();
     document.fonts.add(face);
     const loaded = await document.fonts.load(benchmarkFont.sizePx + 'px ' + benchmarkFont.chartFamily);
@@ -390,7 +390,7 @@ if (!new URLSearchParams(location.search).has('automated')) {
   panel.style.cssText =
     'position:fixed;left:20px;top:20px;z-index:3;width:310px;padding:22px;background:#14181cf5;color:#e5e9e7;border:1px solid #354238;border-radius:8px;font:12px/1.7 Consolas,monospace;box-shadow:0 10px 40px #0003';
   const heading = document.createElement('h1');
-  heading.textContent = 'FILTIX / BENCHMARK';
+  heading.textContent = 'FILTRIX / BENCHMARK';
   heading.style.cssText = 'font-size:15px;color:#c7ee92;margin:0 0 12px';
   const description = document.createElement('p');
   description.textContent =

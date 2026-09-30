@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef, type CSSProperties, type ForwardedRef } from 'react';
-import { createChart, type ChartApi, type ChartOptions } from '@filtix/charts';
+import { createChart, type ChartApi, type ChartOptions } from '@filtrix.net/charts';
 
-export interface FiltixChartProps {
+export interface FiltrixChartProps {
   options?: ChartOptions;
   className?: string;
   style?: CSSProperties;
@@ -15,7 +15,7 @@ function assignRef(ref: ForwardedRef<ChartApi | null>, value: ChartApi | null): 
 }
 
 /** Browser lifecycle adapter. Data updates go through the chart API, not React state. */
-export const FiltixChart = forwardRef<ChartApi | null, FiltixChartProps>(function FiltixChart(
+export const FiltrixChart = forwardRef<ChartApi | null, FiltrixChartProps>(function FiltrixChart(
   { options, className, style, onReady, onDestroy },
   forwardedRef,
 ) {
@@ -57,4 +57,8 @@ export const FiltixChart = forwardRef<ChartApi | null, FiltixChartProps>(functio
 
   return <div ref={host} className={className} style={{ width: '100%', height: 400, ...style }} />;
 });
-export type { ChartApi, ChartOptions } from '@filtix/charts';
+/** @deprecated Use FiltrixChart. Retained for pre-beta integrations. */
+export const FiltixChart = FiltrixChart;
+/** @deprecated Use FiltrixChartProps. Retained for pre-beta integrations. */
+export type FiltixChartProps = FiltrixChartProps;
+export type { ChartApi, ChartOptions } from '@filtrix.net/charts';

@@ -1,7 +1,7 @@
 import { StrictMode, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createTerminal, type TerminalApi, type TerminalState } from '@filtix/terminal';
-import { createBinanceProvider } from '@filtix/datafeed';
+import { createTerminal, type TerminalApi, type TerminalState } from '@filtrix.net/terminal';
+import { createBinanceProvider } from '@filtrix.net/datafeed';
 import { createFixtureProvider } from './fixture-provider';
 import { GridView } from './grid';
 import { version as appVersion } from '../package.json';
@@ -116,14 +116,14 @@ function App() {
   return (
     <>
       <header className="app-header">
-        <a className="brand" href="/" aria-label="FILTIX Charts by FILTIX.net">
+        <a className="brand" href="/" aria-label="FILTRIX Charts by FILTRIX.NET">
           <svg className="brand-mark" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
             <path d="M5 4h28l-4.5 8H14v5h12l-4.5 8H14v8H5z" fill="currentColor" />
           </svg>
           <span className="brand-text">
-            <strong className="brand-name">FILTIX</strong>
+            <strong className="brand-name">FILTRIX</strong>
             <span className="brand-product">CHARTS</span>
-            <span className="brand-attribution">by FILTIX.net</span>
+            <span className="brand-attribution">by FILTRIX.NET</span>
           </span>
         </a>
         <div className="source">
@@ -201,11 +201,11 @@ function App() {
           </a>
           <a
             className="footer-attribution"
-            href="https://filtix.net/?utm_source=filtix_charts&utm_medium=demo&utm_campaign=open_beta&utm_content=react-terminal"
+            href="https://filtrix.net/?utm_source=filtrix_charts&utm_medium=demo&utm_campaign=open_beta&utm_content=react-terminal"
             target="_blank"
             rel="noopener noreferrer"
           >
-            by FILTIX.net · Explore ↗
+            by FILTRIX.NET · Explore ↗
           </a>
         </footer>
       </main>

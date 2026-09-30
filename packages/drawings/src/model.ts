@@ -1,4 +1,4 @@
-import { ChartError, timeKey, type ChartTime, type TimeDomain } from '@filtix/core';
+import { ChartError, timeKey, type ChartTime, type TimeDomain } from '@filtrix.net/core';
 import {
   copyDrawing,
   decodeDrawingDocument,

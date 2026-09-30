@@ -6,10 +6,10 @@ import {
   type PriceAlertMonitor,
   type PriceAlertMonitorState,
   type PriceAlertStore,
-} from '@filtix/alerts';
-import { prepareAlertMembershipReplacement } from '@filtix/alerts/internal';
-import { isChartError } from '@filtix/core';
-import type { MarketQuery } from '@filtix/datafeed';
+} from '@filtrix.net/alerts';
+import { prepareAlertMembershipReplacement } from '@filtrix.net/alerts/internal';
+import { isChartError } from '@filtrix.net/core';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 import { copyWorkspaceDocument, resolveCatalog, resolveQuery } from './codec';
 import { copyGridWorkspace, decodeGridWorkspace } from './grid-codec';
 import { createGridControls, type GridControls } from './grid-controls';

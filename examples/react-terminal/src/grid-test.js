@@ -56,7 +56,7 @@ export function attachRoot(value) {
 // React/StrictMode fixture above is deliberately left available unchanged.
 if (new URLSearchParams(location.search).has('grid-benchmark')) {
   window.gridBenchmark = { ready: false };
-  void Promise.all([import('@filtix/terminal'), import('@filtix/alerts')]).then(
+  void Promise.all([import('@filtrix.net/terminal'), import('@filtrix.net/alerts')]).then(
     ([terminalPackage, alertsPackage]) => {
       const { createTerminalGrid } = terminalPackage;
       const {

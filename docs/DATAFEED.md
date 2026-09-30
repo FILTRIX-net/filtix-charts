@@ -1,12 +1,12 @@
-# FILTIX Datafeed
+# FILTRIX Datafeed
 
-`@filtix/datafeed` is an optional, transport-independent controller plus a public Binance Spot adapter. It does not depend on the chart renderer. Importing or constructing it does not open a connection.
+`@filtrix.net/datafeed` is an optional, transport-independent controller plus a public Binance Spot adapter. It does not depend on the chart renderer. Importing or constructing it does not open a connection.
 
 ## Connect a chart
 
 ```ts
-import { createChart } from '@filtix/charts';
-import { createBinanceProvider, createFeedSession } from '@filtix/datafeed';
+import { createChart } from '@filtrix.net/charts';
+import { createBinanceProvider, createFeedSession } from '@filtrix.net/datafeed';
 
 const chart = createChart(host, { autoSize: true, timeDomain: 'utc-ms' });
 const candles = chart.addSeries('candlestick');

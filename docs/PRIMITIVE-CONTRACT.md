@@ -1,4 +1,4 @@
-# FILTIX primitive overlay contract v0.3
+# FILTRIX primitive overlay contract v0.3
 
 Governing [spec](../SOURCE-DISTRIBUTION.md#omitted-development-materials). Additive ChartApi.attachPrimitive(primitive: ChartPrimitive): () => void.
 

@@ -1,4 +1,4 @@
-import type { CandlePoint, ValuePoint } from '@filtix/core';
+import type { CandlePoint, ValuePoint } from '@filtrix.net/core';
 
 export interface FixtureOptions {
   seed?: number;

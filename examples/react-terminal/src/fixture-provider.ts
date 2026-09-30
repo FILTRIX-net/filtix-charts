@@ -1,4 +1,4 @@
-import type { MarketBar, MarketDataProvider, MarketQuery, MarketStreamHandlers } from '@filtix/datafeed';
+import type { MarketBar, MarketDataProvider, MarketQuery, MarketStreamHandlers } from '@filtrix.net/datafeed';
 
 // An explicitly synthetic, wall-clock-authoritative source. Timer delivery never
 // defines history: materializing a snapshot includes bars missed while hidden.

@@ -6,7 +6,7 @@ import type {
   MarketDataProvider,
   MarketQuery,
   MarketStreamHandlers,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 import { createPriceAlertStore } from './store';
 import { createPriceAlertMonitor, getMonitorInternals } from './monitor';
 import { prepareAlertMembershipReplacement } from './membership';

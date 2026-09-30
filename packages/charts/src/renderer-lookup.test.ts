@@ -1,12 +1,12 @@
 import { createHash } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@filtix/core', async (importOriginal) => {
-  const core = await importOriginal<typeof import('@filtix/core')>();
+vi.mock('@filtrix.net/core', async (importOriginal) => {
+  const core = await importOriginal<typeof import('@filtrix.net/core')>();
   return { ...core, lowerBound: vi.fn(core.lowerBound) };
 });
 
-import { lowerBound, SeriesStore, timeKey, type SeriesPoint, type SeriesType } from '@filtix/core';
+import { lowerBound, SeriesStore, timeKey, type SeriesPoint, type SeriesType } from '@filtrix.net/core';
 import { layout } from './layout';
 import { drawScene } from './renderer';
 import { buildRuns } from './timeline';

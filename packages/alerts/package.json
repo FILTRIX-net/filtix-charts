@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/alerts",
+  "name": "@filtrix.net/alerts",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -23,12 +23,12 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@filtix/datafeed": "0.12.0-beta.1"
+    "@filtrix.net/datafeed": "0.12.0-beta.1"
   },
-  "description": "Price alert state and monitoring for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "Price alert state and monitoring for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "alerts"
   ],

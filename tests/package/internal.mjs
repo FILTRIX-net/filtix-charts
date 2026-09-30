@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import * as publicIndicators from '@filtix/indicators';
-import * as internal from '@filtix/indicators/internal';
+import * as publicIndicators from '@filtrix.net/indicators';
+import * as internal from '@filtrix.net/indicators/internal';
 assert.deepEqual(Object.keys(publicIndicators).sort(), [
   'bollingerBands',
   'createBollingerBands',
@@ -124,9 +124,9 @@ console.log(
   'Internal installed ESM/SSR batch ownership, duplicate/tail/reset and unchanged root exports PASS',
 );
 
-import * as chartRoot from '@filtix/charts';
-import * as chartInternal from '@filtix/charts/internal';
-import { createOwnedStudyStore, createOwnedVolumeStoreFromPrice, SeriesStore } from '@filtix/core';
+import * as chartRoot from '@filtrix.net/charts';
+import * as chartInternal from '@filtrix.net/charts/internal';
+import { createOwnedStudyStore, createOwnedVolumeStoreFromPrice, SeriesStore } from '@filtrix.net/core';
 assert.deepEqual(Object.keys(chartInternal).sort(), [
   'hasOwnedStudyColumnCapability',
   'setOwnedPriceVolumeData',
@@ -211,8 +211,8 @@ for (let i = 0; i < owned.studies.length; i++) {
 assert.throws(() => internal.prepareOwnedBatch([], [], 'business-date'));
 console.log('Installed charts root/shim identity, SSR, owned indicator/core copies and tail isolation PASS');
 
-import * as alertRoot from '@filtix/alerts';
-import * as alertInternal from '@filtix/alerts/internal';
+import * as alertRoot from '@filtrix.net/alerts';
+import * as alertInternal from '@filtrix.net/alerts/internal';
 for (const key of ['window', 'document', 'HTMLElement', 'ResizeObserver'])
   assert.equal(typeof globalThis[key], 'undefined', 'Headless alerts import: ' + key);
 assert.deepEqual(Object.keys(alertInternal).sort(), [

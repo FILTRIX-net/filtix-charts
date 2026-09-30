@@ -2874,8 +2874,8 @@ test('generated grid documents satisfy the real public restore schema', async (t
       return nextLoad(url, context);
     },
     resolve(specifier, context, nextResolve) {
-      if (specifier.startsWith('@filtix/')) {
-        const [name, subpath] = specifier.slice('@filtix/'.length).split('/');
+      if (specifier.startsWith('@filtrix.net/')) {
+        const [name, subpath] = specifier.slice('@filtrix.net/'.length).split('/');
         return nextResolve(
           new URL(`../../packages/${name}/src/${subpath ?? 'index'}.ts`, import.meta.url).href,
           context,

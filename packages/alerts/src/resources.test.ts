@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import type { MarketDataProvider, MarketStreamHandlers, HistoryPage } from '@filtix/datafeed';
+import type { MarketDataProvider, MarketStreamHandlers, HistoryPage } from '@filtrix.net/datafeed';
 import { createPriceAlertStore, getStoreCapability } from './store';
 import { createPriceAlertMonitor } from './monitor';
 import { prepareAlertMembershipReplacement } from './membership';

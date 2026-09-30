@@ -1,4 +1,4 @@
-import { measurePaneLayout, type ChartPaneLayout } from '@filtix/charts';
+import { measurePaneLayout, type ChartPaneLayout } from '@filtrix.net/charts';
 import type { TerminalLayout, TerminalPaneId } from './types';
 
 export type TerminalEditorMode = 'rail' | 'bottom' | 'overlay';

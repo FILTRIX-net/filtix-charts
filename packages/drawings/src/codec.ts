@@ -1,4 +1,4 @@
-import { ChartError, timeKey, type ChartTime, type TimeDomain } from '@filtix/core';
+import { ChartError, timeKey, type ChartTime, type TimeDomain } from '@filtrix.net/core';
 import { DEFAULT_DRAWING_STYLE, DEFAULT_FIBONACCI_LEVELS, requiredAnchorCount } from './spec';
 import type {
   Drawing,

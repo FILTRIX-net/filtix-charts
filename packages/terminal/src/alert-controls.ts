@@ -1,4 +1,4 @@
-import type { MarketQuery } from '@filtix/datafeed';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 import type {
   PriceAlert,
   PriceAlertCondition,
@@ -6,7 +6,7 @@ import type {
   PriceAlertFrequency,
   PriceAlertMonitor,
   PriceAlertStore,
-} from '@filtix/alerts';
+} from '@filtrix.net/alerts';
 
 export interface TerminalAlertControls {
   readonly toggle: HTMLButtonElement;

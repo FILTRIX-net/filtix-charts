@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/datafeed",
+  "name": "@filtrix.net/datafeed",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -18,10 +18,10 @@
     "README.md",
     "LICENSE"
   ],
-  "description": "Market data feed sessions and an optional Binance provider for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "Market data feed sessions and an optional Binance provider for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "datafeed"
   ],

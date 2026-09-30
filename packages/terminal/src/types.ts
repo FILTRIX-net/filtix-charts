@@ -1,12 +1,12 @@
-import type { ChartApi } from '@filtix/charts';
+import type { ChartApi } from '@filtrix.net/charts';
 import type {
   FeedSessionOptions,
   FeedState,
   MarketBar,
   MarketDataProvider,
   MarketQuery,
-} from '@filtix/datafeed';
-import type { DrawingDocument, DrawingDocumentV1, DrawingStore, DrawingTool } from '@filtix/drawings';
+} from '@filtrix.net/datafeed';
+import type { DrawingDocument, DrawingDocumentV1, DrawingStore, DrawingTool } from '@filtrix.net/drawings';
 
 export type TerminalSingleStudyKind = 'sma' | 'ema' | 'rsi';
 export type TerminalStudyKind = TerminalSingleStudyKind | 'macd' | 'bollinger';
@@ -254,4 +254,4 @@ import type {
   PriceAlertMonitor,
   PriceAlertMonitorState,
   PriceAlertStore,
-} from '@filtix/alerts';
+} from '@filtrix.net/alerts';

@@ -1,7 +1,7 @@
 import { StrictMode, createRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { FiltixChart } from '@filtix/react';
-import type { ChartApi } from '@filtix/charts';
+import { FiltrixChart } from '@filtrix.net/react';
+import type { ChartApi } from '@filtrix.net/charts';
 import { makeCandles } from './fixtures';
 
 const ref = createRef<ChartApi | null>();
@@ -22,7 +22,7 @@ function App() {
       <button onClick={() => setVisible((v) => !v)}>Toggle chart</button>
       <button onClick={() => setLight((v) => !v)}>Change theme</button>
       {visible && (
-        <FiltixChart
+        <FiltrixChart
           ref={ref}
           style={{ height: 400, width: 800 }}
           options={{ theme: { background: light ? '#f1e2d3' : '#102030' }, ariaLabel: 'Chart ' + version }}

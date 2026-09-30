@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest';
-import { timeKey } from '@filtix/core';
+import { timeKey } from '@filtrix.net/core';
 import { formatPrice, formatTime } from './renderer';
 import type { Scene } from './types';
 

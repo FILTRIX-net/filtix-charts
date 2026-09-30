@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/core",
+  "name": "@filtrix.net/core",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -18,10 +18,10 @@
     "README.md",
     "LICENSE"
   ],
-  "description": "Time, series storage and scale primitives for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "Time, series storage and scale primitives for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "core"
   ],

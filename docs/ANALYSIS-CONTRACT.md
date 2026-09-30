@@ -1,9 +1,9 @@
-# FILTIX analysis contract
+# FILTRIX analysis contract
 
 Original [design](../SOURCE-DISTRIBUTION.md#omitted-development-materials), with the additive cause filter from the [terminal-grid design](../SOURCE-DISTRIBUTION.md#omitted-development-materials).
 
 ```ts
-import type { ChartApi, ChartTime, CandlePoint, ValuePoint, WhitespacePoint, TimeDomain } from '@filtix/charts';
+import type { ChartApi, ChartTime, CandlePoint, ValuePoint, WhitespacePoint, TimeDomain } from '@filtrix.net/charts';
 export interface ChartSyncOptions {
   viewport?: boolean;
   crosshair?: boolean;

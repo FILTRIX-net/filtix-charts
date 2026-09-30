@@ -45,7 +45,7 @@ export function validatePublicCohort(workspace, manifests, { requireRepository =
   assert.deepEqual(Object.keys(manifests).sort(), [...names].sort(), 'Exact public package cohort');
   for (const name of names) {
     const manifest = manifests[name];
-    assert.equal(manifest.name, '@filtix/' + name, name + ' package name mismatch');
+    assert.equal(manifest.name, '@filtrix.net/' + name, name + ' package name mismatch');
     assert.equal(manifest.version, betaVersion, name + ' package version mismatch');
     assert.equal(manifest.private, false, name + ' private SDK package cannot be published');
     assert.equal(manifest.license, workspace.license, name + ' license must match selected root license');
@@ -76,10 +76,10 @@ export function validatePublicCohort(workspace, manifests, { requireRepository =
     assert.equal(manifest.publishConfig?.access, 'public', name + ' publish access must be public');
     assert.equal(manifest.publishConfig?.tag, 'beta', name + ' publish tag must be beta');
     const actualPeers = Object.entries(manifest.peerDependencies ?? {})
-      .filter(([peer]) => peer.startsWith('@filtix/'))
+      .filter(([peer]) => peer.startsWith('@filtrix.net/') || peer.startsWith('@filtix/'))
       .sort();
     const expectedPeers = (internalPeers[name] ?? [])
-      .map((peer) => ['@filtix/' + peer, betaVersion])
+      .map((peer) => ['@filtrix.net/' + peer, betaVersion])
       .sort(([left], [right]) => left.localeCompare(right));
     assert.deepEqual(actualPeers, expectedPeers, name + ' internal peer versions must be exact beta pins');
   }
@@ -106,7 +106,7 @@ export function validatePackedCohort(workspace, manifests, packed, options) {
   const names = expectedPackageNames(stage);
   assert.deepEqual(
     packed.map(({ name }) => name).sort(),
-    names.map((name) => '@filtix/' + name).sort(),
+    names.map((name) => '@filtrix.net/' + name).sort(),
     'Exact public archive cohort',
   );
   for (const item of packed) {

@@ -1,5 +1,5 @@
-import { createChart, type ChartApi, type PaneHandle, type SeriesHandle } from '@filtix/charts';
-import { hasOwnedStudyColumnCapability, setOwnedPriceVolumeData } from '@filtix/charts/internal';
+import { createChart, type ChartApi, type PaneHandle, type SeriesHandle } from '@filtrix.net/charts';
+import { hasOwnedStudyColumnCapability, setOwnedPriceVolumeData } from '@filtrix.net/charts/internal';
 import {
   createFeedSession,
   type FeedChange,
@@ -7,7 +7,7 @@ import {
   type FeedState,
   type MarketBar,
   type MarketQuery,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 import {
   createDrawingLayer,
   createDrawingStore,
@@ -16,20 +16,20 @@ import {
   type DrawingLayer,
   type DrawingStore,
   type DrawingTool,
-} from '@filtix/drawings';
+} from '@filtrix.net/drawings';
 import {
   createPriceAlertMonitor,
   createPriceAlertStore,
   type PriceAlertEvent,
   type PriceAlertMonitor,
   type PriceAlertStore,
-} from '@filtix/alerts';
+} from '@filtrix.net/alerts';
 import {
   prepareAlertMembershipReplacement,
   preparePriceAlertStoreRestore,
   type PreparedAlertMembership,
   type PreparedPriceAlertStoreRestore,
-} from '@filtix/alerts/internal';
+} from '@filtrix.net/alerts/internal';
 import {
   copyLayout,
   defaultLayout,
@@ -1163,7 +1163,7 @@ export function prepareTerminalWithDependencies(
       theme: settings.theme,
       followLatest: settings.followLatest,
       autoSize: true,
-      ariaLabel: 'FILTIX financial terminal chart',
+      ariaLabel: 'FILTRIX financial terminal chart',
     });
     layoutRuntime = new TerminalLayoutRuntime(
       chart,

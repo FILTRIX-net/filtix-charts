@@ -8,14 +8,14 @@ import type {
   MarketDataProvider,
   MarketQuery,
   MarketStreamHandlers,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 import { createPriceAlertStore } from './store';
 import { createPriceAlertMonitor } from './monitor';
 import { prepareAlertMembershipReplacement } from './membership';
 
 const captured = vi.hoisted(() => ({ sessions: [] as FeedSession[] }));
-vi.mock('@filtix/datafeed', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@filtix/datafeed')>();
+vi.mock('@filtrix.net/datafeed', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@filtrix.net/datafeed')>();
   return {
     ...actual,
     createFeedSession(options: FeedSessionOptions) {

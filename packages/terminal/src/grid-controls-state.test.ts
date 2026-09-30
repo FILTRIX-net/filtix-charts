@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import * as drawings from '@filtix/drawings';
+import * as drawings from '@filtrix.net/drawings';
 import { copyWorkspaceDocument, decodeWorkspace } from './codec';
 import { createTerminalGridWithDependencies, type GridDependencies } from './grid';
 import type { TerminalGridApi, TerminalGridState } from './grid-types';

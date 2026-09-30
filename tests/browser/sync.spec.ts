@@ -374,7 +374,7 @@ test('sync exact and nearest cursor policies forward real values and clear witho
     a.fitContent();
     b.fitContent();
     await api.settle();
-    let target: import('@filtix/charts').CrosshairEvent | null = null;
+    let target: import('@filtrix.net/charts').CrosshairEvent | null = null;
     let events = 0;
     b.subscribeCrosshairMove((e) => {
       target = e;
@@ -464,7 +464,7 @@ test('destroyed and domain-changed peers detach before propagation while remaini
     const api = window.syncTestApi,
       { a, b } = api,
       c = api.create(Array.from({ length: 20 }, (_, i) => i * 1000)).chart;
-    let domain: import('@filtix/charts').TimeDomain = 'utc-ms',
+    let domain: import('@filtrix.net/charts').TimeDomain = 'utc-ms',
       calls = 0,
       removed = 0;
     const target = {

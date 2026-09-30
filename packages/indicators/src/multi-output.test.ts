@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import {
   bollingerBands,
   createBollingerBands,

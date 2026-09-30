@@ -1,8 +1,8 @@
 import { afterEach, expect, test, vi } from 'vitest';
-import type { ChartApi } from '@filtix/charts';
-import * as chartInternal from '@filtix/charts/internal';
-import type { FeedChange, FeedSession, MarketDataProvider } from '@filtix/datafeed';
-import * as indicatorInternal from '@filtix/indicators/internal';
+import type { ChartApi } from '@filtrix.net/charts';
+import * as chartInternal from '@filtrix.net/charts/internal';
+import type { FeedChange, FeedSession, MarketDataProvider } from '@filtrix.net/datafeed';
+import * as indicatorInternal from '@filtrix.net/indicators/internal';
 import { prepareTerminalWithDependencies } from './terminal';
 
 vi.mock('./study-controls', () => ({
@@ -55,8 +55,8 @@ vi.mock('./responsive-layout', () => ({
     editingFocus: false,
   }),
 }));
-vi.mock('@filtix/drawings', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@filtix/drawings')>()),
+vi.mock('@filtrix.net/drawings', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@filtrix.net/drawings')>()),
   createDrawingLayer: () => ({
     getState: () => ({ tool: 'select', magnet: false, selectedId: null }),
     destroy() {},

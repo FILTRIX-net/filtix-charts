@@ -1,10 +1,10 @@
-# FILTIX Charts beta release process
+# FILTRIX Charts beta release process
 
 This runbook prepares `0.12.0-beta.1` for the public `beta` channel. Preparation does not publish packages or deploy a website. The root workspace and React example remain private.
 
 ## Outstanding owner inputs
 
-The owner selected Apache-2.0 and supplied [FILTRIX-net](https://github.com/FILTRIX-net) on 2026-09-29. GitHub CLI verified `x777` as an active organization administrator. The public source destination is [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), and package metadata names that repository. Control of npm `@filtix` and registry authentication still need to be established before npm publication. GitHub organization access does not establish npm scope access.
+The release uses Apache-2.0, the npm organization scope `@filtrix.net` and the source repository [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts). Package metadata names that repository. Before publication, verify registry authentication, organization publishing rights and the account's supported publishing authentication method. GitHub organization access does not establish npm scope access.
 
 The license file must be present in the root and in every archive, and package license identifiers must agree. Package READMEs must describe the actual available distribution. `npm run check:release` is the publication gate and must fail when these requirements are unresolved.
 
@@ -20,7 +20,7 @@ npm run pack:local
 npm run check:consumer
 ```
 
-The beta consumer check can populate an empty npm cache by fetching the pinned npm 12.0.2 CLI and exact locked third-party dependencies from the registry; the nine FILTIX packages still install from the local archives. Allow registry access for a fresh public source checkout. Historical stage checks retain their offline cache requirement.
+The beta consumer check can populate an empty npm cache by fetching the pinned npm 12.0.2 CLI and exact locked third-party dependencies from the registry; the nine FILTRIX packages still install from the local archives. Allow registry access for a fresh public source checkout. Historical stage checks retain their offline cache requirement.
 
 Review changes and commit the source before the final pack/install capture. Repeat the last three commands on that committed source and then run:
 
@@ -45,7 +45,7 @@ Verify the exported tree independently before creating its initial commit: clean
 After scope ownership, repository/legal metadata and the final preflight pass are confirmed, publish the exact verified `.tgz` files, not an unreviewed workspace rebuild. The required options are:
 
 ```sh
-npm publish dist/packages/filtix-charts-0.12.0-beta.1.tgz --access public --tag beta
+npm publish dist/packages/filtrix.net-charts-0.12.0-beta.1.tgz --access public --tag beta
 ```
 
 This is an example for one archive, not the entire release. Publish the cohort in dependency order: core, charts, indicators, datafeed, analysis, drawings, alerts, react, terminal. Inspect each result before continuing. Partial publication is possible; do not announce the whole cohort until all nine registry versions and integrity values match the candidate. Never use `latest` for this beta, and do not overwrite or move historical Git tags.
@@ -55,7 +55,7 @@ For scoped packages, public access must be explicit; see [npm's publication docu
 Only after successful publication, verify registry installation in a fresh consumer:
 
 ```sh
-npm install @filtix/charts@0.12.0-beta.1
+npm install @filtrix.net/charts@0.12.0-beta.1
 ```
 
 Install optional peers from the same exact beta cohort. Do not present this command as currently available before registry verification succeeds.

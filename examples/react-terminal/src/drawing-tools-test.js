@@ -1,5 +1,5 @@
 // Installed-archive-only workload. Loaded by main.tsx solely for ?test&drawing-tools.
-import { createTerminal } from '@filtix/terminal';
+import { createTerminal } from '@filtrix.net/terminal';
 
 const host = document.createElement('div');
 host.id = 'drawing-tools-host';

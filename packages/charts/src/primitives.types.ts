@@ -1,4 +1,4 @@
-import type { ChartTime, TimeDomain, ScaleMode } from '@filtix/core';
+import type { ChartTime, TimeDomain, ScaleMode } from '@filtrix.net/core';
 import type { ChartTheme } from './types';
 export type PrimitiveMode = 'screen' | 'export';
 export interface PrimitiveProjection {

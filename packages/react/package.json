@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/react",
+  "name": "@filtrix.net/react",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -19,13 +19,13 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@filtix/charts": "0.12.0-beta.1",
+    "@filtrix.net/charts": "0.12.0-beta.1",
     "react": ">=18 <20"
   },
-  "description": "React wrapper for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "React wrapper for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "react"
   ],

@@ -63,17 +63,39 @@ export function expectedPackageNames(stage) {
   assert.ok(stageVersions.has(stage), 'Unsupported package inventory stage: ' + stage);
   return ['v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) ? ['alerts', ...packageNames] : [...packageNames];
 }
+export function expectedPackageScope(stage) {
+  assert.ok(stageVersions.has(stage), 'Unsupported package inventory stage: ' + stage);
+  return stage === 'v0.12-beta.1' ? '@filtrix.net' : '@filtix';
+}
+export function packageArchivePath(stage, name) {
+  assert.ok(expectedPackageNames(stage).includes(name), 'Unknown cohort package: ' + name);
+  return (
+    'dist/packages/' +
+    expectedPackageScope(stage).slice(1) +
+    '-' +
+    name +
+    '-' +
+    stageVersions.get(stage) +
+    '.tgz'
+  );
+}
+export function consumerPackagePath(stage, name, member) {
+  assert.ok(expectedPackageNames(stage).includes(name), 'Unknown cohort package: ' + name);
+  return 'examples/react-terminal/node_modules/' + expectedPackageScope(stage) + '/' + name + '/' + member;
+}
 export function expectedPackageMembers(stage, packageName) {
   assert.ok(stageVersions.has(stage), 'Unsupported package inventory stage: ' + stage);
   assert.ok(
-    expectedPackageNames(stage).some((name) => packageName === '@filtix/' + name),
+    expectedPackageNames(stage).some((name) => packageName === expectedPackageScope(stage) + '/' + name),
     'Unknown cohort package: ' + packageName,
   );
   const members = ['dist/index.d.ts', 'dist/index.js', 'dist/index.js.map', 'package.json'];
   if (
-    (['v0.9', 'v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) && packageName === '@filtix/indicators') ||
-    (['v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) && packageName === '@filtix/alerts') ||
-    (['v0.11', 'v0.12-beta.1'].includes(stage) && packageName === '@filtix/charts')
+    (['v0.9', 'v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) &&
+      packageName === expectedPackageScope(stage) + '/indicators') ||
+    (['v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) &&
+      packageName === expectedPackageScope(stage) + '/alerts') ||
+    (['v0.11', 'v0.12-beta.1'].includes(stage) && packageName === expectedPackageScope(stage) + '/charts')
   )
     members.push('dist/internal.d.ts', 'dist/internal.js', 'dist/internal.js.map');
   if (stage === 'v0.12-beta.1') members.push('LICENSE', 'README.md');
@@ -159,14 +181,14 @@ export function verifyConsumerIdentity(root, stage, commit) {
   const cohort = expectedPackageNames(stage);
   assert.deepEqual(
     record.archives.map((item) => item.name).sort(),
-    cohort.map((name) => '@filtix/' + name),
+    cohort.map((name) => expectedPackageScope(stage) + '/' + name),
   );
   const checked = [pointer, unique, ...record.source.files.map((item) => item.path)];
   let memberCount = 0;
   for (const archive of record.archives) {
     const expectedMembers = expectedPackageMembers(stage, archive.name).map((path) => 'package/' + path);
     const name = archive.name.split('/')[1],
-      path = 'dist/packages/filtix-' + name + '-' + expectedVersion + '.tgz',
+      path = packageArchivePath(stage, name),
       tarBytes = readFileSync(resolve(root, path));
     assert.equal(digest(tarBytes), archive.sha256, 'Archive differs from install record: ' + name);
     checked.push(path);
@@ -180,7 +202,7 @@ export function verifyConsumerIdentity(root, stage, commit) {
       const content = tar.subarray(offset + 512, offset + 512 + size);
       offset += 512 + Math.ceil(size / 512) * 512;
       assert.ok(expectedMembers.includes(member), 'Unexpected archive member: ' + member);
-      const installed = 'examples/react-terminal/node_modules/@filtix/' + name + '/' + member.slice(8),
+      const installed = consumerPackagePath(stage, name, member.slice(8)),
         actual = readFileSync(resolve(root, installed));
       assert.ok(actual.equals(content), 'Installed member differs from archive: ' + installed);
       if (stage === 'v0.12-beta.1') verifyBetaArchiveSourceMember(root, name, member, content);
@@ -188,12 +210,8 @@ export function verifyConsumerIdentity(root, stage, commit) {
       checked.push(installed);
     }
     assert.equal(
-      JSON.parse(
-        readFileSync(
-          resolve(root, 'examples/react-terminal/node_modules/@filtix/' + name + '/package.json'),
-          'utf8',
-        ),
-      ).version,
+      JSON.parse(readFileSync(resolve(root, consumerPackagePath(stage, name, 'package.json')), 'utf8'))
+        .version,
       expectedVersion,
     );
     assert.deepEqual(members.map((item) => item.path).sort(), expectedMembers, 'Exact archive inventory');

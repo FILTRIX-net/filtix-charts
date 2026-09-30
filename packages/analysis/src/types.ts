@@ -5,7 +5,7 @@ import type {
   ValuePoint,
   WhitespacePoint,
   TimeDomain,
-} from '@filtix/charts';
+} from '@filtrix.net/charts';
 export interface ChartSyncOptions {
   viewport?: boolean;
   crosshair?: boolean;

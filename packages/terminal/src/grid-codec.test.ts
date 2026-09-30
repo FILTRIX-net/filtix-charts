@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { createPriceAlertStore } from '@filtix/alerts';
+import { createPriceAlertStore } from '@filtrix.net/alerts';
 import { copyGridWorkspace, decodeGridWorkspace } from './grid-codec';
 import { decodeWorkspace } from './codec';
 import type { TerminalGridCellId, TerminalGridWorkspace } from './grid-types';

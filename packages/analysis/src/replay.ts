@@ -1,5 +1,5 @@
-import { ChartError, SeriesStore } from '@filtix/core';
-import type { CandlePoint, SeriesPoint, TimeDomain } from '@filtix/charts';
+import { ChartError, SeriesStore } from '@filtrix.net/core';
+import type { CandlePoint, SeriesPoint, TimeDomain } from '@filtrix.net/charts';
 import type { HistoryReplay, HistoryReplayOptions, ReplayChange, ReplayState, ReplayStatus } from './types';
 
 const DEFAULT_BARS_PER_SECOND = 4;

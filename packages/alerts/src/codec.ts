@@ -1,4 +1,4 @@
-import type { MarketQuery } from '@filtix/datafeed';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 import type {
   PriceAlert,
   PriceAlertCondition,

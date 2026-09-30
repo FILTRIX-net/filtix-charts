@@ -7,7 +7,7 @@ import type {
   LogicalRange,
   SeriesStore,
   PriceScale,
-} from '@filtix/core';
+} from '@filtrix.net/core';
 import type { ChartPrimitive } from './primitives.types';
 export type {
   ChartTime,
@@ -21,7 +21,7 @@ export type {
   BandPoint,
   WhitespacePoint,
   UtcMillis,
-} from '@filtix/core';
+} from '@filtrix.net/core';
 export interface ChartTheme {
   background: string;
   text: string;

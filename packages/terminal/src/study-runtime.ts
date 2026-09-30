@@ -5,9 +5,9 @@ import type {
   SeriesOptions,
   SeriesPoint,
   SeriesType,
-} from '@filtix/charts';
-import { hasOwnedStudyColumnCapability, setOwnedStudyColumns } from '@filtix/charts/internal';
-import type { MarketBar } from '@filtix/datafeed';
+} from '@filtrix.net/charts';
+import { hasOwnedStudyColumnCapability, setOwnedStudyColumns } from '@filtrix.net/charts/internal';
+import type { MarketBar } from '@filtrix.net/datafeed';
 import {
   createBollingerBands,
   createIndicator,
@@ -18,7 +18,7 @@ import {
   type StreamingBollingerBands,
   type StreamingIndicator,
   type StreamingMacd,
-} from '@filtix/indicators';
+} from '@filtrix.net/indicators';
 import {
   prepareBatch,
   prepareOwnedBatch,
@@ -27,7 +27,7 @@ import {
   prepareScalar,
   type PreparationRequest,
   type ScalarColumns,
-} from '@filtix/indicators/internal';
+} from '@filtrix.net/indicators/internal';
 import { copyStudy, sameStudy, studyCalculationChanged } from './studies';
 import type { TerminalStudy } from './types';
 

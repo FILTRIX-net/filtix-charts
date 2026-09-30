@@ -1,10 +1,10 @@
-# FILTIX Drawings contract v0.3
+# FILTRIX Drawings contract v0.3
 
 Governing [spec](../SOURCE-DISTRIBUTION.md#omitted-development-materials).
 
 ```ts
-import type { ChartApi, ChartTime } from '@filtix/charts';
-import type { TimeDomain } from '@filtix/core';
+import type { ChartApi, ChartTime } from '@filtrix.net/charts';
+import type { TimeDomain } from '@filtrix.net/core';
 export type DrawingType = 'trend-line' | 'horizontal-line' | 'rectangle' | 'measure';
 export type DrawingTool = 'select' | DrawingType;
 export interface DrawingPoint { time: ChartTime; price: number }

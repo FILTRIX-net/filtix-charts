@@ -3,7 +3,7 @@
 A primitive paints an optional annotation layer using a public CSS-pixel projection. The chart allocates its third canvas lazily on first attachment and removes it when the last primitive detaches. Charts without primitives retain their two-canvas scene/cursor architecture.
 
 ```ts
-import type { PrimitiveHost } from '@filtix/charts';
+import type { PrimitiveHost } from '@filtrix.net/charts';
 let host: PrimitiveHost | undefined;
 const detach = chart.attachPrimitive({
   attach(nextHost) {

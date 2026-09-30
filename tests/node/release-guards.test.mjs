@@ -31,7 +31,7 @@ function fixture() {
     names.map((name) => [
       name,
       {
-        name: '@filtix/' + name,
+        name: '@filtrix.net/' + name,
         version,
         type: 'module',
         license: 'MIT',
@@ -43,7 +43,7 @@ function fixture() {
         files: ['dist', 'README.md', 'LICENSE'],
         publishConfig: { access: 'public', tag: 'beta' },
         peerDependencies: Object.fromEntries(
-          (peerNames[name] ?? []).map((peer) => ['@filtix/' + peer, version]),
+          (peerNames[name] ?? []).map((peer) => ['@filtrix.net/' + peer, version]),
         ),
       },
     ]),
@@ -146,7 +146,7 @@ test('public cohort rejects private SDK packages, wrong version, legal data, and
     ],
     [
       (p) => {
-        p.alerts.peerDependencies['@filtix/datafeed'] = '^0.12.0';
+        p.alerts.peerDependencies['@filtrix.net/datafeed'] = '^0.12.0';
       },
       /peer/i,
     ],
@@ -181,7 +181,7 @@ test('archive guard rejects a missing legal member or an extra source file', () 
   assert.equal(typeof guards.validatePackedCohort, 'function');
   const { workspace, manifests } = fixture();
   const packed = names.map((name) => ({
-    name: '@filtix/' + name,
+    name: '@filtrix.net/' + name,
     version,
     files: [
       { path: 'package.json' },
@@ -216,7 +216,7 @@ test('legal files match the selected root license and every package has a README
       const dir = join(root, 'packages', name);
       mkdirSync(dir, { recursive: true });
       writeFileSync(join(dir, 'LICENSE'), 'selected legal terms\n');
-      writeFileSync(join(dir, 'README.md'), '# @filtix/' + name + '\n');
+      writeFileSync(join(dir, 'README.md'), '# @filtrix.net/' + name + '\n');
     }
     assert.doesNotThrow(() => guards.validatePackageLegalFiles(root, names));
     writeFileSync(join(root, 'packages', 'alerts', 'LICENSE'), 'different terms\n');
@@ -224,4 +224,13 @@ test('legal files match the selected root license and every package has a README
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test('beta release guards reject old-scope manifests and peers', () => {
+  const { workspace, manifests } = fixture();
+  manifests.alerts.name = '@filtix/alerts';
+  assert.throws(() => guards.validatePublicCohort(workspace, manifests), /name mismatch/);
+  manifests.alerts.name = '@filtrix.net/alerts';
+  manifests.alerts.peerDependencies['@filtix/datafeed'] = version;
+  assert.throws(() => guards.validatePublicCohort(workspace, manifests), /peer/);
 });

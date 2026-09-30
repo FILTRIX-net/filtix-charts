@@ -2,12 +2,13 @@
 
 ## 0.12.0-beta.1 — preparation, not published
 
+- Correct the release identity to FILTRIX Charts by FILTRIX.NET and move all nine beta packages to `@filtrix.net/*`. Pre-beta local integrations must update dependencies and imports together. Add `FiltrixChart`/`FiltrixChartProps` while retaining deprecated React aliases and existing saved-data identifiers.
 - License the source and all nine SDK packages under Apache-2.0, with exact internal prerelease peers, per-package READMEs and explicit archive inventories. The root workspace and example remain private.
 - Add local packaging and publication checks for legal files, package metadata, archive contents and installed consumer identity; publication additionally requires the actual repository destination.
 - Document standalone use, contribution and support expectations, release prerequisites and the proposed acquisition experiment.
-- Add static campaign links from the demos to FILTIX and display the full beta version. No SDK analytics or main-product integration is added.
+- Add static campaign links from the demos to FILTRIX.NET and display the full beta version. No SDK analytics or main-product integration is added.
 
-- Unify showcase and React-example headers, footer attribution, favicon and page metadata as FILTIX Charts by FILTIX.net.
+- Unify showcase and React-example headers, footer attribution, favicon and page metadata as FILTRIX Charts by FILTRIX.NET.
 - Derive visible versions from application package metadata and preserve saved-data compatibility.
 
 ## 0.11.0 — 2026-09-28, private local release

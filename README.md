@@ -1,14 +1,14 @@
-# FILTIX Charts
+# FILTRIX Charts
 
-**by [FILTIX.net](https://filtix.net)**
+**by [FILTRIX.NET](https://filtrix.net)**
 
-An original, embeddable financial charting library for web applications. TypeScript, Canvas 2D, explicit data ownership, and no external runtime dependencies in the chart engine. Use it independently of the FILTIX product: no account or telemetry service is required.
+An original, embeddable financial charting library for web applications. TypeScript, Canvas 2D, explicit data ownership, and no external runtime dependencies in the chart engine. Use it independently of the FILTRIX product: no account or telemetry service is required.
 
-**Preparing the open-source beta, `0.12.0-beta.1`, under [Apache-2.0](LICENSE).** Source repository: [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), maintained by `x777`. npm packages and a hosted demo have not yet been published; npm scope access remains a release prerequisite. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
+**Preparing the open-source beta, `0.12.0-beta.1`, under [Apache-2.0](LICENSE).** Source repository: [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. npm packages and a hosted demo have not yet been published. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
 
 Four persistent terminal slots support 1/2/4 visible charts and optional synchronization. Saved price alerts monitor their markets independently of the displayed chart through a native editor and workspace v5. Start with the [grid integration guide](docs/TERMINAL-CONTRACT.md#saved-terminal-grids), [alert integration](docs/ALERTS.md) or [drawing tools](docs/DRAWING-TOOLS.md). Comparisons with TradingView require separate equivalent benchmarks.
 
-![FILTIX Charts by FILTIX.net — studio](docs/assets/filtix-charts-studio.png)
+![FILTRIX Charts by FILTRIX.NET — studio](docs/assets/filtrix-charts-studio.png)
 
 ## Run the workspace
 
@@ -32,14 +32,14 @@ The study at `/drawings.html` adds editable trend lines, price levels, zones and
 
 The analysis workspace at `/analysis.html` links BTC/ETH price views with indexed BTC/ETH/SOL comparison and deterministic historical replay. It uses a labelled fixed synthetic sample with missing hours; only revealed timestamps reach the charts and EMA. See the [analysis guide](docs/ANALYSIS.md).
 
-The integrated workspace at `/terminal.html` combines live data, per-market drawings, volume and configurable SMA, EMA, RSI, MACD and Bollinger Bands. The responsive Indicators panel controls calculation periods, colors, widths, visibility and Bollinger fill opacity; RSI and MACD receive separate panes. Dense study titles wrap or show an omission count within a bounded chart legend. Resize, maximize or restore panes with native controls, keyboard or dragging, then save the layout and alerts in workspace v5. The terminal also includes Fibonacci retracements, parallel channels, text notes, OHLC Magnet and an Objects panel for saved, hidden and locked drawings; see the [advanced drawing guide](docs/DRAWING-TOOLS.md). The optional `@filtix/terminal` package mounts that workspace into your application. See the [terminal integration contract](docs/TERMINAL-CONTRACT.md) and [independent React example](examples/react-terminal/README.md).
+The integrated workspace at `/terminal.html` combines live data, per-market drawings, volume and configurable SMA, EMA, RSI, MACD and Bollinger Bands. The responsive Indicators panel controls calculation periods, colors, widths, visibility and Bollinger fill opacity; RSI and MACD receive separate panes. Dense study titles wrap or show an omission count within a bounded chart legend. Resize, maximize or restore panes with native controls, keyboard or dragging, then save the layout and alerts in workspace v5. The terminal also includes Fibonacci retracements, parallel channels, text notes, OHLC Magnet and an Objects panel for saved, hidden and locked drawings; see the [advanced drawing guide](docs/DRAWING-TOOLS.md). The optional `@filtrix.net/terminal` package mounts that workspace into your application. See the [terminal integration contract](docs/TERMINAL-CONTRACT.md) and [independent React example](examples/react-terminal/README.md).
 
 ## Embed a chart
 
 Give the container a CSS width and height.
 
 ```ts
-import { createChart } from '@filtix/charts';
+import { createChart } from '@filtrix.net/charts';
 
 const chart = createChart(document.querySelector<HTMLElement>('#chart')!, {
   theme: 'dark',
@@ -75,21 +75,21 @@ Numeric timestamps are UTC **milliseconds**. Daily bars can use a separate `busi
 
 ## Packages
 
-| Package              | Responsibility                                                         |
-| -------------------- | ---------------------------------------------------------------------- |
-| `@filtix/core`       | Validated typed-array stores, range indexes, time and price scales     |
-| `@filtix/charts`     | Self-contained Canvas renderer and browser API                         |
-| `@filtix/indicators` | SMA, EMA, Wilder RSI, MACD and Bollinger; batch and streaming          |
-| `@filtix/react`      | SSR-safe React lifecycle adapter and imperative ref                    |
-| `@filtix/datafeed`   | Provider-independent history/live lifecycle and public Binance adapter |
-| `@filtix/drawings`   | Optional editable annotations, bounded history and saved documents     |
-| `@filtix/analysis`   | Time synchronization, common-baseline comparison and history replay    |
-| `@filtix/alerts`     | Persisted rules and grouped latest-feed monitoring without DOM         |
-| `@filtix/terminal`   | Embeddable market workspace, studies, drawings and explicit snapshots  |
+| Package                   | Responsibility                                                         |
+| ------------------------- | ---------------------------------------------------------------------- |
+| `@filtrix.net/core`       | Validated typed-array stores, range indexes, time and price scales     |
+| `@filtrix.net/charts`     | Self-contained Canvas renderer and browser API                         |
+| `@filtrix.net/indicators` | SMA, EMA, Wilder RSI, MACD and Bollinger; batch and streaming          |
+| `@filtrix.net/react`      | SSR-safe React lifecycle adapter and imperative ref                    |
+| `@filtrix.net/datafeed`   | Provider-independent history/live lifecycle and public Binance adapter |
+| `@filtrix.net/drawings`   | Optional editable annotations, bounded history and saved documents     |
+| `@filtrix.net/analysis`   | Time synchronization, common-baseline comparison and history replay    |
+| `@filtrix.net/alerts`     | Persisted rules and grouped latest-feed monitoring without DOM         |
+| `@filtrix.net/terminal`   | Embeddable market workspace, studies, drawings and explicit snapshots  |
 
 Charts include candlesticks, OHLC, line, area, histogram and fill-only boundary bands, shared-time panes, linear/log scales, crosshair snapshots, dense-data rendering, pointer/touch/keyboard navigation and configurable themes. Scene and cursor layers render independently; valid model updates coalesce into one scheduled frame.
 
-After building, package exports resolve within this workspace. `npm run pack:local` creates all nine beta archives in `dist/packages`; `npm run check:consumer` verifies their installation in the independent React example. Each archive includes its README and Apache-2.0 license. The [terminal guide](docs/TERMINAL-CONTRACT.md#install-the-beta-packages) explains local installation in another application. Public registry availability is verified separately; integration into the existing FILTIX application is outside this library release.
+After building, package exports resolve within this workspace. `npm run pack:local` creates all nine beta archives in `dist/packages`; `npm run check:consumer` verifies their installation in the independent React example. Each archive includes its README and Apache-2.0 license. The [terminal guide](docs/TERMINAL-CONTRACT.md#install-the-beta-packages) explains local installation in another application. Public registry availability is verified separately; integration into the existing FILTRIX application is outside this library release.
 
 The public beta is a distribution and onboarding change. Historical performance evidence below belongs to its named version and source commit; it is not a new beta measurement. Some raw historical artifacts remain in the development archive rather than the compact public source distribution.
 
@@ -126,4 +126,4 @@ The v0.11 installed four-terminal workload is `npm run benchmark:grid -- --mode=
 
 The approved datafeed, drawings, synchronized analysis, comparison and replay stages are implemented in this preview. Order execution and a GPU backend are outside these previews. There is no telemetry.
 
-The [branding guide](docs/BRANDING.md) defines the shared FILTIX Charts by FILTIX.net identity for the showcase and independent React example.
+The [branding guide](docs/BRANDING.md) defines the shared FILTRIX Charts by FILTRIX.NET identity for the showcase and independent React example.

@@ -25,7 +25,7 @@ test('workspace controls compose a chart, export PNG, and expose its source valu
   await expect(page.locator('#current-price')).toHaveText(sourceClose!);
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export', exact: false }).click();
-  expect((await downloadPromise).suggestedFilename()).toBe('filtix-eth.png');
+  expect((await downloadPromise).suggestedFilename()).toBe('filtrix-eth.png');
   await page.getByRole('button', { name: 'Integration', exact: true }).click();
   await expect(page.locator('#integration-code')).toContainText("addSeries('area'");
   await expect(page.locator('#integration-code')).toContainText("scale: 'log'");

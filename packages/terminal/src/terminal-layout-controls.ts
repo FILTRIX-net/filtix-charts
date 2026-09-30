@@ -1,4 +1,4 @@
-import type { ChartApi } from '@filtix/charts';
+import type { ChartApi } from '@filtrix.net/charts';
 import type { TerminalLayout, TerminalPaneId, TerminalStudy } from './types';
 
 interface Handlers {

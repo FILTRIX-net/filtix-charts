@@ -1,4 +1,10 @@
-import type { Drawing, DrawingLayer, DrawingPatch, DrawingStore, FibonacciLevel } from '@filtix/drawings';
+import type {
+  Drawing,
+  DrawingLayer,
+  DrawingPatch,
+  DrawingStore,
+  FibonacciLevel,
+} from '@filtrix.net/drawings';
 
 interface DrawingControlSources {
   store(): DrawingStore | null;

@@ -6,7 +6,7 @@ import {
   type CandlePoint,
   type TimeRange,
   type SeriesHandle,
-} from '@filtix/charts';
+} from '@filtrix.net/charts';
 import {
   buildIndexedComparison,
   createChartSync,
@@ -14,8 +14,8 @@ import {
   type ChartSync,
   type ReplayChange,
   type ReplayState,
-} from '@filtix/analysis';
-import { createIndicator } from '@filtix/indicators';
+} from '@filtrix.net/analysis';
+import { createIndicator } from '@filtrix.net/indicators';
 import { makeCandles } from './fixtures';
 
 const el = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;

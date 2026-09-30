@@ -1,6 +1,6 @@
-# Embedding the FILTIX terminal
+# Embedding the FILTRIX terminal
 
-@filtix/terminal is an optional framework-independent composition of charts, datafeed, drawings, indicators, analysis and alerts. The current development candidate is 0.12.0-beta.1. Its distribution status and prerequisites are in the [beta guide](OPEN-SOURCE-BETA.md); it has not been announced as published. Importing the package in Node/SSR does not create DOM, transport or timers; createTerminal and createTerminalGrid run in a browser.
+@filtrix.net/terminal is an optional framework-independent composition of charts, datafeed, drawings, indicators, analysis and alerts. The current development candidate is 0.12.0-beta.1. Its distribution status and prerequisites are in the [beta guide](OPEN-SOURCE-BETA.md); it has not been announced as published. Importing the package in Node/SSR does not create DOM, transport or timers; createTerminal and createTerminalGrid run in a browser.
 
 ## Install the beta packages
 
@@ -12,19 +12,19 @@ npm run pack:local
 npm run check:consumer
 ```
 
-The last command verifies and builds the included independent React application. To install the same cohort in another application, run the following command from that application's directory. This example assumes your application is beside a checkout named filtrix-charts; adjust the relative archive directory for your layout. React is needed by @filtix/react, while @filtix/terminal itself has no React dependency.
+The last command verifies and builds the included independent React application. To install the same cohort in another application, run the following command from that application's directory. This example assumes your application is beside a checkout named filtrix-charts; adjust the relative archive directory for your layout. React is needed by @filtrix.net/react, while @filtrix.net/terminal itself has no React dependency.
 
 ```sh
-npm install ../filtrix-charts/dist/packages/filtix-core-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-charts-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-indicators-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-react-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-datafeed-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-drawings-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-analysis-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-alerts-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtix-terminal-0.12.0-beta.1.tgz react@19.2.8 react-dom@19.2.8
+npm install ../filtrix-charts/dist/packages/filtrix.net-core-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-charts-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-indicators-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-react-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-datafeed-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-drawings-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-analysis-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-alerts-0.12.0-beta.1.tgz ../filtrix-charts/dist/packages/filtrix.net-terminal-0.12.0-beta.1.tgz react@19.2.8 react-dom@19.2.8
 ```
 
-Use a browser ESM bundler such as the one in the [working React example](../examples/react-terminal/README.md). Keep all FILTIX peer packages in the same exact 0.12.0-beta.1 cohort. For a framework-independent terminal-only application, charts, datafeed, drawings, indicators, analysis, alerts and terminal are sufficient; core and the React adapter remain separately usable packages. No registry publication is required.
+Use a browser ESM bundler such as the one in the [working React example](../examples/react-terminal/README.md). Keep all FILTRIX peer packages in the same exact 0.12.0-beta.1 cohort. For a framework-independent terminal-only application, charts, datafeed, drawings, indicators, analysis, alerts and terminal are sufficient; core and the React adapter remain separately usable packages. No registry publication is required.
 
 ## Mount and dispose
 
 ```ts
-import { createTerminal } from '@filtix/terminal';
-import { createBinanceProvider } from '@filtix/datafeed';
+import { createTerminal } from '@filtrix.net/terminal';
+import { createBinanceProvider } from '@filtrix.net/datafeed';
 const terminal = createTerminal(host, {
   provider: createBinanceProvider(),
   query: { symbol: 'BTCUSDT', interval: '1m' },
@@ -241,7 +241,7 @@ Alerts opens a native editor for rules across the entire configured market catal
 ## Saved terminal grids
 
 ```ts
-import { createTerminalGrid } from '@filtix/terminal';
+import { createTerminalGrid } from '@filtrix.net/terminal';
 
 const grid = createTerminalGrid(host, {
   provider,

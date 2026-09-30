@@ -1,11 +1,11 @@
 # Synchronized analysis and historical replay
 
-The optional @filtix/analysis package exports createChartSync, buildIndexedComparison and createHistoryReplay. Package imports, buildIndexedComparison and createHistoryReplay construction are safe during server rendering. createChartSync requires live chart instances mounted in the browser.
+The optional @filtrix.net/analysis package exports createChartSync, buildIndexedComparison and createHistoryReplay. Package imports, buildIndexedComparison and createHistoryReplay construction are safe during server rendering. createChartSync requires live chart instances mounted in the browser.
 
 ## Link charts by time
 
 ```ts
-import { createChartSync } from '@filtix/analysis';
+import { createChartSync } from '@filtrix.net/analysis';
 
 const linked = createChartSync([bitcoinChart, ethereumChart], {
   viewport: true,
@@ -48,7 +48,7 @@ The synchronization helper captures a membership revision fence and owns a priva
 ## Compare from a common baseline
 
 ```ts
-import { buildIndexedComparison } from '@filtix/analysis';
+import { buildIndexedComparison } from '@filtrix.net/analysis';
 
 const indexed = buildIndexedComparison(
   [
@@ -72,7 +72,7 @@ Data before an explicitly later baseline stay in the result. Applications contro
 ## Reveal complete bars
 
 ```ts
-import { createHistoryReplay } from '@filtix/analysis';
+import { createHistoryReplay } from '@filtrix.net/analysis';
 
 const replay = createHistoryReplay({
   bars: historicalCandles,

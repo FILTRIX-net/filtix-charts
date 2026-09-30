@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ChartError, type ChartTime, type ValuePoint, type WhitespacePoint } from '@filtix/core';
+import { ChartError, type ChartTime, type ValuePoint, type WhitespacePoint } from '@filtrix.net/core';
 import { buildIndexedComparison } from './comparison';
 
 const value = (time: ChartTime, amount: number): ValuePoint => ({ time, value: amount });

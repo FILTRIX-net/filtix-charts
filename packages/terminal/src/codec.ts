@@ -1,10 +1,10 @@
-import { copyDrawingDocument, decodeDrawingDocument } from '@filtix/drawings';
+import { copyDrawingDocument, decodeDrawingDocument } from '@filtrix.net/drawings';
 import {
   copyPriceAlertDocument,
   createEmptyPriceAlertDocument,
   decodePriceAlertDocument,
-} from '@filtix/alerts';
-import type { MarketQuery } from '@filtix/datafeed';
+} from '@filtrix.net/alerts';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 import { copyLayout, defaultLayout, resolveLayout, visiblePaneIds } from './layout';
 import { copyStudies, legacyEma, resolveStoredStudies } from './studies';
 import type {

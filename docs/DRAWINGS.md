@@ -1,10 +1,10 @@
 # Drawing tools and saved studies
 
-`@filtix/drawings` is an optional add-on for `@filtix/charts`. Importing either package is safe during server rendering; create the browser layer after mounting a chart container.
+`@filtrix.net/drawings` is an optional add-on for `@filtrix.net/charts`. Importing either package is safe during server rendering; create the browser layer after mounting a chart container.
 
 ```ts
-import { createChart } from '@filtix/charts';
-import { createDrawingLayer, createDrawingStore } from '@filtix/drawings';
+import { createChart } from '@filtrix.net/charts';
+import { createDrawingLayer, createDrawingStore } from '@filtrix.net/drawings';
 
 const chart = createChart(container, { timeDomain: 'utc-ms', autoSize: true });
 chart.addSeries('candlestick').setData(history);

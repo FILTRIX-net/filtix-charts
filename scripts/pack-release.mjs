@@ -3,7 +3,12 @@ import { spawnSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { findNpmCli } from './npm-cli.mjs';
-import { releaseStage, expectedPackageMembers, expectedPackageNames } from './consumer-identity.mjs';
+import {
+  releaseStage,
+  expectedPackageMembers,
+  expectedPackageNames,
+  expectedPackageScope,
+} from './consumer-identity.mjs';
 import { validatePublicCohort, validatePackageLegalFiles, validatePackedCohort } from './release-guards.mjs';
 import { fileURLToPath } from 'node:url';
 
@@ -46,7 +51,7 @@ const packages = Array.isArray(packed)
 assert.equal(packages.length, cohort.length);
 assert.deepEqual(
   packages.map((item) => item.name).sort(),
-  cohort.map((name) => '@filtix/' + name),
+  cohort.map((name) => expectedPackageScope(stage) + '/' + name),
   'Release must contain the exact stage package cohort',
 );
 for (const item of packages) {

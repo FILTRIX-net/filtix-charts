@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { copyWorkspaceDocument, decodeWorkspace, queryKey, resolveCatalog, resolveSettings } from './codec';
-import { createPriceAlertStore } from '@filtix/alerts';
+import { createPriceAlertStore } from '@filtrix.net/alerts';
 import type {
   TerminalWorkspaceV1,
   TerminalWorkspaceV2,

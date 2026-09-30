@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import { chartOptions, seriesOptions } from './options';
 
 describe('chart legend options', () => {

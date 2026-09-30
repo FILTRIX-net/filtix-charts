@@ -1,4 +1,4 @@
-import type { CandlePoint } from '@filtix/core';
+import type { CandlePoint } from '@filtrix.net/core';
 import { aggregateCandles, makeCandles } from './fixtures';
 
 /** Demo-only producer: reveal a seeded fixture candle over eight price updates. */

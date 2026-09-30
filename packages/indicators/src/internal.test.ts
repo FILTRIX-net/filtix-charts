@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ChartError, type TimeDomain } from '@filtix/core';
+import { ChartError, type TimeDomain } from '@filtrix.net/core';
 import { createBollingerBands, createIndicator, createMacd, type IndicatorPoint } from './index';
 import {
   prepareBatch,

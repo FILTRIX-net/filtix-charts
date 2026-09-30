@@ -1,4 +1,4 @@
-import { createChart, type ChartApi, type ChartOptions } from '@filtix/charts';
+import { createChart, type ChartApi, type ChartOptions } from '@filtrix.net/charts';
 
 const host = document.getElementById('band-host')!;
 const quietTheme = {

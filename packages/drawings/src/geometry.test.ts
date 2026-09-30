@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { createPriceScale, type ChartTime } from '@filtix/core';
-import type { PrimitiveProjection } from '@filtix/charts';
+import { createPriceScale, type ChartTime } from '@filtrix.net/core';
+import type { PrimitiveProjection } from '@filtrix.net/charts';
 import { hitTest, projectDrawing, translateDrawing } from './geometry';
 import type { Drawing, DrawingTypeV1 } from './types';
 

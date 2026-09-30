@@ -1,5 +1,5 @@
-import { ChartError } from '@filtix/core';
-import type { ChartApi, ChartPrimitive, PrimitiveHost, PrimitiveProjection } from '@filtix/charts';
+import { ChartError } from '@filtrix.net/core';
+import type { ChartApi, ChartPrimitive, PrimitiveHost, PrimitiveProjection } from '@filtrix.net/charts';
 import { createDrawingStore } from './model';
 import {
   hitTest,

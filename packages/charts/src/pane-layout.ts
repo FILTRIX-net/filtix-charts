@@ -1,4 +1,4 @@
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import type {
   ChartPaneLayout,
   ChartPaneLayoutPatch,

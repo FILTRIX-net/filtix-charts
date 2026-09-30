@@ -6,16 +6,16 @@ import type {
   SeriesOptions,
   SeriesPoint,
   SeriesType,
-} from '@filtix/charts';
-import * as chartInternal from '@filtix/charts/internal';
+} from '@filtrix.net/charts';
+import * as chartInternal from '@filtrix.net/charts/internal';
 import {
   createBollingerBands,
   createIndicator,
   createMacd,
   type BollingerBandsOptions,
   type MacdOptions,
-} from '@filtix/indicators';
-import * as privatePreparation from '@filtix/indicators/internal';
+} from '@filtrix.net/indicators';
+import * as privatePreparation from '@filtrix.net/indicators/internal';
 import * as indicatorValidation from '../../indicators/src/indicators';
 import { TerminalStudyRuntime } from './study-runtime';
 import type { TerminalBollingerStudy, TerminalMacdStudy, TerminalSingleStudy, TerminalStudy } from './types';

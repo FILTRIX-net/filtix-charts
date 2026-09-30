@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { createPriceAlertStore, getStoreCapability } from './store';
 import { preparePriceAlertStoreRestore } from './store';
 import { createPriceAlertMonitor } from './monitor';
-import type { MarketDataProvider } from '@filtix/datafeed';
+import type { MarketDataProvider } from '@filtrix.net/datafeed';
 import type { PriceAlertEvent, PriceAlertInput } from './types';
 
 const owner = { providerId: 'p', scopeId: 'scope:a' };

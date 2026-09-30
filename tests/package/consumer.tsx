@@ -14,8 +14,8 @@ import {
   type ChartLegendOptions,
   type BandPoint,
   type SeriesHandle,
-} from '@filtix/charts';
-import { SeriesStore, utcMillis } from '@filtix/core';
+} from '@filtrix.net/charts';
+import { SeriesStore, utcMillis } from '@filtrix.net/core';
 import {
   createIndicator,
   ema,
@@ -30,8 +30,14 @@ import {
   type BollingerBandsResult,
   type StreamingMacd,
   type StreamingBollingerBands,
-} from '@filtix/indicators';
-import { FiltixChart } from '@filtix/react';
+} from '@filtrix.net/indicators';
+import { FiltrixChart, FiltixChart, type FiltrixChartProps, type FiltixChartProps } from '@filtrix.net/react';
+
+const legacyChart: typeof FiltrixChart = FiltixChart;
+const legacyProps: FiltixChartProps = {};
+const canonicalProps: FiltrixChartProps = legacyProps;
+void legacyChart;
+void canonicalProps;
 
 const legend: ChartLegendOptions = { visible: true, maxRows: 2 };
 const options: ChartOptions = { theme: 'dark', timeDomain: 'utc-ms', legend };
@@ -48,7 +54,7 @@ const live = createIndicator('ema', 20);
 live.setData(average);
 const ref = createRef<ChartApi | null>();
 export const component = (
-  <FiltixChart
+  <FiltrixChart
     ref={ref}
     options={options}
     onReady={(chart) => {
@@ -63,7 +69,7 @@ export function mount(host: HTMLElement): ChartApi {
   chart.addSeries('line').setData(average);
   return chart;
 }
-import type { UtcMillis as ChartsUtcMillis } from '@filtix/charts';
+import type { UtcMillis as ChartsUtcMillis } from '@filtrix.net/charts';
 const brandedTime: ChartsUtcMillis = utcMillis(1_780_272_000_000);
 // @ts-expect-error A raw number must pass the explicit validation helper.
 const invalidBrandedTime: ChartsUtcMillis = 123;
@@ -79,7 +85,7 @@ import {
   type FeedState,
   type FeedSession,
   type MarketBar,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 
 // Unsupported instrumentation is compiled separately from the stable FeedSession API.
 export function inspectFeedResources(feed: FeedSession): FeedSessionResourceSnapshot {
@@ -124,8 +130,8 @@ import {
   type FibonacciDrawing,
   type ParallelChannelDrawing,
   type TextNoteDrawing,
-} from '@filtix/drawings';
-import type { ChartPrimitive, PrimitiveProjection } from '@filtix/charts';
+} from '@filtrix.net/drawings';
+import type { ChartPrimitive, PrimitiveProjection } from '@filtrix.net/charts';
 const drawingStore = createDrawingStore();
 const drawingInputs: DrawingInput[] = [
   { type: 'horizontal-line', points: [{ time: 0, price: 10 }] },
@@ -262,8 +268,8 @@ import {
   buildIndexedComparison,
   type ChartSyncOptions,
   type ReplayChange,
-} from '@filtix/analysis';
-import type { ChartChangeMeta, TimeRange } from '@filtix/charts';
+} from '@filtrix.net/analysis';
+import type { ChartChangeMeta, TimeRange } from '@filtrix.net/charts';
 const comparison = buildIndexedComparison([{ id: 'sample', points: [{ time: 0, value: 100 }] }]);
 const replay = createHistoryReplay({
   bars: candles,
@@ -331,7 +337,7 @@ import {
   type TerminalGridState,
   type TerminalGridSync,
   type TerminalGridWorkspace,
-} from '@filtix/terminal';
+} from '@filtrix.net/terminal';
 export function mountTerminal(host: HTMLElement) {
   const single: TerminalSingleStudyOptions = { kind: 'ema', period: 20 };
   const momentum: TerminalMacdStudyOptions = {
@@ -538,7 +544,7 @@ import {
   type PriceAlertStore,
   type PriceAlertMonitorState,
   type PriceAlertEvent,
-} from '@filtix/alerts';
+} from '@filtrix.net/alerts';
 export function mountTerminalAlerts(host: HTMLElement) {
   const alertStore: PriceAlertStore = createPriceAlertStore({ providerId: provider.id, scopeId: 'consumer' });
   const monitor = createPriceAlertMonitor({ provider });

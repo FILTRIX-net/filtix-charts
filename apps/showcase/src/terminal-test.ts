@@ -1,4 +1,4 @@
-import { createChart, type ChartApi, type SeriesHandle, type PaneHandle } from '@filtix/charts';
+import { createChart, type ChartApi, type SeriesHandle, type PaneHandle } from '@filtrix.net/charts';
 import { TerminalLayoutRuntime } from '../../../packages/terminal/src/layout-runtime';
 import {
   createTerminal,
@@ -6,16 +6,16 @@ import {
   type TerminalOptions,
   type TerminalState,
   type TerminalStudyOptions,
-} from '@filtix/terminal';
-import { createFeedSession } from '@filtix/datafeed';
+} from '@filtrix.net/terminal';
+import { createFeedSession } from '@filtrix.net/datafeed';
 import {
   createPriceAlertMonitor,
   createPriceAlertStore,
   type PriceAlertEvent,
   type PriceAlertMonitor,
   type PriceAlertStore,
-} from '@filtix/alerts';
-import { createBollingerBands, createIndicator, createMacd } from '@filtix/indicators';
+} from '@filtrix.net/alerts';
+import { createBollingerBands, createIndicator, createMacd } from '@filtrix.net/indicators';
 import { createTerminalWithDependencies } from '../../../packages/terminal/src/terminal';
 import type { TerminalStudyRuntimeFactories } from '../../../packages/terminal/src/study-runtime';
 import type {
@@ -26,7 +26,7 @@ import type {
   MarketDataProvider,
   MarketQuery,
   MarketStreamHandlers,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 
 const start = Date.UTC(2026, 8, 1);
 const sources = new Map<string, MarketBar[]>();
@@ -702,7 +702,7 @@ const api = {
       ],
       maximizedPaneId: null,
       studiesOpen: true,
-    } as import('@filtix/terminal').TerminalLayout;
+    } as import('@filtrix.net/terminal').TerminalLayout;
     const runtime = new TerminalLayoutRuntime(
       chart,
       () => canonical,

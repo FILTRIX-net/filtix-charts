@@ -1,4 +1,4 @@
-# FILTIX Charts implementation contracts
+# FILTRIX Charts implementation contracts
 
 This document records the original v0.1 engine contract. The additive v0.7 band-series and multi-output indicator interfaces are specified in [the v0.7 design](../SOURCE-DISTRIBUTION.md#omitted-development-materials). The additive v0.8 pane layout, resize intent/availability and pure geometry interfaces are specified in [the v0.8 design](../SOURCE-DISTRIBUTION.md#omitted-development-materials); see [the current API guide](API.md) for examples.
 
@@ -8,7 +8,7 @@ These signatures freeze the cross-task interfaces. Implementers may add private 
 ## Core (Task 1)
 
 ```ts
-type UtcMillis = number & { readonly __utcMillis: 'FILTIX.UtcMillis' };
+type UtcMillis = number & { readonly __utcMillis: 'FILTRIX.UtcMillis' };
 type ChartTime = UtcMillis | number | string;
 type TimeDomain = 'utc-ms' | 'business-date';
 type SeriesType = 'candlestick' | 'ohlc' | 'line' | 'area' | 'histogram';
@@ -235,14 +235,14 @@ Pure transforms preserve timestamps and length, emit whitespace during warm-up, 
 ## React (Task 4)
 
 ```tsx
-interface FiltixChartProps {
+interface FiltrixChartProps {
   options?: ChartOptions;
   className?: string;
   style?: React.CSSProperties;
   onReady?: (chart: ChartApi) => void;
   onDestroy?: () => void;
 }
-const FiltixChart: React.ForwardRefExoticComponent<FiltixChartProps & React.RefAttributes<ChartApi | null>>;
+const FiltrixChart: React.ForwardRefExoticComponent<FiltrixChartProps & React.RefAttributes<ChartApi | null>>;
 ```
 
 No data prop diffing: onReady owns initial series; ref exposes update API. Options patches do not remount. StrictMode lifecycle and latest callbacks supported. React peer dependency, SSR-safe import, no frame state in React.

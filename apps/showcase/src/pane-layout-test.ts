@@ -1,5 +1,5 @@
-import { createChart, measurePaneLayout } from '@filtix/charts';
-import { createDrawingLayer } from '@filtix/drawings';
+import { createChart, measurePaneLayout } from '@filtrix.net/charts';
+import { createDrawingLayer } from '@filtrix.net/drawings';
 const host = document.getElementById('host')!;
 const chart = createChart(host, { diagnostics: true });
 const price = chart.addSeries('line', { paneId: 'price', title: 'Price' });

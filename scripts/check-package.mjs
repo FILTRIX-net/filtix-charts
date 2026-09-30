@@ -13,16 +13,18 @@ const {
   darkTheme,
   ChartError: BrowserChartError,
   isChartError,
-} = await import('@filtix/charts');
+} = await import('@filtrix.net/charts');
 const {
   SeriesStore,
   ChartError: CoreChartError,
   isChartError: isCoreChartError,
-} = await import('@filtix/core');
+} = await import('@filtrix.net/core');
 assert.ok(isChartError(new CoreChartError('CORE_FAILURE')));
 assert.ok(isCoreChartError(new BrowserChartError('BROWSER_FAILURE')));
 assert.equal(isChartError(new Error('unrelated')), false);
-const { createChartSync, buildIndexedComparison, createHistoryReplay } = await import('@filtix/analysis');
+const { createChartSync, buildIndexedComparison, createHistoryReplay } = await import(
+  '@filtrix.net/analysis'
+);
 assert.equal(typeof createChartSync, 'function');
 const comparison = buildIndexedComparison([
   {
@@ -58,10 +60,12 @@ replay.seek(0);
 assert.deepEqual(replay.getData(), []);
 replay.destroy();
 assert.equal(replay.getState().status, 'destroyed');
-const { createTerminal, createTerminalGrid } = await import('@filtix/terminal');
+const { createTerminal, createTerminalGrid } = await import('@filtrix.net/terminal');
 assert.equal(typeof createTerminal, 'function');
 assert.equal(typeof createTerminalGrid, 'function', 'Terminal grid factory must resolve from built ESM');
-const { ema, macd, bollingerBands, createMacd, createBollingerBands } = await import('@filtix/indicators');
+const { ema, macd, bollingerBands, createMacd, createBollingerBands } = await import(
+  '@filtrix.net/indicators'
+);
 for (const exported of [macd, bollingerBands, createMacd, createBollingerBands]) {
   assert.equal(typeof exported, 'function', 'New math entry points must resolve from built ESM');
 }
@@ -79,8 +83,9 @@ for (const [batch, stream, keys] of [
   assert.deepEqual(Object.keys(stream.update({ time: 3, value: 5 })).sort(), expectedKeys);
   for (const key of keys) assert.equal(batch[key].length, multiInput.length);
 }
-const { FiltixChart } = await import('@filtix/react');
-const { createDrawingStore, createDrawingLayer, measureDrawing } = await import('@filtix/drawings');
+const { FiltrixChart, FiltixChart } = await import('@filtrix.net/react');
+assert.equal(FiltrixChart, FiltixChart, 'Deprecated React alias must retain canonical component identity');
+const { createDrawingStore, createDrawingLayer, measureDrawing } = await import('@filtrix.net/drawings');
 assert.equal(typeof createDrawingLayer, 'function');
 const drawingStore = createDrawingStore({ timeDomain: 'business-date' });
 const drawingId = drawingStore.add({
@@ -101,7 +106,7 @@ assert.deepEqual(drawingCopy.list(), drawingStore.list());
 assert.equal(drawingCopy.undo(), true);
 assert.equal(drawingCopy.list().length, 0);
 const { createBinanceProvider, createFeedSession, getFeedSessionResourceSnapshot, BINANCE_INTERVALS } =
-  await import('@filtix/datafeed');
+  await import('@filtrix.net/datafeed');
 // Construction and disposal are transport-free, including in an SSR process.
 const provider = createBinanceProvider({
   fetch: () => {
@@ -139,7 +144,7 @@ assert.deepEqual(paneGeometry.panes, [
 assert.throws(() => measurePaneLayout({ panes: [], maximizedPaneId: null }, Infinity));
 
 assert.equal(typeof darkTheme.background, 'string');
-assert.match(renderToString(createElement(FiltixChart, { options: { theme: 'dark' } })), /<div/);
+assert.match(renderToString(createElement(FiltrixChart, { options: { theme: 'dark' } })), /<div/);
 const store = new SeriesStore('line');
 store.setData([
   { time: 0, value: 1 },
@@ -188,9 +193,9 @@ for (const name of ['charts', 'core']) {
   const manifest = JSON.parse(
     readFileSync(new URL('../packages/' + name + '/package.json', import.meta.url), 'utf8'),
   );
-  assert.equal(manifest.dependencies?.['@filtix/alerts'], undefined, name + ' must not require alerts');
+  assert.equal(manifest.dependencies?.['@filtrix.net/alerts'], undefined, name + ' must not require alerts');
   assert.equal(
-    manifest.peerDependencies?.['@filtix/alerts'],
+    manifest.peerDependencies?.['@filtrix.net/alerts'],
     undefined,
     name + ' must not require an alerts peer',
   );
@@ -249,17 +254,17 @@ assert.equal(internalConsumer.status, 0, internalConsumer.stdout + internalConsu
 const terminalBundle = readFileSync(new URL('../packages/terminal/dist/index.js', import.meta.url), 'utf8');
 assert.match(
   terminalBundle,
-  /from[\s]*["']@filtix\/indicators\/internal["']/,
+  /from[\s]*["']@filtrix\.net\/indicators\/internal["']/,
   'Terminal must consume the installed internal entry externally',
 );
 assert.match(
   terminalBundle,
-  /from[\s]*["']@filtix\/alerts\/internal["']/,
+  /from[\s]*["']@filtrix\.net\/alerts\/internal["']/,
   'Terminal must consume the installed alerts internal entry externally',
 );
 assert.match(
   terminalBundle,
-  /from[\s]*["']@filtix\/charts\/internal["']/,
+  /from[\s]*["']@filtrix\.net\/charts\/internal["']/,
   'Terminal must consume the same installed chart registry through the external shim',
 );
 const chartMap = JSON.parse(

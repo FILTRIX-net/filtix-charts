@@ -1,7 +1,7 @@
 import { getMonitorInternals, type PriceAlertMonitor } from './monitor';
 import { getStoreCapability } from './store';
 import type { PriceAlertStore } from './types';
-import type { FeedSessionResourceSnapshot, MarketQuery } from '@filtix/datafeed';
+import type { FeedSessionResourceSnapshot, MarketQuery } from '@filtrix.net/datafeed';
 
 export interface PriceAlertStoreResourceSnapshot {
   readonly destroyed: boolean;
@@ -31,12 +31,12 @@ export interface PriceAlertMonitorResourceSnapshot {
   }[];
 }
 
-/** @internal Unsupported package-private diagnostic; access through @filtix/alerts/internal. */
+/** @internal Unsupported package-private diagnostic; access through @filtrix.net/alerts/internal. */
 export function getPriceAlertStoreResourceSnapshot(store: PriceAlertStore): PriceAlertStoreResourceSnapshot {
   return getStoreCapability(store).getResourceSnapshot();
 }
 
-/** @internal Unsupported package-private diagnostic; access through @filtix/alerts/internal. */
+/** @internal Unsupported package-private diagnostic; access through @filtrix.net/alerts/internal. */
 export function getPriceAlertMonitorResourceSnapshot(
   monitor: PriceAlertMonitor,
 ): PriceAlertMonitorResourceSnapshot {

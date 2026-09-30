@@ -1,5 +1,5 @@
-import { ChartError, isChartError } from '@filtix/core';
-import type { ChartApi, ChartChangeMeta, CrosshairEvent, LogicalRange } from '@filtix/charts';
+import { ChartError, isChartError } from '@filtrix.net/core';
+import type { ChartApi, ChartChangeMeta, CrosshairEvent, LogicalRange } from '@filtrix.net/charts';
 import type { ChartSync, ChartSyncOptions } from './types';
 
 function fail(message: string): never {

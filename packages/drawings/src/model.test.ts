@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import { createDrawingStore, measureDrawing } from './model';
 import type { Drawing, DrawingDocumentV1 } from './types';
 

@@ -7,8 +7,8 @@ import {
   lowerBound,
   timeKey,
   timeFromKey,
-} from '@filtix/core';
-import type { ChartTime, SeriesPoint, LogicalRange, OwnedStudyColumnInput } from '@filtix/core';
+} from '@filtrix.net/core';
+import type { ChartTime, SeriesPoint, LogicalRange, OwnedStudyColumnInput } from '@filtrix.net/core';
 import type {
   ChartApi,
   ChartOptions,

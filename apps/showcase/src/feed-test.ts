@@ -1,4 +1,4 @@
-import { createChart } from '@filtix/charts';
+import { createChart } from '@filtrix.net/charts';
 import {
   createFeedSession,
   type MarketBar,
@@ -8,7 +8,7 @@ import {
   type MarketDataProvider,
   type MarketStreamHandlers,
   type FeedStatus,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 
 const start = Date.UTC(2026, 8, 1);
 const sources = new Map<string, MarketBar[]>();

@@ -1,5 +1,5 @@
-import { lowerBound, timeFromKey } from '@filtix/core';
-import type { SeriesStore, TimeDomain } from '@filtix/core';
+import { lowerBound, timeFromKey } from '@filtrix.net/core';
+import type { SeriesStore, TimeDomain } from '@filtrix.net/core';
 import type { SeriesState } from './types';
 
 /** A fully aligned store can use its own contiguous segments on the shared timeline. */

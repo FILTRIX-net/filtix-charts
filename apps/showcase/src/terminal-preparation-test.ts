@@ -1,16 +1,16 @@
-import { createChart } from '@filtix/charts';
-import { createFeedSession, type MarketDataProvider, type MarketStreamHandlers } from '@filtix/datafeed';
-import { createPriceAlertMonitor, createPriceAlertStore } from '@filtix/alerts';
+import { createChart } from '@filtrix.net/charts';
+import { createFeedSession, type MarketDataProvider, type MarketStreamHandlers } from '@filtrix.net/datafeed';
+import { createPriceAlertMonitor, createPriceAlertStore } from '@filtrix.net/alerts';
 import {
   getPriceAlertMonitorResourceSnapshot,
   getPriceAlertStoreResourceSnapshot,
-} from '@filtix/alerts/internal';
+} from '@filtrix.net/alerts/internal';
 import {
   createTerminal,
   type TerminalApi,
   type TerminalOptions,
   type TerminalWorkspace,
-} from '@filtix/terminal';
+} from '@filtrix.net/terminal';
 import { decodeWorkspace } from '../../../packages/terminal/src/codec';
 
 type Prepared = {

@@ -1,6 +1,6 @@
-# Contributing to FILTIX Charts
+# Contributing to FILTRIX Charts
 
-FILTIX Charts by FILTIX.net is preparing its first public beta under [Apache-2.0](LICENSE), selected by the owner on 2026-09-29. Contributions intended for inclusion are governed by that license. The source repository is [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts); npm publication has not yet occurred.
+FILTRIX Charts by FILTRIX.NET is preparing its first public beta under [Apache-2.0](LICENSE), selected by the owner on 2026-09-29. Contributions intended for inclusion are governed by that license. The source repository is [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts); npm publication has not yet occurred.
 
 ## Before proposing a change
 
@@ -28,4 +28,4 @@ Before requesting review, describe what changed, why, the checks actually run an
 
 Package versions move together. The workspace and example stay private; distribution archives have strict inventories. See [release process](docs/RELEASE-PROCESS.md) before changing package metadata or publishing. Contributors do not need registry credentials to develop and test chart code.
 
-The main FILTIX application, accounts, commercial analytics and deployments are separate from this repository. A shared brand does not imply access to those systems.
+The main FILTRIX application, accounts, commercial analytics and deployments are separate from this repository. A shared brand does not imply access to those systems.

@@ -5,7 +5,7 @@ import {
   type TimeDomain,
   type ValuePoint,
   type WhitespacePoint,
-} from '@filtix/core';
+} from '@filtrix.net/core';
 import type { ComparisonInput, ComparisonOptions, IndexedComparison } from './types';
 
 type CheckedPoint = {

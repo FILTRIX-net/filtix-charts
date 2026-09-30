@@ -17,7 +17,7 @@ test('study tools create real annotations, undo and export on a responsive chart
   await expect(page.locator('[data-study-drawing]')).toHaveCount(4);
   const download = page.waitForEvent('download');
   await page.locator('#study-export').click();
-  expect((await download).suggestedFilename()).toBe('FILTIX-study.png');
+  expect((await download).suggestedFilename()).toBe('FILTRIX-study.png');
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.locator('#study-clear').click();

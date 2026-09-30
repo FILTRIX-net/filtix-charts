@@ -3,8 +3,8 @@ import type {
   PriceAlertMonitor,
   PriceAlertMonitorState,
   PriceAlertStore,
-} from '@filtix/alerts';
-import type { MarketQuery } from '@filtix/datafeed';
+} from '@filtrix.net/alerts';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 import type { TerminalApi, TerminalOptions, TerminalState, TerminalWorkspace } from './types';
 
 export type TerminalGridLayout = 1 | 2 | 4;

@@ -8,8 +8,8 @@ import {
   prepareOwnedBatch,
   type OwnedBatch,
   type ScalarColumns,
-} from '@filtix/indicators/internal';
-import type { IndicatorPoint, MacdResult, BollingerBandsResult } from '@filtix/indicators';
+} from '@filtrix.net/indicators/internal';
+import type { IndicatorPoint, MacdResult, BollingerBandsResult } from '@filtrix.net/indicators';
 const points: IndicatorPoint[] = [
   { time: 0, value: 1 },
   { time: 1, value: 2 },
@@ -29,11 +29,11 @@ bands.controller.reset();
 void [scalarData, scalarUpdate, macdData, macdUpdate, bandsData, bandsUpdate];
 
 // @ts-expect-error Internal batch preparation must not appear at the public root.
-import { prepareBatch as forbiddenPublicBatch } from '@filtix/indicators';
+import { prepareBatch as forbiddenPublicBatch } from '@filtrix.net/indicators';
 // @ts-expect-error Internal request types must not appear at the public root.
-import type { PreparationRequest as ForbiddenPublicRequest } from '@filtix/indicators';
+import type { PreparationRequest as ForbiddenPublicRequest } from '@filtrix.net/indicators';
 // @ts-expect-error Internal result types must not appear at the public root.
-import type { BatchPreparedOutput as ForbiddenPublicResult } from '@filtix/indicators';
+import type { BatchPreparedOutput as ForbiddenPublicResult } from '@filtrix.net/indicators';
 const requests: PreparationRequest[] = [
   { kind: 'sma', period: 200 },
   { kind: 'ema', period: 20 },
@@ -69,8 +69,8 @@ prepareBatch([{ kind: 'unknown', period: 2 }], points);
 // @ts-expect-error MACD options retain their exact required shape.
 prepareBatch([{ kind: 'macd', options: { fastPeriod: 2 } }], points);
 
-import { createPriceAlertStore, createPriceAlertMonitor } from '@filtix/alerts';
-import type { MarketDataProvider } from '@filtix/datafeed';
+import { createPriceAlertStore, createPriceAlertMonitor } from '@filtrix.net/alerts';
+import type { MarketDataProvider } from '@filtrix.net/datafeed';
 import {
   prepareAlertMembershipReplacement,
   preparePriceAlertStoreRestore,
@@ -80,7 +80,7 @@ import {
   type PreparedPriceAlertStoreRestore,
   type PriceAlertStoreResourceSnapshot,
   type PriceAlertMonitorResourceSnapshot,
-} from '@filtix/alerts/internal';
+} from '@filtrix.net/alerts/internal';
 declare const alertProvider: MarketDataProvider;
 const alertStore = createPriceAlertStore({ providerId: alertProvider.id, scopeId: 'types' });
 const alertMonitor = createPriceAlertMonitor({ provider: alertProvider });
@@ -109,13 +109,13 @@ import {
   SeriesStore,
   type OwnedStudyColumnInput,
   type SeriesPoint,
-} from '@filtix/core';
-import type { ChartApi, SeriesHandle } from '@filtix/charts';
+} from '@filtrix.net/core';
+import type { ChartApi, SeriesHandle } from '@filtrix.net/charts';
 import {
   hasOwnedStudyColumnCapability,
   setOwnedStudyColumns,
   setOwnedPriceVolumeData,
-} from '@filtix/charts/internal';
+} from '@filtrix.net/charts/internal';
 declare const builtChart: ChartApi;
 declare const builtHandle: SeriesHandle;
 const ownedPoints: (IndicatorPoint & { time: number })[] = [
@@ -149,5 +149,5 @@ candidateStore.setOwnedStudyColumns(points, ownedInput);
 // @ts-expect-error The ordinary chart handle API stays unchanged.
 builtHandle.setOwnedStudyColumns(points, ownedInput);
 // @ts-expect-error Owned preparation is not exported from the indicator root.
-import { prepareOwnedBatch as forbiddenOwnedRoot } from '@filtix/indicators';
+import { prepareOwnedBatch as forbiddenOwnedRoot } from '@filtrix.net/indicators';
 void [capable, candidateStore, installedVolumeStore];

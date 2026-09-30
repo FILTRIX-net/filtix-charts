@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { createTerminalGrid, type TerminalGridApi, type TerminalGridState } from '@filtix/terminal';
-import type { MarketDataProvider } from '@filtix/datafeed';
+import { createTerminalGrid, type TerminalGridApi, type TerminalGridState } from '@filtrix.net/terminal';
+import type { MarketDataProvider } from '@filtrix.net/datafeed';
 
 interface GridTestHooks {
   mounted(grid: TerminalGridApi): void;

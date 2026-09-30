@@ -1,5 +1,5 @@
-import { createTerminal } from '@filtix/terminal';
-import { createBinanceProvider } from '@filtix/datafeed';
+import { createTerminal } from '@filtrix.net/terminal';
+import { createBinanceProvider } from '@filtrix.net/datafeed';
 import './terminal.css';
 const terminal = createTerminal(document.getElementById('terminal')!, {
   provider: createBinanceProvider(),

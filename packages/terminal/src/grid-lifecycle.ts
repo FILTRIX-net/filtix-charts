@@ -1,4 +1,4 @@
-import type { PreparedAlertMembership } from '@filtix/alerts/internal';
+import type { PreparedAlertMembership } from '@filtrix.net/alerts/internal';
 import { TerminalMutationSupersededError } from './mutation';
 
 /** DOM-free generation, transaction, and observer-repair coordinator for one grid. */

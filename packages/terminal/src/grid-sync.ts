@@ -1,6 +1,6 @@
-import { createChartSync, type ChartSync } from '@filtix/analysis';
-import type { ChartApi } from '@filtix/charts';
-import { isChartError } from '@filtix/core';
+import { createChartSync, type ChartSync } from '@filtrix.net/analysis';
+import type { ChartApi } from '@filtrix.net/charts';
+import { isChartError } from '@filtrix.net/core';
 import type { TerminalGridCellId, TerminalGridSync } from './grid-types';
 
 export interface GridSyncMember {

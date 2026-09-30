@@ -1,4 +1,4 @@
-import { createChart, type ChartApi, type SeriesHandle, type CrosshairEvent } from '@filtix/charts';
+import { createChart, type ChartApi, type SeriesHandle, type CrosshairEvent } from '@filtrix.net/charts';
 import { makeCandles } from './fixtures';
 const data = makeCandles(500);
 const chart = createChart(document.getElementById('host')!, { diagnostics: true });

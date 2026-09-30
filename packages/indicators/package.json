@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/indicators",
+  "name": "@filtrix.net/indicators",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -22,10 +22,10 @@
     "README.md",
     "LICENSE"
   ],
-  "description": "Technical indicator calculations for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "Technical indicator calculations for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "indicators"
   ],

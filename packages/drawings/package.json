@@ -1,5 +1,5 @@
 {
-  "name": "@filtix/drawings",
+  "name": "@filtrix.net/drawings",
   "version": "0.12.0-beta.1",
   "private": false,
   "type": "module",
@@ -19,12 +19,12 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@filtix/charts": "0.12.0-beta.1"
+    "@filtrix.net/charts": "0.12.0-beta.1"
   },
-  "description": "Drawing state, geometry and rendering for FILTIX Charts.",
-  "homepage": "https://filtix.net",
+  "description": "Drawing state, geometry and rendering for FILTRIX Charts.",
+  "homepage": "https://filtrix.net",
   "keywords": [
-    "filtix",
+    "filtrix",
     "charts",
     "drawings"
   ],

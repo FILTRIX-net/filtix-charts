@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import type { CandlePoint } from '@filtix/charts';
+import type { CandlePoint } from '@filtrix.net/charts';
 import type { HistoryReplay, HistoryReplayOptions, ReplayChange, ReplayState } from './types';
 import { createHistoryReplay } from './replay';
 

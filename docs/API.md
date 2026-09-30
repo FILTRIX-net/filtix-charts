@@ -1,11 +1,11 @@
-# FILTIX Charts API
+# FILTRIX Charts API
 
 Development version: 0.11.0; installed four-terminal acceptance is in progress. The library is distributed locally until a publication policy is chosen. See the [base engine contract](API-CONTRACT.md) and extension guides below for the public interfaces.
 
 ## Create and dispose
 
 ```ts
-import { createChart } from '@filtix/charts';
+import { createChart } from '@filtrix.net/charts';
 
 const chart = createChart(document.querySelector('#chart')!, {
   theme: 'dark',
@@ -171,10 +171,10 @@ Exports contain the visible chart/axes, excluding surrounding application contro
 
 ## Indicators
 
-Application integrations use the root `@filtix/indicators` exports below. The `@filtix/indicators/internal` subpath is reserved for the terminal package and may change with private cohort updates.
+Application integrations use the root `@filtrix.net/indicators` exports below. The `@filtrix.net/indicators/internal` subpath is reserved for the terminal package and may change with private cohort updates.
 
 ```ts
-import { ema, createIndicator } from '@filtix/indicators';
+import { ema, createIndicator } from '@filtrix.net/indicators';
 const values = history.map((p) => ({ time: p.time, value: p.close }));
 const average = chart.addSeries('line', { color: '#d7bb7b' });
 average.setData(ema(values, 20));
@@ -195,7 +195,7 @@ Streaming indicators restore pre-tail state before replacing a current value. Re
 The additive multi-output APIs return named arrays of `IndicatorPoint`. Each array retains every input timestamp, including whitespace during warm-up and gaps.
 
 ```ts
-import { macd, bollingerBands, createMacd, createBollingerBands } from '@filtix/indicators';
+import { macd, bollingerBands, createMacd, createBollingerBands } from '@filtrix.net/indicators';
 
 const momentum = macd(values, { fastPeriod: 12, slowPeriod: 26, signalPeriod: 9 });
 // momentum.macd, momentum.signal, momentum.histogram
@@ -219,18 +219,18 @@ The math package requires safe integer periods: MACD fast >= 1, slow > fast and 
 
 Inputs, options and returned results do not share mutable records with calculation state. All named outputs commit together. Invalid input or an unrepresentable calculation (`INDICATOR_OVERFLOW`) preserves the previous state, including after an attempted same-timestamp replacement; a later valid update can recover.
 
-The optional `@filtix/terminal` package manages these outputs as one configurable study, including the oscillator pane, histogram colors, boundary lines and fill. See the [terminal contract](TERMINAL-CONTRACT.md) and [v0.7 design](../SOURCE-DISTRIBUTION.md#omitted-development-materials) for study defaults and resource limits. The current terminal writes workspace v5 with saved pane layout and alerts, and accepts exact v1–v4 migrations.
+The optional `@filtrix.net/terminal` package manages these outputs as one configurable study, including the oscillator pane, histogram colors, boundary lines and fill. See the [terminal contract](TERMINAL-CONTRACT.md) and [v0.7 design](../SOURCE-DISTRIBUTION.md#omitted-development-materials) for study defaults and resource limits. The current terminal writes workspace v5 with saved pane layout and alerts, and accepts exact v1–v4 migrations.
 
 ## React
 
 ```tsx
 import { useRef } from 'react';
-import { FiltixChart, type ChartApi } from '@filtix/react';
+import { FiltrixChart, type ChartApi } from '@filtrix.net/react';
 
 export function MarketChart() {
   const api = useRef<ChartApi | null>(null);
   return (
-    <FiltixChart
+    <FiltrixChart
       ref={api}
       style={{ height: 420 }}
       options={{ theme: 'dark' }}
@@ -258,7 +258,7 @@ Dense candles use indexed OHLC ranges per display bin. Dense histogram sums pres
 Use the exported isChartError guard and error.code when sharing handling across independently bundled packages:
 
 ```ts
-import { isChartError } from '@filtix/charts';
+import { isChartError } from '@filtrix.net/charts';
 
 try {
   price.update(nextPoint);
@@ -272,16 +272,16 @@ Each self-contained bundle owns its ChartError constructor, so cross-package ins
 
 ## Drawing tools and extensions
 
-The optional @filtix/drawings package adds trend lines, price levels, rectangles, measurements, Fibonacci retracements, parallel channels and text notes with bounded undo/redo. Canonical drawing documents use version 2 and the shared decoder migrates historical version 1. Layer snapping is optional; the terminal uses indexed OHLC lookup and a native object editor. See the [drawing guide](DRAWINGS.md) and [advanced tools, limits and migration](DRAWING-TOOLS.md). Custom overlays use ChartApi.attachPrimitive with an immutable projection snapshot; see [primitive integration](PRIMITIVES.md). Existing scene/cursor behavior remains independently scheduled.
+The optional @filtrix.net/drawings package adds trend lines, price levels, rectangles, measurements, Fibonacci retracements, parallel channels and text notes with bounded undo/redo. Canonical drawing documents use version 2 and the shared decoder migrates historical version 1. Layer snapping is optional; the terminal uses indexed OHLC lookup and a native object editor. See the [drawing guide](DRAWINGS.md) and [advanced tools, limits and migration](DRAWING-TOOLS.md). Custom overlays use ChartApi.attachPrimitive with an immutable projection snapshot; see [primitive integration](PRIMITIVES.md). Existing scene/cursor behavior remains independently scheduled.
 
 ## Linked analysis and replay
 
-The optional @filtix/analysis package provides semantic-time viewport/cursor synchronization, exact-common-baseline comparison and deterministic whole-bar replay. The additive ChartApi controls expose loaded time ranges, controlled vertical cursors and mutation-time origin/revision metadata. See the [analysis integration guide](ANALYSIS.md) and [chart control contract](CHART-SYNC-CONTRACT.md).
+The optional @filtrix.net/analysis package provides semantic-time viewport/cursor synchronization, exact-common-baseline comparison and deterministic whole-bar replay. The additive ChartApi controls expose loaded time ranges, controlled vertical cursors and mutation-time origin/revision metadata. See the [analysis integration guide](ANALYSIS.md) and [chart control contract](CHART-SYNC-CONTRACT.md).
 
 ## Price alerts
 
-@filtix/alerts provides a headless persisted rule store and grouped latest-feed monitor. @filtix/terminal integrates all-market native controls, onAlert, getAlerts/getAlertState and workspace v5. Each supplied store/monitor is borrowed independently; owned defaults require no additional feeds while empty. See [crossing semantics, limits and ownership](ALERTS.md).
+@filtrix.net/alerts provides a headless persisted rule store and grouped latest-feed monitor. @filtrix.net/terminal integrates all-market native controls, onAlert, getAlerts/getAlertState and workspace v5. Each supplied store/monitor is borrowed independently; owned defaults require no additional feeds while empty. See [crossing semantics, limits and ownership](ALERTS.md).
 
 ## Saved terminal grids
 
-`createTerminalGrid` from `@filtix/terminal` composes one, two or four visible terminals in four persistent slots. Each slot retains its own market, studies, drawings, panes and alerts. Hidden slots release chart resources while their armed alerts remain monitored. Viewport and cursor synchronization are separate opt-ins; readiness and event-cause filtering keep history updates local. Grid workspace version1 nests the terminal documents and stores layout, active cell and synchronization preferences. See the [grid methods, persistence and ownership contract](TERMINAL-CONTRACT.md#saved-terminal-grids) and the independent React example's Grid view.
+`createTerminalGrid` from `@filtrix.net/terminal` composes one, two or four visible terminals in four persistent slots. Each slot retains its own market, studies, drawings, panes and alerts. Hidden slots release chart resources while their armed alerts remain monitored. Viewport and cursor synchronization are separate opt-ins; readiness and event-cause filtering keep history updates local. Grid workspace version1 nests the terminal documents and stores layout, active cell and synchronization preferences. See the [grid methods, persistence and ownership contract](TERMINAL-CONTRACT.md#saved-terminal-grids) and the independent React example's Grid view.

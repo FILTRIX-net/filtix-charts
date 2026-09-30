@@ -8,7 +8,7 @@ import {
   type MarketBar,
   type MarketDataProvider,
   type MarketQuery,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 import { alertEventId, alertIdentity } from './codec';
 import { crossed } from './evaluator';
 import {

@@ -1,4 +1,4 @@
-import { createTerminal } from '@filtix/terminal';
+import { createTerminal } from '@filtrix.net/terminal';
 const host = document.getElementById('study-host');
 const query = { symbol: 'TEST', interval: '1m' };
 const start = Date.UTC(2026, 8, 1);

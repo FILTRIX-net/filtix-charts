@@ -1,4 +1,4 @@
-# FILTIX chart synchronization contract v0.4
+# FILTRIX chart synchronization contract v0.4
 
 Governing [design](../SOURCE-DISTRIBUTION.md#omitted-development-materials).
 

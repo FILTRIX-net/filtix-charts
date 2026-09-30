@@ -1,5 +1,5 @@
-import type { ChartTime } from '@filtix/charts';
-import type { TimeDomain } from '@filtix/core';
+import type { ChartTime } from '@filtrix.net/charts';
+import type { TimeDomain } from '@filtrix.net/core';
 export type DrawingType =
   | 'trend-line'
   | 'horizontal-line'

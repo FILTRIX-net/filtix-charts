@@ -1,4 +1,4 @@
-import { createChart } from '@filtix/charts';
+import { createChart } from '@filtrix.net/charts';
 import { makeCandles } from './fixtures';
 
 const chart = createChart(document.getElementById('host')!, { diagnostics: true });

@@ -1,4 +1,4 @@
-# FILTIX Charts — independent React terminal consumer
+# FILTRIX Charts — independent React terminal consumer
 
 This application sits outside the root workspace glob. The beta candidate installs all nine local 0.12.0-beta.1 archives with its own lockfile and resolves package exports from copied package files, with no source aliases. React mounts the framework-independent terminal in an effect and destroys it in cleanup. StrictMode exercises the initial mount, cleanup, and remount. See the [beta status](../../docs/OPEN-SOURCE-BETA.md) for licensing and publication prerequisites.
 
@@ -22,7 +22,7 @@ The archives are generated locally in `dist/packages`; this example makes no pub
 
 The initial view uses EMA 20, SMA 200, Bollinger Bands 20×2, MACD 12/26/9, and RSI 14. Open Indicators to add, configure, hide, or remove instances. MACD exposes line, signal, and positive/negative histogram styles. Bollinger exposes middle, upper, lower, fill color, and fill opacity.
 
-After mounting from the installed `@filtix/terminal` archive, hosts use the public API to edit studies and canonical pane preferences:
+After mounting from the installed `@filtrix.net/terminal` archive, hosts use the public API to edit studies and canonical pane preferences:
 
 ```ts
 const momentum = terminal.addStudy({

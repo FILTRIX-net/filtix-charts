@@ -13,6 +13,8 @@ import {
   releaseStage,
   expectedPackageMembers,
   expectedPackageNames,
+  expectedPackageScope,
+  packageArchivePath,
 } from './consumer-identity.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const cwd = resolve(root, 'examples/react-terminal');
@@ -35,10 +37,10 @@ assert.equal(manifest.private, true);
 assert.equal(manifest.workspaces, undefined);
 const packages = expectedPackageNames(stage);
 const archives = packages.map((name) => {
-  const archive = resolve(root, 'dist/packages/filtix-' + name + '-' + version + '.tgz');
+  const archive = resolve(root, packageArchivePath(stage, name));
   const bytes = readFileSync(archive);
   return {
-    name: '@filtix/' + name,
+    name: expectedPackageScope(stage) + '/' + name,
     path: archive,
     sha256: createHash('sha256').update(bytes).digest('hex'),
     bytes: bytes.length,
@@ -156,7 +158,7 @@ run(['node_modules/vite/bin/vite.js', 'build']);
 run([
   '--input-type=module',
   '-e',
-  "import {createTerminal} from '@filtix/terminal'; import {FiltixChart} from '@filtix/react'; import {createElement} from 'react'; import {renderToString} from 'react-dom/server'; if(typeof createTerminal!=='function'||!renderToString(createElement(FiltixChart)).includes('div'))throw Error('SSR failure'); console.log('Independent SSR import/render PASS');",
+  "import {createTerminal} from '@filtrix.net/terminal'; import {FiltrixChart,FiltixChart} from '@filtrix.net/react'; import {createElement} from 'react'; import {renderToString} from 'react-dom/server'; if(typeof createTerminal!=='function'||FiltrixChart!==FiltixChart||!renderToString(createElement(FiltrixChart)).includes('div'))throw Error('SSR failure'); console.log('Independent SSR import/render PASS');",
 ]);
 mkdirSync(resolve(root, 'benchmark-results/' + stage), { recursive: true });
 const candidateRecord =

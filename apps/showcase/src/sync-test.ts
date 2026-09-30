@@ -1,4 +1,4 @@
-import { createChart, type ChartApi, type ChartOptions, type ChartTime } from '@filtix/charts';
+import { createChart, type ChartApi, type ChartOptions, type ChartTime } from '@filtrix.net/charts';
 import { createChartSync } from '../../../packages/analysis/src/sync';
 const charts: ChartApi[] = [];
 function create(times: readonly ChartTime[], options: ChartOptions = {}) {

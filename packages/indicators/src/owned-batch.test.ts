@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import * as preparation from './internal';
 import { BollingerCalculator } from './bollinger';
 import { IndicatorCalculator, type IndicatorPoint } from './indicators';

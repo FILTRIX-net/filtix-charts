@@ -1,11 +1,11 @@
 # Price alerts
 
-The private v0.10.0 release adds persistent rules in @filtix/alerts and an Alerts editor in @filtix/terminal. The installed workload and independent reviews pass; see the [release report](releases/v0.10.md) for evidence and limits. The headless alerts package can be used without charts or React; the full terminal requires the alerts peer package. Chart/core consumers do not need alerts.
+The private v0.10.0 release adds persistent rules in @filtrix.net/alerts and an Alerts editor in @filtrix.net/terminal. The installed workload and independent reviews pass; see the [release report](releases/v0.10.md) for evidence and limits. The headless alerts package can be used without charts or React; the full terminal requires the alerts peer package. Chart/core consumers do not need alerts.
 
 ## Terminal integration
 
 ```ts
-import { createTerminal } from '@filtix/terminal';
+import { createTerminal } from '@filtrix.net/terminal';
 const terminal = createTerminal(host, {
   provider,
   query: { symbol: 'BTCUSDT', interval: '1m' },
@@ -46,7 +46,7 @@ There is no backend monitor, browser permission prompt, sound, email or webhook 
 ## Headless store and shared monitor
 
 ```ts
-import { createPriceAlertStore, createPriceAlertMonitor } from '@filtix/alerts';
+import { createPriceAlertStore, createPriceAlertMonitor } from '@filtrix.net/alerts';
 const store = createPriceAlertStore({ providerId: provider.id, scopeId: 'portfolio-A' });
 const monitor = createPriceAlertMonitor({ provider });
 const unsubscribe = store.subscribeEvents((event) => console.log(event));

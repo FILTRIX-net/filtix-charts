@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import { createIndicator, ema, rsi, sma } from './index';
 import { validatePoint } from './indicators';
-import type { ValuePoint, WhitespacePoint } from '@filtix/core';
+import type { ValuePoint, WhitespacePoint } from '@filtrix.net/core';
 
 const values = (numbers: Array<number | null>): Array<ValuePoint | WhitespacePoint> =>
   numbers.map((value, index) => (value === null ? { time: index } : { time: index, value }));

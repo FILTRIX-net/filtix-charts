@@ -1,4 +1,4 @@
-# FILTIX Datafeed v0.2 contract
+# FILTRIX Datafeed v0.2 contract
 
 Governing [spec](../SOURCE-DISTRIBUTION.md#omitted-development-materials). Public exports are additive and optional.
 

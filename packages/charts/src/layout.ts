@@ -1,4 +1,4 @@
-import { createPriceScale, lowerBound } from '@filtix/core';
+import { createPriceScale, lowerBound } from '@filtrix.net/core';
 import type { ChartPaneLayout, Scene, SeriesState } from './types';
 import { measurePaneLayout } from './pane-layout';
 export const AXIS_HEIGHT = 28;

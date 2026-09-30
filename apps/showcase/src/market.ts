@@ -1,12 +1,12 @@
 import './market.css';
-import { createChart, darkTheme, lightTheme, type ChartTheme, type CandlePoint } from '@filtix/charts';
+import { createChart, darkTheme, lightTheme, type ChartTheme, type CandlePoint } from '@filtrix.net/charts';
 import {
   createFeedSession,
   createBinanceProvider,
   type MarketBar,
   type FeedState,
   type FeedStatus,
-} from '@filtix/datafeed';
+} from '@filtrix.net/datafeed';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const symbols: Record<string, { name: string; mark: string }> = {
@@ -219,7 +219,7 @@ element('market-export').addEventListener('click', async () => {
     objectUrls.add(url);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'FILTIX-' + symbol + '-' + interval + '.png';
+    link.download = 'FILTRIX-' + symbol + '-' + interval + '.png';
     link.click();
     const timer = setTimeout(() => {
       URL.revokeObjectURL(url);

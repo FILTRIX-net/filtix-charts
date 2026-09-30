@@ -1,4 +1,4 @@
-import type { PrimitiveProjection } from '@filtix/charts';
+import type { PrimitiveProjection } from '@filtrix.net/charts';
 import type { Drawing, DrawingPoint, FibonacciLevel } from './types';
 
 export interface PixelPoint {

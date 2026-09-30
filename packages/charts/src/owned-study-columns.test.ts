@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { SeriesStore } from '@filtix/core';
+import { SeriesStore } from '@filtrix.net/core';
 import * as charts from './index';
 import type { ChartApi, SeriesHandle, SeriesPoint } from './types';
 

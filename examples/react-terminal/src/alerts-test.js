@@ -1,11 +1,11 @@
 // Installed-archive-only workload, loaded by main.tsx solely for ?test&alerts.
-import { createTerminal } from '@filtix/terminal';
-import { createPriceAlertStore, createPriceAlertMonitor } from '@filtix/alerts';
+import { createTerminal } from '@filtrix.net/terminal';
+import { createPriceAlertStore, createPriceAlertMonitor } from '@filtrix.net/alerts';
 import {
   prepareAlertMembershipReplacement,
   getPriceAlertStoreResourceSnapshot,
   getPriceAlertMonitorResourceSnapshot,
-} from '@filtix/alerts/internal';
+} from '@filtrix.net/alerts/internal';
 
 const copy = (value) => structuredClone(value);
 const epoch = () => performance.timeOrigin + performance.now();

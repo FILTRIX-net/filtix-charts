@@ -7,9 +7,9 @@ import {
   type PaneHandle,
   type SeriesType,
   type ChartTheme,
-} from '@filtix/charts';
-import { createIndicator, type StreamingIndicator } from '@filtix/indicators';
-import type { CandlePoint } from '@filtix/core';
+} from '@filtrix.net/charts';
+import { createIndicator, type StreamingIndicator } from '@filtrix.net/indicators';
+import type { CandlePoint } from '@filtrix.net/core';
 import { makeCandles, aggregateCandles, closeValues, symbols } from './fixtures';
 import { createDemoStream } from './demo-stream';
 
@@ -282,8 +282,8 @@ function updateCode() {
       ? 'point'
       : '{ time: point.time, value: point.close }';
   const lines = [
-    "import { createChart } from '@filtix/charts';",
-    ...(indicatorKinds.size ? ["import { createIndicator } from '@filtix/indicators';"] : []),
+    "import { createChart } from '@filtrix.net/charts';",
+    ...(indicatorKinds.size ? ["import { createIndicator } from '@filtrix.net/indicators';"] : []),
     '',
     '// history: sorted OHLC records; time is UTC milliseconds',
     'export function mountChart(host, history) {',
@@ -458,7 +458,7 @@ element('export-chart').addEventListener('click', async () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'filtix-' + selectedSymbol.id.toLowerCase() + '.png';
+    link.download = 'filtrix-' + selectedSymbol.id.toLowerCase() + '.png';
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     toast('Chart exported as PNG.');

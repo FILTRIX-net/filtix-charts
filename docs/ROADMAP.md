@@ -1,4 +1,4 @@
-# FILTIX Charts milestones
+# FILTRIX Charts milestones
 
 These milestones describe the historical implementation sequence. Historical development tags and raw measurements are not part of the public source history.
 

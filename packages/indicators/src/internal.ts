@@ -1,4 +1,4 @@
-import { ChartError, type TimeDomain } from '@filtix/core';
+import { ChartError, type TimeDomain } from '@filtrix.net/core';
 import { BollingerCalculator, validateBollingerOptions } from './bollinger';
 import {
   assertDomain,

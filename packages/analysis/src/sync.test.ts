@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { ChartError } from '@filtix/core';
-import type { ChartApi, ChartChangeMeta, ChartTime, CrosshairEvent, TimeRange } from '@filtix/charts';
+import { ChartError } from '@filtrix.net/core';
+import type { ChartApi, ChartChangeMeta, ChartTime, CrosshairEvent, TimeRange } from '@filtrix.net/charts';
 import { createChartSync } from './sync';
 
 type Cause = ChartChangeMeta['cause'];

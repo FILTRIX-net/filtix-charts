@@ -1,4 +1,4 @@
-import { ChartError } from '@filtix/core';
+import { ChartError } from '@filtrix.net/core';
 import { darkTheme, lightTheme } from './themes';
 import type { ChartOptions, ChartTheme, PaneOptions, SeriesOptions, SeriesType } from './types';
 const fail = (message: string): never => {

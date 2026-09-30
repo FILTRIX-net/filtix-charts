@@ -1,5 +1,5 @@
-import { createChart, type PrimitiveHost } from '@filtix/charts';
-import { createDrawingLayer, createDrawingStore } from '@filtix/drawings';
+import { createChart, type PrimitiveHost } from '@filtrix.net/charts';
+import { createDrawingLayer, createDrawingStore } from '@filtrix.net/drawings';
 import { makeCandles } from './fixtures';
 const chart = createChart(document.getElementById('host')!, { diagnostics: true });
 const data = makeCandles(100);

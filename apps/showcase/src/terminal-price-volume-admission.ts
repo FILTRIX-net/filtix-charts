@@ -1,14 +1,14 @@
-import { createChart } from '@filtix/charts';
-import { SeriesStore } from '@filtix/core';
-import { createFeedSession } from '@filtix/datafeed';
+import { createChart } from '@filtrix.net/charts';
+import { SeriesStore } from '@filtrix.net/core';
+import { createFeedSession } from '@filtrix.net/datafeed';
 import type {
   HistoryRequest,
   MarketBar,
   MarketDataProvider,
   MarketQuery,
   MarketStreamHandlers,
-} from '@filtix/datafeed';
-import { createTerminal, type TerminalApi, type TerminalOptions } from '@filtix/terminal';
+} from '@filtrix.net/datafeed';
+import { createTerminal, type TerminalApi, type TerminalOptions } from '@filtrix.net/terminal';
 import { createTerminalWithDependencies, prepareTerminal } from '../../../packages/terminal/src/terminal';
 
 type Scenario = 'create' | 'prepare' | 'same-factories' | 'volume-off';

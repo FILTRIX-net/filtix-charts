@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { SeriesStore } from '@filtix/core';
+import { SeriesStore } from '@filtrix.net/core';
 import { layout, histogramSum } from './layout';
 import { formatPrice } from './renderer';
 import { darkTheme } from './themes';

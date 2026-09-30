@@ -1,4 +1,4 @@
-import type { MarketQuery } from '@filtix/datafeed';
+import type { MarketQuery } from '@filtrix.net/datafeed';
 
 export type PriceAlertCondition = 'crosses-up' | 'crosses-down' | 'crosses';
 export type PriceAlertFrequency = 'once' | 'repeat';

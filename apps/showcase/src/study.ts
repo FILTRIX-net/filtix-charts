@@ -1,5 +1,5 @@
 import './study.css';
-import { createChart, darkTheme, lightTheme, type CandlePoint, type LogicalRange } from '@filtix/charts';
+import { createChart, darkTheme, lightTheme, type CandlePoint, type LogicalRange } from '@filtrix.net/charts';
 import {
   createDrawingStore,
   createDrawingLayer,
@@ -9,7 +9,7 @@ import {
   type DrawingLayer,
   type DrawingLayerState,
   type DrawingTool,
-} from '@filtix/drawings';
+} from '@filtrix.net/drawings';
 import { makeCandles } from './fixtures';
 
 const el = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -407,7 +407,7 @@ on(el('study-export'), 'click', async () => {
     urls.add(url);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'FILTIX-study.png';
+    link.download = 'FILTRIX-study.png';
     link.click();
     const timer = setTimeout(() => {
       URL.revokeObjectURL(url);

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { SeriesStore, clampRange, type SeriesPoint, type SeriesType } from '@filtix/core';
+import { SeriesStore, clampRange, type SeriesPoint, type SeriesType } from '@filtrix.net/core';
 import {
   buildRuns,
   extendTimelineFromSuperset,

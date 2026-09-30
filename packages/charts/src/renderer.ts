@@ -1,4 +1,4 @@
-import { lowerBound, timeFromKey } from '@filtix/core';
+import { lowerBound, timeFromKey } from '@filtrix.net/core';
 import { logicalX, sourceBounds, sourceX, densityStep, binEnd, histogramSum } from './layout';
 import type { TimelineIndexLookup } from './layout';
 import { layoutLegend } from './legend-layout';

@@ -1,4 +1,10 @@
-import { ChartError, timeKey, type TimeDomain, type ValuePoint, type WhitespacePoint } from '@filtix/core';
+import {
+  ChartError,
+  timeKey,
+  type TimeDomain,
+  type ValuePoint,
+  type WhitespacePoint,
+} from '@filtrix.net/core';
 
 export type IndicatorPoint = ValuePoint | WhitespacePoint;
 

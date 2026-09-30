@@ -93,12 +93,12 @@ test('beta stage keeps the nine-package cohort and adds two legal members per ar
   assert.equal(resolveConsumerCohort('v0.12-beta.1', '0.12.0-beta.1'), '0.12.0-beta.1');
   assert.deepEqual(expectedPackageNames('v0.12-beta.1'), ['alerts', ...names]);
   const inventory = expectedPackageNames('v0.12-beta.1').map((name) =>
-    expectedPackageMembers('v0.12-beta.1', '@filtix/' + name),
+    expectedPackageMembers('v0.12-beta.1', '@filtrix.net/' + name),
   );
   assert.equal(inventory.flat().length, 63);
   for (const name of ['alerts', ...names])
     assert.deepEqual(
-      expectedPackageMembers('v0.12-beta.1', '@filtix/' + name),
+      expectedPackageMembers('v0.12-beta.1', '@filtrix.net/' + name),
       [...expectedPackageMembers('v0.11', '@filtix/' + name), 'LICENSE', 'README.md'].sort(),
     );
   assert.equal(
@@ -121,7 +121,12 @@ test('beta archive bytes must match current source even when archive and install
   try {
     const pkg = join(root, 'packages', 'alerts');
     mkdirSync(join(pkg, 'dist'), { recursive: true });
-    const manifest = { name: '@filtix/alerts', version: '0.12.0-beta.1', private: false, license: 'MIT' };
+    const manifest = {
+      name: '@filtrix.net/alerts',
+      version: '0.12.0-beta.1',
+      private: false,
+      license: 'MIT',
+    };
     writeFileSync(join(pkg, 'package.json'), JSON.stringify(manifest));
     writeFileSync(join(pkg, 'LICENSE'), 'selected MIT terms\n');
     writeFileSync(join(pkg, 'README.md'), '# Current README\n');
@@ -190,4 +195,26 @@ test('beta source identity rejects an ignored nested export inheriting its paren
   } finally {
     rmSync(parent, { recursive: true, force: true });
   }
+});
+
+test('package scope, archive names and installed paths follow the release stage', () => {
+  for (const [stage, version, scope, prefix] of [
+    ['v0.11', '0.11.0', '@filtix', 'filtix'],
+    ['v0.12-beta.1', '0.12.0-beta.1', '@filtrix.net', 'filtrix.net'],
+  ]) {
+    assert.equal(identity.expectedPackageScope(stage), scope);
+    assert.equal(
+      identity.packageArchivePath(stage, 'charts'),
+      `dist/packages/${prefix}-charts-${version}.tgz`,
+    );
+    assert.equal(
+      identity.consumerPackagePath(stage, 'charts', 'dist/index.js'),
+      `examples/react-terminal/node_modules/${scope}/charts/dist/index.js`,
+    );
+    assert.throws(
+      () => expectedPackageMembers(stage, `${scope === '@filtix' ? '@filtrix.net' : '@filtix'}/charts`),
+      /Unknown cohort/,
+    );
+  }
+  assert.throws(() => identity.packageArchivePath('v0.12-beta.1', '../charts'), /Unknown cohort/);
 });

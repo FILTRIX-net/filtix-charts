@@ -1,4 +1,4 @@
-import type { ChartApi, ChartPaneLayout } from '@filtix/charts';
+import type { ChartApi, ChartPaneLayout } from '@filtrix.net/charts';
 import { copyLayout, sameLayout } from './layout';
 import type { TerminalLayout, TerminalPaneId } from './types';
 
