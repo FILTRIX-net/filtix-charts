@@ -1,5 +1,7 @@
 # Public demo deployment
 
+Live showcase: [charts.filtrix.net](https://charts.filtrix.net/). Studio, Market, Study, Analysis and Terminal are available over HTTPS.
+
 The public showcase is a static website. Studio, Study and Analysis use labelled synthetic data; Market and Terminal request public Binance Spot data directly from the browser. Provider availability can vary. Saved demo settings remain in the browser.
 
 ## Build and verify
