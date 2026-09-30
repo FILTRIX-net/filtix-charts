@@ -4,11 +4,19 @@
 
 An original, embeddable financial charting library for web applications. TypeScript, Canvas 2D, explicit data ownership, and no external runtime dependencies in the chart engine. Use it independently of the FILTRIX product: no account or telemetry service is required.
 
-**Preparing the open-source beta, `0.12.0-beta.1`, under [Apache-2.0](LICENSE).** Source repository: [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. npm packages and a hosted demo have not yet been published. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
+**Open-source beta `0.12.0-beta.1`, under [Apache-2.0](LICENSE), is available on npm.** Source repository: [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. All nine packages are published with the `beta` tag; a hosted demo is still pending. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
 
 Four persistent terminal slots support 1/2/4 visible charts and optional synchronization. Saved price alerts monitor their markets independently of the displayed chart through a native editor and workspace v5. Start with the [grid integration guide](docs/TERMINAL-CONTRACT.md#saved-terminal-grids), [alert integration](docs/ALERTS.md) or [drawing tools](docs/DRAWING-TOOLS.md). Comparisons with TradingView require separate equivalent benchmarks.
 
 ![FILTRIX Charts by FILTRIX.NET — studio](docs/assets/filtrix-charts-studio.png)
+
+## Install
+
+```sh
+npm install @filtrix.net/charts@0.12.0-beta.1
+```
+
+Pin the exact beta version and keep optional SDK peer packages in the same cohort. npm also assigned `latest` to this first beta; an unversioned install can select it. [View the chart package on npm](https://www.npmjs.com/package/@filtrix.net/charts).
 
 ## Run the workspace
 

@@ -4,9 +4,9 @@ FILTRIX Charts by FILTRIX.NET is a standalone financial charting library. The be
 
 ## Availability
 
-`0.12.0-beta.1` is a release candidate under [Apache-2.0](../LICENSE). Source is available at [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts). All nine SDK packages use the `@filtrix.net` scope. npm packages and a hosted demo have not yet been published.
+`0.12.0-beta.1` is published on npm with the `beta` tag under [Apache-2.0](../LICENSE). Source is available at [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts). All nine SDK packages use the `@filtrix.net` scope. All nine packages are available from npm; a hosted demo is still pending.
 
-Use the [workspace setup](../README.md#run-the-workspace) to run the source checkout. `npm run build`, `npm run pack:local` and `npm run check:consumer` build and verify local archives. Registry installation is described only as a post-publication step in the [release process](RELEASE-PROCESS.md).
+Use the [workspace setup](../README.md#run-the-workspace) to run the source checkout. `npm run build`, `npm run pack:local` and `npm run check:consumer` build and verify local archives. Install the chart engine with `npm install @filtrix.net/charts@0.12.0-beta.1`. The [release process](RELEASE-PROCESS.md) describes publication and qualification.
 
 ## Try a workflow
 

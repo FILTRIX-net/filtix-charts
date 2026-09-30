@@ -52,7 +52,7 @@ After scope ownership, repository/legal metadata and the final preflight pass ar
 npm publish dist/packages/filtrix.net-charts-0.12.0-beta.1.tgz --access public --tag beta
 ```
 
-This is an example for one archive, not the entire release. Publish the cohort in dependency order: core, charts, indicators, datafeed, analysis, drawings, alerts, react, terminal. Inspect each result before continuing. Partial publication is possible; do not announce the whole cohort until all nine registry versions and integrity values match the candidate. Never use `latest` for this beta, and do not overwrite or move historical Git tags.
+This is an example for one archive, not the entire release. Publish the cohort in dependency order: core, charts, indicators, datafeed, analysis, drawings, alerts, react, terminal. Inspect each result before continuing. Partial publication is possible; do not announce the whole cohort until all nine registry versions and integrity values match the candidate. Always request `--tag beta`; never explicitly promote a beta to `latest` or move a stable tag. Do not overwrite or move historical Git tags.
 
 For scoped packages, public access must be explicit; see [npm's publication documentation](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages/) and [publishing a tarball](https://docs.npmjs.com/cli/v12/commands/npm-publish/). A future automated workflow can use the registry's supported authentication model after the actual repository is connected. This candidate does not install an automatic publishing workflow.
 
@@ -63,6 +63,14 @@ npm install @filtrix.net/charts@0.12.0-beta.1
 ```
 
 Install optional peers from the same exact beta cohort. Do not present this command as currently available before registry verification succeeds.
+
+## Published beta: 2026-09-30
+
+All nine packages at `0.12.0-beta.1` were published from qualified public commit [c52018d](https://github.com/FILTRIX-net/filtix-charts/commit/c52018d350e81655b0200545a717fabb475e4a4f), between 19:19 and 19:31 UTC. Registry metadata and downloaded archive hashes matched the qualified candidate for every package. A fresh consumer with an empty package cache installed all nine exact versions, verified registry integrity and ESM imports, and passed React SSR. Its dependency audit reported zero findings. [Source CI](https://github.com/FILTRIX-net/filtix-charts/actions/runs/36752898134) passed 666 unit tests and 1017 browser tests. The build-tool advisory above remains open.
+
+Although every publish command explicitly requested `--tag beta`, npm also assigned `latest` to the initial beta versions. The attempt to remove that alias from core returned HTTP 400. No prior stable version existed or was moved. Both tags currently resolve to `0.12.0-beta.1`; an unversioned install can therefore select this beta. Pin the exact version shown above. This release does not establish a stable API.
+
+The registry also lists `0.0.0-stage` for alerts and terminal, with the staging-placeholder description and the same publisher account. npm [documents this placeholder for staged publication](https://docs.npmjs.com/staged-publishing/), but the commands used here were ordinary `npm publish`; the precise cause in this flow is unconfirmed. Neither distribution tag resolves to those placeholders. The integrity and installation checks above apply to the exact beta versions.
 
 ## Demo and announcement
 
