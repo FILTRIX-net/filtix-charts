@@ -10,6 +10,10 @@ The license file must be present in the root and in every archive, and package l
 
 ## Qualify local packages
 
+### Development dependency advisory
+
+The beta toolchain uses Vite 7.3.6 and Vitest 4.1.11. Vite resolves esbuild 0.28.2; tsup 8.5.1 retains its compatible esbuild 0.27.7 dependency. npm audit therefore still reports the low-severity [esbuild Windows development-server advisory](https://github.com/evanw/esbuild/security/advisories/GHSA-g7r4-m6w7-qqqr) in the build-tool tree. Our build scripts do not use esbuild's `serve()` API. This is a recorded development-tool limitation, not a clean full-audit claim. Recheck upstream compatibility before removing it; do not force an incompatible global esbuild override. The SDK runtime dependency audit and the independent React example audit passed with zero findings at qualification.
+
 Use npm 12.0.2 for lockfile changes. From the repository root:
 
 ```sh
