@@ -38,7 +38,7 @@ Repeated destroy/unsubscribe is harmless. Other calls through destroyed/removed 
 
 ## Attribution and PNG export
 
-Added in the `0.12.0-beta.2` candidate; see the beta guide for registry availability.
+Available in `0.12.0-beta.2`; see the beta guide for installation.
 
 Charts show a small `FILTRIX.NET` link by default. `ChartOptions.attribution` controls it at creation and through `applyOptions`. It follows the chart theme and stays inside the first visible pane; a pane too small to fit the link hides it until space is available. The link is keyboard accessible and opens `https://filtrix.net/` in a new tab. Displaying it sends no analytics or network requests.
 

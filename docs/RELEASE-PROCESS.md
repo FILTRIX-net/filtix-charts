@@ -1,6 +1,6 @@
 # FILTRIX Charts beta release process
 
-This runbook prepares `0.12.0-beta.2` for the public `beta` channel. Preparation does not publish packages or deploy a website. The root workspace and React example remain private.
+This runbook documents qualification and publication of `0.12.0-beta.2` on the public `beta` channel. Preparation commands do not publish packages or deploy a website. The root workspace and React example remain private.
 
 ## Repository and publishing access
 
@@ -34,7 +34,7 @@ Review changes and commit the source before the final pack/install capture. Repe
 npm run check:release
 ```
 
-The nine archives must agree with the committed source, exact package cohort, beta version, README/license inventory and clean installed consumer. Review the new `v0.12-beta.1` installation record. Keep old stage records intact. Do not run a historical benchmark script against a new package cohort and describe it as the old accepted release.
+The nine archives must agree with the committed source, exact package cohort, beta version, README/license inventory and clean installed consumer. Review the new `v0.12-beta.2` installation record. Keep old stage records intact. Do not run a historical benchmark script against a new package cohort and describe it as the old accepted release.
 
 The publication gate does not establish account ownership, credentials or remote availability. Check those explicitly using the owner's authenticated account. Credentials and one-time passwords must not be committed or included in build logs.
 
@@ -70,9 +70,13 @@ Install optional peers from the same exact beta cohort. Do not present this comm
 
 All nine packages at `0.12.0-beta.1` were published from qualified public commit [c52018d](https://github.com/FILTRIX-net/filtrix-charts/commit/c52018d350e81655b0200545a717fabb475e4a4f), between 19:19 and 19:31 UTC. Registry metadata and downloaded archive hashes matched the qualified candidate for every package. A fresh consumer with an empty package cache installed all nine exact versions, verified registry integrity and ESM imports, and passed React SSR. Its dependency audit reported zero findings. [Source CI](https://github.com/FILTRIX-net/filtrix-charts/actions/runs/36752898134) passed 666 unit tests and 1017 browser tests. The build-tool advisory above remains open.
 
-Although every publish command explicitly requested `--tag beta`, npm also assigned `latest` to the initial beta versions. The attempt to remove that alias from core returned HTTP 400. No prior stable version existed or was moved. Both tags currently resolve to `0.12.0-beta.1`; an unversioned install can therefore select this beta. Pin the exact version shown above. This release does not establish a stable API.
+Although every publish command explicitly requested `--tag beta`, npm also assigned `latest` to the initial beta versions. The attempt to remove that alias from core returned HTTP 400. No prior stable version existed or was moved. At that publication, both tags resolved to `0.12.0-beta.1`; this was the first beta, not a stable release. Pin the exact version shown above. This release does not establish a stable API.
 
 The registry also lists `0.0.0-stage` for alerts and terminal, with the staging-placeholder description and the same publisher account. npm [documents this placeholder for staged publication](https://docs.npmjs.com/staged-publishing/), but the commands used here were ordinary `npm publish`; the precise cause in this flow is unconfirmed. Neither distribution tag resolves to those placeholders. The integrity and installation checks above apply to the exact beta versions.
+
+## Published beta.2: 2026-10-01
+
+All nine packages at `0.12.0-beta.2` were published from qualified public commit [1886a05](https://github.com/FILTRIX-net/filtrix-charts/commit/1886a0590307d71d77eb019bc6755f1be8892a05) after [source CI](https://github.com/FILTRIX-net/filtrix-charts/actions/runs/36852195789) passed. Registry metadata and downloaded archive hashes matched the qualified candidate for every package. A fresh consumer with an empty package cache installed all nine exact versions, passed the public TypeScript declaration fixture, imported all package ESM entries and rendered the React adapter with SSR. Its runtime dependency audit reported zero findings. The `beta` tags point to beta.2; the existing `latest` tags remain on beta.1. Published beta.1 archives and the historical release tag remain unchanged.
 
 ## Demo and announcement
 

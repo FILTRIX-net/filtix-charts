@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.12.0-beta.2 — in preparation
+## 0.12.0-beta.2 — 2026-10-01
 
 - Add optional `FILTRIX.NET` chart attribution, enabled by default and controlled by `ChartOptions.attribution`, with theme-aware placement and keyboard access.
 - Add `exportImage({ watermark })` for per-image branding control. The default follows chart attribution; PNG dimensions and drawing primitives are preserved and the live canvas is unchanged.

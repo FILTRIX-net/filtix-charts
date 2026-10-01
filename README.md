@@ -4,21 +4,21 @@
 
 An original, embeddable financial charting library for web applications. TypeScript, Canvas 2D, explicit data ownership, and no external runtime dependencies in the chart engine. Use it independently of the FILTRIX product: no account or telemetry service is required.
 
-**Open-source beta `0.12.0-beta.1`, under [Apache-2.0](LICENSE), is available on npm.** Source repository: [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. All nine packages are published with the `beta` tag; the [public demo](https://charts.filtrix.net/) is live. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
+**Open-source beta `0.12.0-beta.2`, under [Apache-2.0](LICENSE), is available on npm.** Source repository: [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. All nine packages are published with the `beta` tag; the [public demo](https://charts.filtrix.net/) is live. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
 
 Four persistent terminal slots support 1/2/4 visible charts and optional synchronization. Saved price alerts monitor their markets independently of the displayed chart through a native editor and workspace v5. Start with the [grid integration guide](docs/TERMINAL-CONTRACT.md#saved-terminal-grids), [alert integration](docs/ALERTS.md) or [drawing tools](docs/DRAWING-TOOLS.md). Comparisons with TradingView require separate equivalent benchmarks.
 
-This checkout prepares `0.12.0-beta.2`, adding optional chart attribution and PNG watermarks. The npm version above remains the published beta until the next release is verified. See [attribution and image export](docs/API.md#attribution-and-png-export) for the new API.
+Charts include an optional `FILTRIX.NET` link and PNG watermark. See [attribution and image export](docs/API.md#attribution-and-png-export) for defaults and opt-out controls.
 
 ![FILTRIX Charts by FILTRIX.NET — studio](docs/assets/filtrix-charts-studio.png)
 
 ## Install
 
 ```sh
-npm install @filtrix.net/charts@0.12.0-beta.1
+npm install @filtrix.net/charts@0.12.0-beta.2
 ```
 
-Pin the exact beta version and keep optional SDK peer packages in the same cohort. npm also assigned `latest` to this first beta; an unversioned install can select it. [View the chart package on npm](https://www.npmjs.com/package/@filtrix.net/charts).
+Pin the exact beta version and keep optional SDK peer packages in the same cohort. The `beta` tag points to this release; `latest` remains on `0.12.0-beta.1`, so use an explicit version to get this update. [View the chart package on npm](https://www.npmjs.com/package/@filtrix.net/charts).
 
 ## Run the workspace
 
