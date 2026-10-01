@@ -28,7 +28,7 @@ export default defineConfig({
       name: 'project-desktop',
       use: {
         ...chromium,
-        baseURL: projectOrigin + '/filtix-charts/',
+        baseURL: projectOrigin + '/filtrix-charts/',
         viewport: { width: 1440, height: 900 },
       },
     },
@@ -36,7 +36,7 @@ export default defineConfig({
       name: 'project-mobile',
       use: {
         ...chromium,
-        baseURL: projectOrigin + '/filtix-charts/',
+        baseURL: projectOrigin + '/filtrix-charts/',
         viewport: { width: 390, height: 844 },
         isMobile: true,
         hasTouch: true,
@@ -51,8 +51,8 @@ export default defineConfig({
       timeout: 30_000,
     },
     {
-      command: `node node_modules/vite/bin/vite.js preview --mode public-demo --host 127.0.0.1 --port ${firstPort + 1} --strictPort --base /filtix-charts/`,
-      url: projectOrigin + '/filtix-charts/',
+      command: `node node_modules/vite/bin/vite.js preview --mode public-demo --host 127.0.0.1 --port ${firstPort + 1} --strictPort --base /filtrix-charts/`,
+      url: projectOrigin + '/filtrix-charts/',
       reuseExistingServer: false,
       timeout: 30_000,
     },

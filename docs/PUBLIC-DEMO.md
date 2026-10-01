@@ -12,7 +12,7 @@ npm run check:demo:public
 npm run test:demo:public
 ```
 
-The output is `dist/public-demo`: five HTML pages, bundled assets and the brand icon. The build excludes development benchmarks and test pages, and removes their navigation links. Relative URLs support a domain root and a project path such as `/filtix-charts/`. The regular `npm run build:demo` retains the development showcase in `dist/showcase`.
+The output is `dist/public-demo`: five HTML pages, bundled assets and the brand icon. The build excludes development benchmarks and test pages, and removes their navigation links. Relative URLs support a domain root and a project path such as `/filtrix-charts/`. The regular `npm run build:demo` retains the development showcase in `dist/showcase`.
 
 The browser check starts and stops its own preview servers, verifies both hosting paths on desktop plus the project path on mobile, and simulates successful and unavailable market data. It requires Playwright Chromium, or installed Chrome on local Windows. Set `FILTRIX_DEMO_TEST_PORT` to choose the first of two adjacent preview ports.
 

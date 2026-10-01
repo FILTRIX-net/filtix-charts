@@ -4,7 +4,7 @@ FILTRIX Charts by FILTRIX.NET is a standalone financial charting library. The be
 
 ## Availability
 
-`0.12.0-beta.1` is published on npm with the `beta` tag under [Apache-2.0](../LICENSE). Source is available at [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts). All nine SDK packages use the `@filtrix.net` scope. All nine packages are available from npm; the [public demo](https://charts.filtrix.net/) is live.
+`0.12.0-beta.1` is published on npm with the `beta` tag under [Apache-2.0](../LICENSE). Source is available at [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts). All nine SDK packages use the `@filtrix.net` scope. All nine packages are available from npm; the [public demo](https://charts.filtrix.net/) is live.
 
 Use the [workspace setup](../README.md#run-the-workspace) to run the source checkout. `npm run build`, `npm run pack:local` and `npm run check:consumer` build and verify local archives. Install the chart engine with `npm install @filtrix.net/charts@0.12.0-beta.1`. The [release process](RELEASE-PROCESS.md) describes publication and qualification.
 
@@ -31,7 +31,7 @@ Historical benchmarks describe their named hardware, workload, package versions 
 
 The proposed initial maintenance budget is two hours per week for four weeks, subject to the owner's operating schedule. Triage reproducible installation failures, data correctness and lifecycle regressions first. This is a planning budget, not a guaranteed response time or support contract. Broad feature requests are collected for later prioritization.
 
-Use the repository's [issues](https://github.com/FILTRIX-net/filtix-charts/issues) for reproducible bugs and proposals. See [contribution guidance](../CONTRIBUTING.md).
+Use the repository's [issues](https://github.com/FILTRIX-net/filtrix-charts/issues) for reproducible bugs and proposals. See [contribution guidance](../CONTRIBUTING.md).
 
 ## Acquisition measurement
 

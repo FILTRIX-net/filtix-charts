@@ -4,7 +4,7 @@
 
 An original, embeddable financial charting library for web applications. TypeScript, Canvas 2D, explicit data ownership, and no external runtime dependencies in the chart engine. Use it independently of the FILTRIX product: no account or telemetry service is required.
 
-**Open-source beta `0.12.0-beta.1`, under [Apache-2.0](LICENSE), is available on npm.** Source repository: [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. All nine packages are published with the `beta` tag; the [public demo](https://charts.filtrix.net/) is live. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
+**Open-source beta `0.12.0-beta.1`, under [Apache-2.0](LICENSE), is available on npm.** Source repository: [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts), maintained by `x777`. The SDK uses the `@filtrix.net` npm scope. All nine packages are published with the `beta` tag; the [public demo](https://charts.filtrix.net/) is live. See the [beta guide](docs/OPEN-SOURCE-BETA.md), [release process](docs/RELEASE-PROCESS.md) and [contribution guide](CONTRIBUTING.md).
 
 Four persistent terminal slots support 1/2/4 visible charts and optional synchronization. Saved price alerts monitor their markets independently of the displayed chart through a native editor and workspace v5. Start with the [grid integration guide](docs/TERMINAL-CONTRACT.md#saved-terminal-grids), [alert integration](docs/ALERTS.md) or [drawing tools](docs/DRAWING-TOOLS.md). Comparisons with TradingView require separate equivalent benchmarks.
 
@@ -23,8 +23,8 @@ Pin the exact beta version and keep optional SDK peer packages in the same cohor
 Use Node 22.22.2+ in the 22.x line, Node 24.15.0+ in the 24.x line, or Node 26+. The lockfile uses npm 12.0.2.
 
 ```sh
-git clone https://github.com/FILTRIX-net/filtix-charts.git
-cd filtix-charts
+git clone https://github.com/FILTRIX-net/filtrix-charts.git
+cd filtrix-charts
 npx --yes npm@12.0.2 ci
 npm run build
 npm run dev

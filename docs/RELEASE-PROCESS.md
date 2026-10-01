@@ -2,9 +2,11 @@
 
 This runbook prepares `0.12.0-beta.1` for the public `beta` channel. Preparation does not publish packages or deploy a website. The root workspace and React example remain private.
 
-## Outstanding owner inputs
+## Repository and publishing access
 
-The release uses Apache-2.0, the npm organization scope `@filtrix.net` and the source repository [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts). Package metadata names that repository. Before publication, verify registry authentication, organization publishing rights and the account's supported publishing authentication method. GitHub organization access does not establish npm scope access.
+The repository was renamed to `FILTRIX-net/filtrix-charts` after the first beta publication. Published `0.12.0-beta.1` archives retain their original repository metadata; GitHub redirects those links. Future package versions use the corrected address. This rename does not change package names, versions or release tags.
+
+The release uses Apache-2.0, the npm organization scope `@filtrix.net` and the source repository [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts). Package metadata names that repository. Before publication, verify registry authentication, organization publishing rights and the account's supported publishing authentication method. GitHub organization access does not establish npm scope access.
 
 The license file must be present in the root and in every archive, and package license identifiers must agree. Package READMEs must describe the actual available distribution. `npm run check:release` is the publication gate and must fail when these requirements are unresolved.
 
@@ -66,7 +68,7 @@ Install optional peers from the same exact beta cohort. Do not present this comm
 
 ## Published beta: 2026-09-30
 
-All nine packages at `0.12.0-beta.1` were published from qualified public commit [c52018d](https://github.com/FILTRIX-net/filtix-charts/commit/c52018d350e81655b0200545a717fabb475e4a4f), between 19:19 and 19:31 UTC. Registry metadata and downloaded archive hashes matched the qualified candidate for every package. A fresh consumer with an empty package cache installed all nine exact versions, verified registry integrity and ESM imports, and passed React SSR. Its dependency audit reported zero findings. [Source CI](https://github.com/FILTRIX-net/filtix-charts/actions/runs/36752898134) passed 666 unit tests and 1017 browser tests. The build-tool advisory above remains open.
+All nine packages at `0.12.0-beta.1` were published from qualified public commit [c52018d](https://github.com/FILTRIX-net/filtrix-charts/commit/c52018d350e81655b0200545a717fabb475e4a4f), between 19:19 and 19:31 UTC. Registry metadata and downloaded archive hashes matched the qualified candidate for every package. A fresh consumer with an empty package cache installed all nine exact versions, verified registry integrity and ESM imports, and passed React SSR. Its dependency audit reported zero findings. [Source CI](https://github.com/FILTRIX-net/filtrix-charts/actions/runs/36752898134) passed 666 unit tests and 1017 browser tests. The build-tool advisory above remains open.
 
 Although every publish command explicitly requested `--tag beta`, npm also assigned `latest` to the initial beta versions. The attempt to remove that alias from core returned HTTP 400. No prior stable version existed or was moved. Both tags currently resolve to `0.12.0-beta.1`; an unversioned install can therefore select this beta. Pin the exact version shown above. This release does not establish a stable API.
 

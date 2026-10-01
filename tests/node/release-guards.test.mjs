@@ -17,7 +17,7 @@ const names = [
   'terminal',
 ];
 const version = '0.12.0-beta.1';
-const repository = { type: 'git', url: 'https://github.com/example/filtix-charts.git' };
+const repository = { type: 'git', url: 'https://github.com/example/filtrix-charts.git' };
 const peerNames = {
   alerts: ['datafeed'],
   analysis: ['charts'],

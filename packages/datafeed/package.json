@@ -32,9 +32,9 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FILTRIX-net/filtix-charts.git"
+    "url": "git+https://github.com/FILTRIX-net/filtrix-charts.git"
   },
   "bugs": {
-    "url": "https://github.com/FILTRIX-net/filtix-charts/issues"
+    "url": "https://github.com/FILTRIX-net/filtrix-charts/issues"
   }
 }

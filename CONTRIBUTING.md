@@ -1,6 +1,6 @@
 # Contributing to FILTRIX Charts
 
-FILTRIX Charts by FILTRIX.NET is preparing its first public beta under [Apache-2.0](LICENSE), selected by the owner on 2026-09-29. Contributions intended for inclusion are governed by that license. The source repository is [FILTRIX-net/filtix-charts](https://github.com/FILTRIX-net/filtix-charts); npm publication has not yet occurred.
+FILTRIX Charts by FILTRIX.NET is available as an open-source beta under [Apache-2.0](LICENSE), selected by the owner on 2026-09-29. Contributions intended for inclusion are governed by that license. The source repository is [FILTRIX-net/filtrix-charts](https://github.com/FILTRIX-net/filtrix-charts); all nine beta packages are available on npm.
 
 ## Before proposing a change
 
@@ -8,7 +8,7 @@ Describe the user-visible problem, expected behavior and a small reproduction. I
 
 For larger API changes, discuss the design before implementation. Keep changes focused; preserve chart/data ownership, atomic invalid-input behavior and explicit cleanup. The renderer has no external runtime dependencies. New network behavior, required accounts or telemetry require a separate product decision.
 
-Use [GitHub issues](https://github.com/FILTRIX-net/filtix-charts/issues) for reproducible bugs and proposals, and pull requests for focused changes. For a sensitive vulnerability, use a configured private security-reporting channel; do not post exploitable details in a public issue. No unverified support email or security-reporting URL is advertised here.
+Use [GitHub issues](https://github.com/FILTRIX-net/filtrix-charts/issues) for reproducible bugs and proposals, and pull requests for focused changes. For a sensitive vulnerability, use a configured private security-reporting channel; do not post exploitable details in a public issue. No unverified support email or security-reporting URL is advertised here.
 
 ## Development
 
