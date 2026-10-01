@@ -14,13 +14,14 @@ import {
   expectedPackageMembers,
   expectedPackageNames,
   expectedPackageScope,
+  isPublicBetaStage,
   packageArchivePath,
 } from './consumer-identity.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const cwd = resolve(root, 'examples/react-terminal');
 const version = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')).version;
 const stage = releaseStage(version);
-const offlineArgs = stage === 'v0.12-beta.1' ? [] : ['--offline'];
+const offlineArgs = isPublicBetaStage(stage) ? [] : ['--offline'];
 const npmCli = findNpmCli();
 const run = (args, directory = cwd) => {
   const result = spawnSync(process.execPath, args, {

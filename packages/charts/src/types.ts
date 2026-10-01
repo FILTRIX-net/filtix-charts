@@ -53,6 +53,12 @@ export interface ChartOptions {
   ariaLabel?: string;
   maxPixelRatio?: number;
   legend?: ChartLegendOptions;
+  /** Show a compact FILTRIX.NET link. Defaults to true. */
+  attribution?: boolean;
+}
+export interface ChartExportOptions {
+  /** Include FILTRIX.NET branding. Defaults to the chart's attribution setting. */
+  watermark?: boolean;
 }
 export interface PaneOptions {
   id?: string;
@@ -177,7 +183,7 @@ export interface ChartApi {
   subscribeCrosshairMove(callback: (event: CrosshairEvent, meta: ChartChangeMeta) => void): () => void;
   subscribeVisibleRangeChange(callback: (range: LogicalRange, meta: ChartChangeMeta) => void): () => void;
   attachPrimitive(primitive: ChartPrimitive): () => void;
-  exportImage(): Promise<Blob>;
+  exportImage(options?: ChartExportOptions): Promise<Blob>;
   getDiagnostics(): Readonly<ChartDiagnostics>;
   whenIdle(): Promise<void>;
   destroy(): void;

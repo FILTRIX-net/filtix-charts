@@ -1,7 +1,7 @@
 {
   "name": "filtrix-terminal-consumer",
   "private": true,
-  "version": "0.12.0-beta.1",
+  "version": "0.12.0-beta.2",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5195",
@@ -9,15 +9,15 @@
     "preview": "vite preview --host 127.0.0.1 --port 5195 --strictPort"
   },
   "dependencies": {
-    "@filtrix.net/alerts": "file:../../dist/packages/filtrix.net-alerts-0.12.0-beta.1.tgz",
-    "@filtrix.net/analysis": "file:../../dist/packages/filtrix.net-analysis-0.12.0-beta.1.tgz",
-    "@filtrix.net/charts": "file:../../dist/packages/filtrix.net-charts-0.12.0-beta.1.tgz",
-    "@filtrix.net/core": "file:../../dist/packages/filtrix.net-core-0.12.0-beta.1.tgz",
-    "@filtrix.net/datafeed": "file:../../dist/packages/filtrix.net-datafeed-0.12.0-beta.1.tgz",
-    "@filtrix.net/drawings": "file:../../dist/packages/filtrix.net-drawings-0.12.0-beta.1.tgz",
-    "@filtrix.net/indicators": "file:../../dist/packages/filtrix.net-indicators-0.12.0-beta.1.tgz",
-    "@filtrix.net/react": "file:../../dist/packages/filtrix.net-react-0.12.0-beta.1.tgz",
-    "@filtrix.net/terminal": "file:../../dist/packages/filtrix.net-terminal-0.12.0-beta.1.tgz",
+    "@filtrix.net/alerts": "file:../../dist/packages/filtrix.net-alerts-0.12.0-beta.2.tgz",
+    "@filtrix.net/analysis": "file:../../dist/packages/filtrix.net-analysis-0.12.0-beta.2.tgz",
+    "@filtrix.net/charts": "file:../../dist/packages/filtrix.net-charts-0.12.0-beta.2.tgz",
+    "@filtrix.net/core": "file:../../dist/packages/filtrix.net-core-0.12.0-beta.2.tgz",
+    "@filtrix.net/datafeed": "file:../../dist/packages/filtrix.net-datafeed-0.12.0-beta.2.tgz",
+    "@filtrix.net/drawings": "file:../../dist/packages/filtrix.net-drawings-0.12.0-beta.2.tgz",
+    "@filtrix.net/indicators": "file:../../dist/packages/filtrix.net-indicators-0.12.0-beta.2.tgz",
+    "@filtrix.net/react": "file:../../dist/packages/filtrix.net-react-0.12.0-beta.2.tgz",
+    "@filtrix.net/terminal": "file:../../dist/packages/filtrix.net-terminal-0.12.0-beta.2.tgz",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

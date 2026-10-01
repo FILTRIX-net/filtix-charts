@@ -1,9 +1,13 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { expectedPackageMembers, expectedPackageNames, releaseStage } from './consumer-identity.mjs';
+import {
+  expectedPackageMembers,
+  expectedPackageNames,
+  isPublicBetaStage,
+  releaseStage,
+} from './consumer-identity.mjs';
 
-const betaVersion = '0.12.0-beta.1';
 const internalPeers = {
   alerts: ['datafeed'],
   analysis: ['charts'],
@@ -14,7 +18,9 @@ const internalPeers = {
 
 export function validatePublicCohort(workspace, manifests, { requireRepository = true } = {}) {
   assert.equal(workspace.private, true, 'Root workspace must remain private');
-  assert.equal(workspace.version, betaVersion, 'Root version must be the supported beta version');
+  const stage = releaseStage(workspace.version);
+  assert.ok(isPublicBetaStage(stage), 'Root version must be a supported public beta version');
+  const betaVersion = workspace.version;
   assert.ok(
     ['MIT', 'Apache-2.0'].includes(workspace.license),
     'Selected license is required before publication',
@@ -41,7 +47,7 @@ export function validatePublicCohort(workspace, manifests, { requireRepository =
       'Repository URL must be a public HTTPS Git destination without credentials or fragments',
     );
   }
-  const names = expectedPackageNames(releaseStage(workspace.version));
+  const names = expectedPackageNames(stage);
   assert.deepEqual(Object.keys(manifests).sort(), [...names].sort(), 'Exact public package cohort');
   for (const name of names) {
     const manifest = manifests[name];
@@ -83,7 +89,7 @@ export function validatePublicCohort(workspace, manifests, { requireRepository =
       .sort(([left], [right]) => left.localeCompare(right));
     assert.deepEqual(actualPeers, expectedPeers, name + ' internal peer versions must be exact beta pins');
   }
-  return 'v0.12-beta.1';
+  return stage;
 }
 
 export function validatePackageLegalFiles(root, names) {
@@ -103,6 +109,7 @@ export function validatePackageLegalFiles(root, names) {
 
 export function validatePackedCohort(workspace, manifests, packed, options) {
   const stage = validatePublicCohort(workspace, manifests, options);
+  const betaVersion = workspace.version;
   const names = expectedPackageNames(stage);
   assert.deepEqual(
     packed.map(({ name }) => name).sort(),

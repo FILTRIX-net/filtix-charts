@@ -1,6 +1,13 @@
 # Changelog
 
-## 0.12.0-beta.1 — preparation, not published
+## 0.12.0-beta.2 — in preparation
+
+- Add optional `FILTRIX.NET` chart attribution, enabled by default and controlled by `ChartOptions.attribution`, with theme-aware placement and keyboard access.
+- Add `exportImage({ watermark })` for per-image branding control. The default follows chart attribution; PNG dimensions and drawing primitives are preserved and the live canvas is unchanged.
+- Use the SDK attribution in the Studio demo instead of separate page-only watermark markup.
+- Correct source and issue links to the renamed `FILTRIX-net/filtrix-charts` repository. Previously published beta archives retain their original metadata and resolve through GitHub redirects.
+
+## 0.12.0-beta.1 — 2026-09-30
 
 - Correct the release identity to FILTRIX Charts by FILTRIX.NET and move all nine beta packages to `@filtrix.net/*`. Pre-beta local integrations must update dependencies and imports together. Add `FiltrixChart`/`FiltrixChartProps` while retaining deprecated React aliases and existing saved-data identifiers.
 - License the source and all nine SDK packages under Apache-2.0, with exact internal prerelease peers, per-package READMEs and explicit archive inventories. The root workspace and example remain private.

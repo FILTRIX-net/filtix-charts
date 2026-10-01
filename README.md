@@ -8,6 +8,8 @@ An original, embeddable financial charting library for web applications. TypeScr
 
 Four persistent terminal slots support 1/2/4 visible charts and optional synchronization. Saved price alerts monitor their markets independently of the displayed chart through a native editor and workspace v5. Start with the [grid integration guide](docs/TERMINAL-CONTRACT.md#saved-terminal-grids), [alert integration](docs/ALERTS.md) or [drawing tools](docs/DRAWING-TOOLS.md). Comparisons with TradingView require separate equivalent benchmarks.
 
+This checkout prepares `0.12.0-beta.2`, adding optional chart attribution and PNG watermarks. The npm version above remains the published beta until the next release is verified. See [attribution and image export](docs/API.md#attribution-and-png-export) for the new API.
+
 ![FILTRIX Charts by FILTRIX.NET — studio](docs/assets/filtrix-charts-studio.png)
 
 ## Install

@@ -1,6 +1,6 @@
 # FILTRIX Charts API
 
-Development version: 0.11.0; installed four-terminal acceptance is in progress. The library is distributed locally until a publication policy is chosen. See the [base engine contract](API-CONTRACT.md) and extension guides below for the public interfaces.
+This guide describes the current development API. See the [beta guide](OPEN-SOURCE-BETA.md) for published package availability and exact installation versions. The [base engine contract](API-CONTRACT.md) and extension guides below describe the public interfaces.
 
 ## Create and dispose
 
@@ -35,6 +35,27 @@ chart.destroy();
 The host must have a CSS width and height. The chart owns only the nodes it creates inside that host. Module imports do not access the DOM. Mounting requires a browser with Canvas 2D, Pointer Events, ResizeObserver, requestAnimationFrame and Intl.
 
 Repeated destroy/unsubscribe is harmless. Other calls through destroyed/removed handles throw a ChartError. Destroy cancels queued frames, detaches input/resize observers and resolves outstanding whenIdle promises.
+
+## Attribution and PNG export
+
+Added in the `0.12.0-beta.2` candidate; see the beta guide for registry availability.
+
+Charts show a small `FILTRIX.NET` link by default. `ChartOptions.attribution` controls it at creation and through `applyOptions`. It follows the chart theme and stays inside the first visible pane; a pane too small to fit the link hides it until space is available. The link is keyboard accessible and opens `https://filtrix.net/` in a new tab. Displaying it sends no analytics or network requests.
+
+```ts
+const chart = createChart(host, { attribution: false });
+chart.applyOptions({ attribution: true });
+
+const branded = await chart.exportImage();
+const unbranded = await chart.exportImage({ watermark: false });
+const explicitlyBranded = await chart.exportImage({ watermark: true });
+```
+
+`exportImage(options?: ChartExportOptions)` returns a PNG `Blob`. Its optional boolean `watermark` draws a subtle `FILTRIX.NET` mark on the exported image only. When omitted, it follows the chart's `attribution` setting. A per-export override never changes the live chart or later exports. Image dimensions, device-pixel ratio and custom drawing primitives are preserved; exporting does not paint into the live canvas. Unknown export keys, non-object options and non-boolean values reject with `INVALID_OPTIONS`.
+
+The React adapter accepts `attribution` in its existing `options` prop. Terminal consumers can configure their exposed chart with `terminal.chart.applyOptions({ attribution: false })` and export through `terminal.chart.exportImage({ watermark: false })`. This is chart-instance configuration, not part of a saved terminal workspace. For grid charts, apply it to each mounted terminal returned by `grid.getTerminal(cellId)` and reapply when a cell creates a new chart.
+
+Attribution is optional and can be disabled without a fee. License-notice obligations remain governed by [Apache-2.0](../LICENSE); this feature introduces no additional license term.
 
 ## Series and panes
 

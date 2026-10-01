@@ -1,6 +1,76 @@
 import { describe, expect, it } from 'vitest';
 import { ChartError } from '@filtrix.net/core';
-import { chartOptions, seriesOptions } from './options';
+import { chartOptions, exportWatermark, seriesOptions } from './options';
+
+describe('chart attribution options', () => {
+  it('defaults on, accepts opt-out, and ignores undefined patches', () => {
+    expect(chartOptions({}, {}).attribution).toBe(true);
+    const caller = Object.freeze({ attribution: false });
+    const old = chartOptions({}, caller);
+    expect(old.attribution).toBe(false);
+    expect(chartOptions(old, { attribution: undefined }).attribution).toBe(false);
+    expect(chartOptions(old, { attribution: true }).attribution).toBe(true);
+    expect(caller).toEqual({ attribution: false });
+  });
+
+  it('rejects non-booleans atomically', () => {
+    const old = chartOptions({}, { attribution: false, width: 500 });
+    for (const attribution of [null, 0, 1, '', 'false', {}, []]) {
+      expect(() => chartOptions(old, { attribution, width: 900 } as never)).toThrow(
+        expect.objectContaining({ code: 'INVALID_OPTIONS' }),
+      );
+      expect(old).toMatchObject({ attribution: false, width: 500 });
+    }
+  });
+});
+
+describe('PNG export options', () => {
+  it('follows attribution unless this export has an explicit override', () => {
+    for (const attribution of [false, true]) {
+      expect(exportWatermark(undefined, attribution)).toBe(attribution);
+      expect(exportWatermark({}, attribution)).toBe(attribution);
+      expect(exportWatermark({ watermark: undefined }, attribution)).toBe(attribution);
+      expect(exportWatermark({ watermark: false }, attribution)).toBe(false);
+      expect(exportWatermark({ watermark: true }, attribution)).toBe(true);
+      expect(exportWatermark(Object.assign(Object.create(null), { watermark: false }), attribution)).toBe(
+        false,
+      );
+    }
+  });
+
+  it('rejects non-plain objects, unknown keys and non-boolean values', () => {
+    for (const options of [
+      null,
+      [],
+      new Date(),
+      'false',
+      0,
+      Object.create({ watermark: false }),
+      { unknown: undefined },
+      { watermark: null },
+      { watermark: 0 },
+      { watermark: 'false' },
+      { [Symbol('watermark')]: false },
+    ]) {
+      expect(() => exportWatermark(options as never, true)).toThrow(
+        expect.objectContaining({ code: 'INVALID_OPTIONS' }),
+      );
+    }
+  });
+
+  it('reads watermark getters once and leaves caller input unchanged', () => {
+    let reads = 0;
+    const options = Object.freeze({
+      get watermark() {
+        reads++;
+        return reads === 1 ? false : true;
+      },
+    });
+    expect(exportWatermark(options, true)).toBe(false);
+    expect(reads).toBe(1);
+    expect(Object.isFrozen(options)).toBe(true);
+  });
+});
 
 describe('chart legend options', () => {
   it('defaults, merges partial patches and copies caller nested objects', () => {

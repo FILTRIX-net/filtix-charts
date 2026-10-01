@@ -1,6 +1,6 @@
 # FILTRIX Charts — independent React terminal consumer
 
-This application sits outside the root workspace glob. The beta candidate installs all nine local 0.12.0-beta.1 archives with its own lockfile and resolves package exports from copied package files, with no source aliases. React mounts the framework-independent terminal in an effect and destroys it in cleanup. StrictMode exercises the initial mount, cleanup, and remount. See the [beta status](../../docs/OPEN-SOURCE-BETA.md) for licensing and publication prerequisites.
+This application sits outside the root workspace glob. The beta candidate installs all nine local 0.12.0-beta.2 archives with its own lockfile and resolves package exports from copied package files, with no source aliases. React mounts the framework-independent terminal in an effect and destroys it in cleanup. StrictMode exercises the initial mount, cleanup, and remount. See the [beta status](../../docs/OPEN-SOURCE-BETA.md) for licensing and publication prerequisites.
 
 ## Build and run
 

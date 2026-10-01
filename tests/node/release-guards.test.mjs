@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { expectedPackageMembers } from '../../scripts/consumer-identity.mjs';
 const guards = await import('../../scripts/release-guards.mjs').catch(() => ({}));
 
 const names = [
@@ -25,14 +26,14 @@ const peerNames = {
   react: ['charts'],
   terminal: ['alerts', 'analysis', 'charts', 'datafeed', 'drawings', 'indicators'],
 };
-function fixture() {
-  const workspace = { version, private: true, license: 'MIT', repository };
+function fixture(cohortVersion = version) {
+  const workspace = { version: cohortVersion, private: true, license: 'MIT', repository };
   const manifests = Object.fromEntries(
     names.map((name) => [
       name,
       {
         name: '@filtrix.net/' + name,
-        version,
+        version: cohortVersion,
         type: 'module',
         license: 'MIT',
         repository: { ...repository },
@@ -43,7 +44,7 @@ function fixture() {
         files: ['dist', 'README.md', 'LICENSE'],
         publishConfig: { access: 'public', tag: 'beta' },
         peerDependencies: Object.fromEntries(
-          (peerNames[name] ?? []).map((peer) => ['@filtrix.net/' + peer, version]),
+          (peerNames[name] ?? []).map((peer) => ['@filtrix.net/' + peer, cohortVersion]),
         ),
       },
     ]),
@@ -233,4 +234,35 @@ test('beta release guards reject old-scope manifests and peers', () => {
   manifests.alerts.name = '@filtrix.net/alerts';
   manifests.alerts.peerDependencies['@filtix/datafeed'] = version;
   assert.throws(() => guards.validatePublicCohort(workspace, manifests), /peer/);
+});
+
+test('beta.2 public cohort accepts exact package and peer versions', () => {
+  const { workspace, manifests } = fixture('0.12.0-beta.2');
+  assert.equal(guards.validatePublicCohort(workspace, manifests), 'v0.12-beta.2');
+});
+
+test('beta.2 public cohort rejects beta.1 package and peer members', () => {
+  const { workspace, manifests } = fixture('0.12.0-beta.2');
+  manifests.charts.version = '0.12.0-beta.1';
+  assert.throws(() => guards.validatePublicCohort(workspace, manifests), /version/i);
+  manifests.charts.version = '0.12.0-beta.2';
+  manifests.terminal.peerDependencies['@filtrix.net/charts'] = '0.12.0-beta.1';
+  assert.throws(() => guards.validatePublicCohort(workspace, manifests), /peer/i);
+});
+
+test('beta.2 packed cohort accepts its exact members and rejects a beta.1 archive', () => {
+  const { workspace, manifests } = fixture('0.12.0-beta.2');
+  const packed = names.map((name) => {
+    const packageName = '@filtrix.net/' + name;
+    const files = expectedPackageMembers('v0.12-beta.2', packageName).map((path) => ({ path }));
+    return { name: packageName, version: workspace.version, files, entryCount: files.length };
+  });
+  assert.doesNotThrow(() => guards.validatePackedCohort(workspace, manifests, packed));
+  packed[0].version = '0.12.0-beta.1';
+  assert.throws(() => guards.validatePackedCohort(workspace, manifests, packed), /version/i);
+});
+
+test('public cohort rejects unlisted prerelease versions', () => {
+  const { workspace, manifests } = fixture('0.12.0-beta.3');
+  assert.throws(() => guards.validatePublicCohort(workspace, manifests), /version|unsupported|invalid/i);
 });

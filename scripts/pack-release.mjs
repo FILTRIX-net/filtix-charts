@@ -8,6 +8,7 @@ import {
   expectedPackageMembers,
   expectedPackageNames,
   expectedPackageScope,
+  isPublicBetaStage,
 } from './consumer-identity.mjs';
 import { validatePublicCohort, validatePackageLegalFiles, validatePackedCohort } from './release-guards.mjs';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +24,7 @@ const manifests = Object.fromEntries(
     JSON.parse(readFileSync(resolve(root, 'packages', name, 'package.json'), 'utf8')),
   ]),
 );
-if (stage === 'v0.12-beta.1') {
+if (isPublicBetaStage(stage)) {
   validatePublicCohort(workspace, manifests, { requireRepository: false });
   validatePackageLegalFiles(root, cohort);
 }
@@ -59,9 +60,9 @@ for (const item of packages) {
   const expectedMembers = expectedPackageMembers(stage, item.name);
   assert.equal(item.entryCount, expectedMembers.length);
   assert.deepEqual(item.files.map((file) => file.path).sort(), expectedMembers);
-  if (stage !== 'v0.12-beta.1') assert.equal(manifests[item.name.split('/')[1]].private, true);
+  if (!isPublicBetaStage(stage)) assert.equal(manifests[item.name.split('/')[1]].private, true);
 }
-if (stage === 'v0.12-beta.1')
+if (isPublicBetaStage(stage))
   validatePackedCohort(workspace, manifests, packages, { requireRepository: false });
 const output = resolve(root, 'docs/releases', stage + '-packages.json');
 writeFileSync(output, JSON.stringify(packages, null, 2) + '\n');

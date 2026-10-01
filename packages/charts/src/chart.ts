@@ -29,7 +29,8 @@ import type {
   SeriesType,
   Scene,
 } from './types';
-import { chartOptions, paneOptions, seriesOptions, resolveTheme, clean } from './options';
+import { chartOptions, paneOptions, seriesOptions, resolveTheme, clean, exportWatermark } from './options';
+import { createAttribution, drawWatermark } from './attribution';
 import { layout, logicalX, xLogical } from './layout';
 import { mergePaneLayout, resizePanePair, samePaneLayout, snapshotPaneLayout } from './pane-layout';
 import { createPaneControls } from './pane-controls';
@@ -163,6 +164,7 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
   let maximizedPaneId: string | null = null;
   let previewLayout: ChartPaneLayout | null = null;
   let paneControls: ReturnType<typeof createPaneControls> | null = null;
+  let attribution: ReturnType<typeof createAttribution> | null = null;
   let rangeMeta: ChartChangeMeta = Object.freeze({ revision: 0, cause: 'api' });
   let crosshairMeta: ChartChangeMeta = Object.freeze({ revision: 0, cause: 'api' });
   let controlled: { key: number; match: 'exact' | 'nearest'; origin?: object } | null = null;
@@ -210,6 +212,7 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
       layout(scene, previewLayout ?? committedPaneLayout());
       layoutDirty = false;
       paneControls?.sync();
+      attribution?.sync();
     }
   }
   function queue(sceneChange = true) {
@@ -1189,11 +1192,12 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
       requestPrimitivePaint();
       return () => detachEntry(entry);
     },
-    async exportImage() {
+    async exportImage(exportOptions) {
       assert();
+      const watermark = exportWatermark(exportOptions, options.attribution !== false);
       await api.whenIdle();
       assert();
-      if (!primitives.size)
+      if (!primitives.size && !watermark)
         return new Promise<Blob>((resolve, reject) =>
           sceneCanvas.toBlob(
             (blob) => (blob ? resolve(blob) : reject(new ChartError('EXPORT_FAILED', 'PNG export failed'))),
@@ -1208,6 +1212,7 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
       context.drawImage(sceneCanvas, 0, 0);
       context.setTransform(scene.dpr, 0, 0, scene.dpr, 0, 0);
       paintPrimitives(context, 'export');
+      if (watermark) drawWatermark(context, scene);
       return new Promise<Blob>((resolve, reject) =>
         canvas.toBlob(
           (blob) => (blob ? resolve(blob) : reject(new ChartError('EXPORT_FAILED', 'PNG export failed'))),
@@ -1238,6 +1243,7 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
       win.removeEventListener('resize', resize);
       cleanupInput();
       paneControls?.destroy();
+      attribution?.destroy();
       for (const entry of [...primitives.values()]) detachEntry(entry);
       wrapper.remove();
       for (const series of scene.series) {
@@ -1302,10 +1308,16 @@ export function createChart(container: HTMLElement, initial: ChartOptions = {}):
     if (seriesById(volumeSeries.id) !== volumeSeries) failure('REMOVED', 'Series has been removed');
     publishCandidate(volumeSeries, volumeCandidate, volumeStart);
   });
-  observe();
-  win.addEventListener('resize', resize);
-  dprChange();
-  queue();
+  try {
+    observe();
+    win.addEventListener('resize', resize);
+    dprChange();
+    attribution = createAttribution(wrapper, scene);
+    queue();
+  } catch (error) {
+    api.destroy();
+    throw error;
+  }
   chartOwners.set(api, { active: true, utc: options.timeDomain === 'utc-ms' });
   return Object.freeze(api);
 }

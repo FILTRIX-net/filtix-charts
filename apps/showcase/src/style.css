@@ -471,23 +471,6 @@ h1 > span {
   width: 100%;
   height: 100%;
 }
-.chart-watermark {
-  position: absolute;
-  left: 24px;
-  bottom: 108px;
-  font-size: 29px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  color: var(--watermark);
-  pointer-events: none;
-  line-height: 1;
-}
-.chart-watermark span {
-  display: block;
-  font: 7px var(--mono);
-  letter-spacing: 3.5px;
-  margin-top: 6px;
-}
 .chart-footer {
   height: 41px;
   border-top: 1px solid var(--border);
@@ -1151,11 +1134,6 @@ pre {
   }
   .chart-stage {
     height: 360px;
-  }
-  .chart-watermark {
-    font-size: 23px;
-    bottom: 92px;
-    left: 17px;
   }
   .chart-footer {
     padding: 0 9px;

@@ -109,11 +109,41 @@ test('beta stage keeps the nine-package cohort and adds two legal members per ar
 });
 
 test('unlisted prereleases and mismatched beta stages cannot resolve to an older cohort', () => {
-  assert.throws(() => releaseStage('0.12.0-beta.2'), /Unsupported|Invalid/);
+  assert.throws(() => releaseStage('0.12.0-beta.3'), /Unsupported|Invalid/);
   assert.throws(() => releaseStage('0.12.0'), /Unsupported/);
   assert.throws(() => resolveConsumerCohort('v0.12-beta.1', '0.11.0'), /agree/);
   assert.throws(() => resolveConsumerCohort('v0.11', '0.12.0-beta.1'), /agree/);
-  assert.throws(() => expectedPackageNames('v0.12-beta.2'), /Unsupported/);
+  assert.throws(() => expectedPackageNames('v0.12-beta.3'), /Unsupported/);
+});
+
+test('beta.2 has the exact beta.1 archive shape with its own version and scope', () => {
+  assert.equal(releaseStage('0.12.0-beta.2'), 'v0.12-beta.2');
+  assert.equal(resolveConsumerCohort('v0.12-beta.2', '0.12.0-beta.2'), '0.12.0-beta.2');
+  assert.throws(() => resolveConsumerCohort('v0.12-beta.2', '0.12.0-beta.1'), /agree/);
+  assert.deepEqual(expectedPackageNames('v0.12-beta.2'), ['alerts', ...names]);
+  const inventory = expectedPackageNames('v0.12-beta.2').flatMap((name) =>
+    expectedPackageMembers('v0.12-beta.2', '@filtrix.net/' + name),
+  );
+  assert.equal(inventory.length, 63);
+  assert.deepEqual(expectedPackageMembers('v0.12-beta.2', '@filtrix.net/charts'), [
+    'LICENSE',
+    'README.md',
+    'dist/index.d.ts',
+    'dist/index.js',
+    'dist/index.js.map',
+    'dist/internal.d.ts',
+    'dist/internal.js',
+    'dist/internal.js.map',
+    'package.json',
+  ]);
+  assert.equal(
+    identity.packageArchivePath('v0.12-beta.2', 'charts'),
+    'dist/packages/filtrix.net-charts-0.12.0-beta.2.tgz',
+  );
+  assert.equal(
+    identity.consumerPackagePath('v0.12-beta.2', 'charts', 'dist/index.js'),
+    'examples/react-terminal/node_modules/@filtrix.net/charts/dist/index.js',
+  );
 });
 
 test('beta archive bytes must match current source even when archive and install agree', () => {
@@ -172,28 +202,30 @@ test('beta archive bytes must match current source even when archive and install
 });
 
 test('beta source identity rejects an ignored nested export inheriting its parent Git repository', () => {
-  const parent = mkdtempSync(join(tmpdir(), 'filtix-beta-git-'));
-  const git = (...args) =>
-    execFileSync('git', ['-c', 'core.longpaths=true', '-c', 'core.autocrlf=false', ...args], {
-      cwd: parent,
-      encoding: 'utf8',
-      windowsHide: true,
-    }).trim();
-  try {
-    git('init');
-    writeFileSync(join(parent, 'package.json'), JSON.stringify({ version: '0.12.0-beta.1' }));
-    writeFileSync(join(parent, '.gitignore'), 'nested/\n');
-    git('add', 'package.json', '.gitignore');
-    git('-c', 'user.name=FILTIX Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'fixture');
-    const proper = identity.sourceIdentity(parent);
-    assert.equal(proper.commit, git('rev-parse', 'HEAD'));
-    assert.ok(proper.files.some((item) => item.path === 'package.json'));
-    const nested = join(parent, 'nested');
-    mkdirSync(nested);
-    writeFileSync(join(nested, 'package.json'), JSON.stringify({ version: '0.12.0-beta.1' }));
-    assert.throws(() => identity.sourceIdentity(nested), /Git repository root|source root/i);
-  } finally {
-    rmSync(parent, { recursive: true, force: true });
+  for (const version of ['0.12.0-beta.1', '0.12.0-beta.2']) {
+    const parent = mkdtempSync(join(tmpdir(), 'filtix-beta-git-'));
+    const git = (...args) =>
+      execFileSync('git', ['-c', 'core.longpaths=true', '-c', 'core.autocrlf=false', ...args], {
+        cwd: parent,
+        encoding: 'utf8',
+        windowsHide: true,
+      }).trim();
+    try {
+      git('init');
+      writeFileSync(join(parent, 'package.json'), JSON.stringify({ version }));
+      writeFileSync(join(parent, '.gitignore'), 'nested/\n');
+      git('add', 'package.json', '.gitignore');
+      git('-c', 'user.name=FILTIX Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'fixture');
+      const proper = identity.sourceIdentity(parent);
+      assert.equal(proper.commit, git('rev-parse', 'HEAD'));
+      assert.ok(proper.files.some((item) => item.path === 'package.json'));
+      const nested = join(parent, 'nested');
+      mkdirSync(nested);
+      writeFileSync(join(nested, 'package.json'), JSON.stringify({ version }));
+      assert.throws(() => identity.sourceIdentity(nested), /Git repository root|source root/i);
+    } finally {
+      rmSync(parent, { recursive: true, force: true });
+    }
   }
 });
 

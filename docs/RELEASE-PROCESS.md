@@ -1,6 +1,6 @@
 # FILTRIX Charts beta release process
 
-This runbook prepares `0.12.0-beta.1` for the public `beta` channel. Preparation does not publish packages or deploy a website. The root workspace and React example remain private.
+This runbook prepares `0.12.0-beta.2` for the public `beta` channel. Preparation does not publish packages or deploy a website. The root workspace and React example remain private.
 
 ## Repository and publishing access
 
@@ -51,7 +51,7 @@ Verify the exported tree independently before creating its initial commit: clean
 After scope ownership, repository/legal metadata and the final preflight pass are confirmed, publish the exact verified `.tgz` files, not an unreviewed workspace rebuild. The required options are:
 
 ```sh
-npm publish dist/packages/filtrix.net-charts-0.12.0-beta.1.tgz --access public --tag beta
+npm publish dist/packages/filtrix.net-charts-0.12.0-beta.2.tgz --access public --tag beta
 ```
 
 This is an example for one archive, not the entire release. Publish the cohort in dependency order: core, charts, indicators, datafeed, analysis, drawings, alerts, react, terminal. Inspect each result before continuing. Partial publication is possible; do not announce the whole cohort until all nine registry versions and integrity values match the candidate. Always request `--tag beta`; never explicitly promote a beta to `latest` or move a stable tag. Do not overwrite or move historical Git tags.
@@ -61,7 +61,7 @@ For scoped packages, public access must be explicit; see [npm's publication docu
 Only after successful publication, verify registry installation in a fresh consumer:
 
 ```sh
-npm install @filtrix.net/charts@0.12.0-beta.1
+npm install @filtrix.net/charts@0.12.0-beta.2
 ```
 
 Install optional peers from the same exact beta cohort. Do not present this command as currently available before registry verification succeeds.

@@ -1,6 +1,13 @@
 import { ChartError } from '@filtrix.net/core';
 import { darkTheme, lightTheme } from './themes';
-import type { ChartOptions, ChartTheme, PaneOptions, SeriesOptions, SeriesType } from './types';
+import type {
+  ChartExportOptions,
+  ChartOptions,
+  ChartTheme,
+  PaneOptions,
+  SeriesOptions,
+  SeriesType,
+} from './types';
 const fail = (message: string): never => {
   throw new ChartError('INVALID_OPTIONS', message);
 };
@@ -38,8 +45,9 @@ export function chartOptions(old: ChartOptions, patch: ChartOptions): ChartOptio
     'ariaLabel',
     'maxPixelRatio',
     'legend',
+    'attribution',
   ]);
-  const next = { ...old, ...patch };
+  const next = { attribution: true, ...old, ...patch };
   if (patch.legend !== undefined) {
     if (patch.legend === null || typeof patch.legend !== 'object' || Array.isArray(patch.legend))
       fail('legend must be a plain object');
@@ -62,7 +70,7 @@ export function chartOptions(old: ChartOptions, patch: ChartOptions): ChartOptio
     fail('Invalid time domain');
   for (const key of ['width', 'height'] as const) if (next[key] !== undefined) positive(next[key], key, true);
   if (next.maxPixelRatio !== undefined) positive(next.maxPixelRatio, 'maxPixelRatio');
-  for (const key of ['autoSize', 'crosshair', 'followLatest', 'diagnostics'] as const)
+  for (const key of ['autoSize', 'crosshair', 'followLatest', 'diagnostics', 'attribution'] as const)
     if (next[key] !== undefined && typeof next[key] !== 'boolean') fail(`${key} must be boolean`);
   for (const key of ['locale', 'timeZone', 'ariaLabel'] as const)
     if (next[key] !== undefined) string(next[key], key);
@@ -89,6 +97,18 @@ export function chartOptions(old: ChartOptions, patch: ChartOptions): ChartOptio
     }
   }
   return next;
+}
+export function exportWatermark(options: ChartExportOptions | undefined, attribution: boolean): boolean {
+  if (options === undefined) return attribution;
+  if (options === null || typeof options !== 'object' || Array.isArray(options))
+    fail('Export options must be a plain object');
+  const prototype = Object.getPrototypeOf(options);
+  if (prototype !== Object.prototype && prototype !== null) fail('Export options must be a plain object');
+  for (const key of Reflect.ownKeys(options))
+    if (key !== 'watermark') fail(`Unknown export option ${String(key)}`);
+  const watermark = options.watermark;
+  if (watermark !== undefined && typeof watermark !== 'boolean') fail('watermark must be boolean');
+  return watermark ?? attribution;
 }
 export function resolveTheme(options: ChartOptions): ChartTheme {
   return {

@@ -11,6 +11,7 @@ import {
   type ChartApi,
   type CandlePoint,
   type ChartOptions,
+  type ChartExportOptions,
   type ChartLegendOptions,
   type BandPoint,
   type SeriesHandle,
@@ -40,7 +41,7 @@ void legacyChart;
 void canonicalProps;
 
 const legend: ChartLegendOptions = { visible: true, maxRows: 2 };
-const options: ChartOptions = { theme: 'dark', timeDomain: 'utc-ms', legend };
+const options: ChartOptions = { theme: 'dark', timeDomain: 'utc-ms', legend, attribution: false };
 const candles: CandlePoint[] = [
   { time: utcMillis(1_780_272_000_000), open: 10, high: 12, low: 9, close: 11 },
 ];
@@ -66,8 +67,19 @@ export function mount(host: HTMLElement): ChartApi {
   const chart = createChart(host, options);
   chart.applyOptions({ legend: { visible: false } });
   chart.applyOptions({ legend: { visible: true, maxRows: 1 } });
+  chart.applyOptions({ attribution: true });
   chart.addSeries('line').setData(average);
   return chart;
+}
+
+export function exportChart(chart: ChartApi): Promise<Blob> {
+  const options: ChartExportOptions = { watermark: false };
+  // @ts-expect-error Attribution is a boolean, not a custom URL or brand label.
+  const invalidChart: ChartOptions = { attribution: 'https://example.com' };
+  // @ts-expect-error Export watermark overrides accept only booleans.
+  const invalidExport: ChartExportOptions = { watermark: 'FILTRIX.NET' };
+  void [invalidChart, invalidExport];
+  return chart.exportImage(options);
 }
 import type { UtcMillis as ChartsUtcMillis } from '@filtrix.net/charts';
 const brandedTime: ChartsUtcMillis = utcMillis(1_780_272_000_000);

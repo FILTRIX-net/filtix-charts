@@ -48,7 +48,9 @@ const stageVersions = new Map([
   ['v0.10', '0.10.0'],
   ['v0.11', '0.11.0'],
   ['v0.12-beta.1', '0.12.0-beta.1'],
+  ['v0.12-beta.2', '0.12.0-beta.2'],
 ]);
+export const isPublicBetaStage = (stage) => ['v0.12-beta.1', 'v0.12-beta.2'].includes(stage);
 const packageNames = [
   'analysis',
   'charts',
@@ -61,11 +63,13 @@ const packageNames = [
 ];
 export function expectedPackageNames(stage) {
   assert.ok(stageVersions.has(stage), 'Unsupported package inventory stage: ' + stage);
-  return ['v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) ? ['alerts', ...packageNames] : [...packageNames];
+  return ['v0.10', 'v0.11'].includes(stage) || isPublicBetaStage(stage)
+    ? ['alerts', ...packageNames]
+    : [...packageNames];
 }
 export function expectedPackageScope(stage) {
   assert.ok(stageVersions.has(stage), 'Unsupported package inventory stage: ' + stage);
-  return stage === 'v0.12-beta.1' ? '@filtrix.net' : '@filtix';
+  return isPublicBetaStage(stage) ? '@filtrix.net' : '@filtix';
 }
 export function packageArchivePath(stage, name) {
   assert.ok(expectedPackageNames(stage).includes(name), 'Unknown cohort package: ' + name);
@@ -91,18 +95,20 @@ export function expectedPackageMembers(stage, packageName) {
   );
   const members = ['dist/index.d.ts', 'dist/index.js', 'dist/index.js.map', 'package.json'];
   if (
-    (['v0.9', 'v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) &&
+    ((['v0.9', 'v0.10', 'v0.11'].includes(stage) || isPublicBetaStage(stage)) &&
       packageName === expectedPackageScope(stage) + '/indicators') ||
-    (['v0.10', 'v0.11', 'v0.12-beta.1'].includes(stage) &&
+    ((['v0.10', 'v0.11'].includes(stage) || isPublicBetaStage(stage)) &&
       packageName === expectedPackageScope(stage) + '/alerts') ||
-    (['v0.11', 'v0.12-beta.1'].includes(stage) && packageName === expectedPackageScope(stage) + '/charts')
+    ((stage === 'v0.11' || isPublicBetaStage(stage)) &&
+      packageName === expectedPackageScope(stage) + '/charts')
   )
     members.push('dist/internal.d.ts', 'dist/internal.js', 'dist/internal.js.map');
-  if (stage === 'v0.12-beta.1') members.push('LICENSE', 'README.md');
+  if (isPublicBetaStage(stage)) members.push('LICENSE', 'README.md');
   return members.sort();
 }
 export function releaseStage(version) {
   if (version === '0.12.0-beta.1') return 'v0.12-beta.1';
+  if (version === '0.12.0-beta.2') return 'v0.12-beta.2';
   assert.match(version, /^0\.\d+\.\d+$/, 'Invalid release version');
   const [major, minor, patch] = version.split('.');
   const stage = 'v' + major + '.' + minor + (patch === '0' ? '' : '.' + patch);
@@ -117,7 +123,8 @@ export function resolveConsumerCohort(stage, rootVersion) {
 }
 export function sourceIdentity(root) {
   const rootVersion = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')).version;
-  if (rootVersion === '0.12.0-beta.1') {
+  const beta = isPublicBetaStage(releaseStage(rootVersion));
+  if (beta) {
     const normalize = (path) => {
       const absolute = resolve(path).replaceAll('\\', '/');
       return process.platform === 'win32' ? absolute.toLowerCase() : absolute;
@@ -128,7 +135,7 @@ export function sourceIdentity(root) {
       'Beta source root must be the Git repository root',
     );
   }
-  const activeScope = rootVersion === '0.12.0-beta.1' ? betaScope : scope;
+  const activeScope = beta ? betaScope : scope;
   return {
     commit: git(root, ['rev-parse', 'HEAD']),
     scope: activeScope,
@@ -205,7 +212,7 @@ export function verifyConsumerIdentity(root, stage, commit) {
       const installed = consumerPackagePath(stage, name, member.slice(8)),
         actual = readFileSync(resolve(root, installed));
       assert.ok(actual.equals(content), 'Installed member differs from archive: ' + installed);
-      if (stage === 'v0.12-beta.1') verifyBetaArchiveSourceMember(root, name, member, content);
+      if (isPublicBetaStage(stage)) verifyBetaArchiveSourceMember(root, name, member, content);
       members.push({ path: member, bytes: size, sha256: digest(content) });
       checked.push(installed);
     }

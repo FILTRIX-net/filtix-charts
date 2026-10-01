@@ -25,7 +25,11 @@ function App() {
         <FiltrixChart
           ref={ref}
           style={{ height: 400, width: 800 }}
-          options={{ theme: { background: light ? '#f1e2d3' : '#102030' }, ariaLabel: 'Chart ' + version }}
+          options={{
+            theme: { background: light ? '#f1e2d3' : '#102030' },
+            ariaLabel: 'Chart ' + version,
+            attribution: !light,
+          }}
           onReady={(chart) => {
             state.ready++;
             state.readyVersions.push(version);

@@ -1,6 +1,6 @@
 {
   "name": "@filtrix.net/terminal",
-  "version": "0.12.0-beta.1",
+  "version": "0.12.0-beta.2",
   "private": false,
   "type": "module",
   "sideEffects": false,
@@ -19,12 +19,12 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@filtrix.net/alerts": "0.12.0-beta.1",
-    "@filtrix.net/analysis": "0.12.0-beta.1",
-    "@filtrix.net/charts": "0.12.0-beta.1",
-    "@filtrix.net/datafeed": "0.12.0-beta.1",
-    "@filtrix.net/drawings": "0.12.0-beta.1",
-    "@filtrix.net/indicators": "0.12.0-beta.1"
+    "@filtrix.net/alerts": "0.12.0-beta.2",
+    "@filtrix.net/analysis": "0.12.0-beta.2",
+    "@filtrix.net/charts": "0.12.0-beta.2",
+    "@filtrix.net/datafeed": "0.12.0-beta.2",
+    "@filtrix.net/drawings": "0.12.0-beta.2",
+    "@filtrix.net/indicators": "0.12.0-beta.2"
   },
   "description": "Multi-chart terminal composition for FILTRIX Charts.",
   "homepage": "https://filtrix.net",

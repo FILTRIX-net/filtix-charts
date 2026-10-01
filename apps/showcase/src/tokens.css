@@ -11,7 +11,6 @@
   --accent-soft: #c7ee9211;
   --up: #6ad5a0;
   --down: #ed858c;
-  --watermark: #e5e9e710;
   --mono: 'Cascadia Code', 'Cascadia Mono', 'Consolas', monospace;
 }
 :root[data-theme='light'] {
@@ -27,5 +26,4 @@
   --accent-soft: #52742d11;
   --up: #207b51;
   --down: #ba4f5b;
-  --watermark: #26302c12;
 }

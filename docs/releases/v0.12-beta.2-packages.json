@@ -1,0 +1,443 @@
+[
+  {
+    "id": "@filtrix.net/alerts@0.12.0-beta.2",
+    "name": "@filtrix.net/alerts",
+    "version": "0.12.0-beta.2",
+    "size": 33274,
+    "unpackedSize": 120030,
+    "shasum": "c6906057efab74e2534c6f924c90d5f37b942ab9",
+    "integrity": "sha512-LDI8EI5P8BEjCpNI1QsEUEZAsKlbCltQFYHtghipLDjdZO7o1gsuq/61iDclZEXetDQCpid4Kq3wvIyLxTPpNg==",
+    "filename": "filtrix.net-alerts-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 1002,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 5507,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 18651,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 81635,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.d.ts",
+        "size": 328,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js",
+        "size": 206,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js.map",
+        "size": 288,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1027,
+        "mode": 420
+      }
+    ],
+    "entryCount": 9,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/analysis@0.12.0-beta.2",
+    "name": "@filtrix.net/analysis",
+    "version": "0.12.0-beta.2",
+    "size": 43663,
+    "unpackedSize": 160246,
+    "shasum": "410bfb5bbda37f56b77d87fa6267190fcaf4ff25",
+    "integrity": "sha512-9BWwfZxmhpyVA3fmphKNddNX0hQ0pVxwRjVyTLoKGYQTctx13sQ3lHAuJyd/KVUFISv/m8gtd69359guBNHKaw==",
+    "filename": "filtrix.net-analysis-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 925,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 2175,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 27700,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 117114,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 946,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/charts@0.12.0-beta.2",
+    "name": "@filtrix.net/charts",
+    "version": "0.12.0-beta.2",
+    "size": 110167,
+    "unpackedSize": 408469,
+    "shasum": "f308d27760d79da2d2758e601f7be07d750a71a4",
+    "integrity": "sha512-wfjDJfEZhESQ+SGmWo7VzhrlJrvrfP/8MopPaDlRiAH/muvFTvru9soPc5+wiip/vZNFduSbI699IEOQoVAFjA==",
+    "filename": "filtrix.net-charts-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 1848,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 12197,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 77520,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 304082,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.d.ts",
+        "size": 107,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js",
+        "size": 144,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js.map",
+        "size": 226,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 959,
+        "mode": 420
+      }
+    ],
+    "entryCount": 9,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/core@0.12.0-beta.2",
+    "name": "@filtrix.net/core",
+    "version": "0.12.0-beta.2",
+    "size": 37012,
+    "unpackedSize": 138211,
+    "shasum": "1d7c88f3c97077d436293ffe6326954307f1f59b",
+    "integrity": "sha512-XX+r7Dw3MKeIwBzvOBBM3hwplIJu/64glCLJMOrgvN60Q60I2xXv+27gpqPXOFG39iJTMqp7jAROF4cfHdv0Sw==",
+    "filename": "filtrix.net-core-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 842,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 4845,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 23511,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 96772,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 855,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/datafeed@0.12.0-beta.2",
+    "name": "@filtrix.net/datafeed",
+    "version": "0.12.0-beta.2",
+    "size": 38078,
+    "unpackedSize": 136226,
+    "shasum": "433d3789d38ad9719ceb61b9a1f9b5d28034de78",
+    "integrity": "sha512-vaEcdxANfQ45klxSkxL6seuZOmIYgEMoD/Hrr1cayHzJJUENHwDzqs5s5DmPM28TLYRQwwE2sf6tgF0T2qCMHQ==",
+    "filename": "filtrix.net-datafeed-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 887,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 4198,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 24201,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 94674,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 880,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/drawings@0.12.0-beta.2",
+    "name": "@filtrix.net/drawings",
+    "version": "0.12.0-beta.2",
+    "size": 44349,
+    "unpackedSize": 149740,
+    "shasum": "047976bc2972776d50703397745646ca27affd19",
+    "integrity": "sha512-EvLFpZJkVH0nARCS8XiCao7cZ60ht3sx+o9riTH8Xg6q60DMgAEe1RoQztscVvEJATHSAdQl0tsdema/otGJIg==",
+    "filename": "filtrix.net-drawings-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 907,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 5526,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 26727,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 104263,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 931,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/indicators@0.12.0-beta.2",
+    "name": "@filtrix.net/indicators",
+    "version": "0.12.0-beta.2",
+    "size": 49405,
+    "unpackedSize": 226717,
+    "shasum": "c0084c3ca4c884873f65cbcbe334ddce7584422a",
+    "integrity": "sha512-yBzm3u3V4+baRAZy5euhznAz4pT+P/a00a/ZbVQG+CyGsxaAKfV89RSgiEa5rerVLT4Z+o6FNFDU+6YifXdRhg==",
+    "filename": "filtrix.net-indicators-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 1014,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 2414,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 18801,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 77210,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.d.ts",
+        "size": 3492,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js",
+        "size": 19854,
+        "mode": 420
+      },
+      {
+        "path": "dist/internal.js.map",
+        "size": 91585,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 961,
+        "mode": 420
+      }
+    ],
+    "entryCount": 9,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/react@0.12.0-beta.2",
+    "name": "@filtrix.net/react",
+    "version": "0.12.0-beta.2",
+    "size": 6843,
+    "unpackedSize": 18753,
+    "shasum": "1e3965f5c6d724dbd7222b1c9952cb08efb38a79",
+    "integrity": "sha512-2JP6TuRAnfQeod8VF3ChNtGVZE+eBxfD00ScQiIil9K4dwWiUXXVXXWPKC6v/MigcpaRMYblW0U4rjRbfRDyzg==",
+    "filename": "filtrix.net-react-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 1013,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 983,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 843,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 3602,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 926,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  },
+  {
+    "id": "@filtrix.net/terminal@0.12.0-beta.2",
+    "name": "@filtrix.net/terminal",
+    "version": "0.12.0-beta.2",
+    "size": 142308,
+    "unpackedSize": 554875,
+    "shasum": "cebd7728963ea7204287b7b33be92ef8b9909908",
+    "integrity": "sha512-Vd1FqU4yGnZ7KjDJggGNSOye0ZHugtIePc5qBAhwR/zdRXBxzwSS50S7q7DXavtapoZu8d5k3ZyJoshGt9unHw==",
+    "filename": "filtrix.net-terminal-0.12.0-beta.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 11386,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 995,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 9851,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 118904,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 412583,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1156,
+        "mode": 420
+      }
+    ],
+    "entryCount": 6,
+    "bundled": []
+  }
+]

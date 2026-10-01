@@ -1,6 +1,6 @@
 {
   "name": "@filtrix.net/drawings",
-  "version": "0.12.0-beta.1",
+  "version": "0.12.0-beta.2",
   "private": false,
   "type": "module",
   "sideEffects": false,
@@ -19,7 +19,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@filtrix.net/charts": "0.12.0-beta.1"
+    "@filtrix.net/charts": "0.12.0-beta.2"
   },
   "description": "Drawing state, geometry and rendering for FILTRIX Charts.",
   "homepage": "https://filtrix.net",

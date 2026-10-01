@@ -3,13 +3,18 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { expectedPackageNames, releaseStage, verifyConsumerIdentity } from './consumer-identity.mjs';
+import {
+  expectedPackageNames,
+  isPublicBetaStage,
+  releaseStage,
+  verifyConsumerIdentity,
+} from './consumer-identity.mjs';
 import { validatePackageLegalFiles, validatePackedCohort, validatePublicCohort } from './release-guards.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const workspace = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
 const stage = releaseStage(workspace.version);
-assert.equal(stage, 'v0.12-beta.1', 'Public release preflight is limited to the explicit beta stage');
+assert.ok(isPublicBetaStage(stage), 'Public release preflight is limited to explicit beta stages');
 const names = expectedPackageNames(stage);
 const manifests = Object.fromEntries(
   names.map((name) => [
